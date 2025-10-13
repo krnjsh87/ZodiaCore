@@ -1,0 +1,403 @@
+/* Chinese Zodiac Compatibility Dashboard Styles */
+
+.chinese-zodiac-compatibility-dashboard {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.dashboard-header {
+  text-align: center;
+  margin-bottom: 30px;
+  padding: 20px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.dashboard-header h1 {
+  margin: 0 0 10px 0;
+  font-size: 2.5rem;
+  font-weight: 700;
+}
+
+.dashboard-header p {
+  margin: 0;
+  font-size: 1.1rem;
+  opacity: 0.9;
+}
+
+.error-message {
+  background-color: #fee2e2;
+  border: 1px solid #fecaca;
+  color: #dc2626;
+  padding: 12px 16px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.input-section {
+  background: white;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-bottom: 30px;
+}
+
+.sign-selection {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.sign-selector {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 200px;
+}
+
+.sign-selector label {
+  font-weight: 600;
+  color: #374151;
+  font-size: 1rem;
+}
+
+.zodiac-select {
+  padding: 12px 16px;
+  border: 2px solid #e5e7eb;
+  border-radius: 8px;
+  font-size: 1rem;
+  background: white;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.zodiac-select:focus {
+  outline: none;
+  border-color: #667eea;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+.zodiac-select:hover {
+  border-color: #d1d5db;
+}
+
+.compatibility-symbol {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 60px;
+  min-height: 60px;
+}
+
+.yin-yang {
+  font-size: 2.5rem;
+  animation: rotate 4s linear infinite;
+}
+
+@keyframes rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.loading-indicator {
+  text-align: center;
+  margin-top: 20px;
+  color: #6b7280;
+}
+
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid #e5e7eb;
+  border-top: 4px solid #667eea;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin: 0 auto 10px;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.results-section {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.compatibility-overview {
+  padding: 30px;
+  background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.score-display {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.score-circle {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  border: 8px solid;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: white;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.score-value {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #1f2937;
+}
+
+.score-label {
+  font-size: 0.9rem;
+  color: #6b7280;
+  font-weight: 500;
+}
+
+.compatibility-info {
+  text-align: center;
+  max-width: 400px;
+}
+
+.compatibility-info h3 {
+  margin: 0 0 10px 0;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.compatibility-info .summary {
+  margin: 0;
+  font-size: 1.1rem;
+  color: #4b5563;
+  line-height: 1.5;
+}
+
+.detailed-analysis {
+  padding: 30px;
+}
+
+.compatibility-factors {
+  margin-bottom: 30px;
+}
+
+.compatibility-factors h4 {
+  margin: 0 0 20px 0;
+  font-size: 1.3rem;
+  color: #1f2937;
+  font-weight: 600;
+}
+
+.factors-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.factor-item {
+  background: #f9fafb;
+  padding: 20px;
+  border-radius: 8px;
+  border: 1px solid #e5e7eb;
+  text-align: center;
+}
+
+.factor-name {
+  font-weight: 600;
+  color: #374151;
+  margin-bottom: 8px;
+  font-size: 1.1rem;
+}
+
+.factor-score {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.factor-type {
+  font-size: 0.9rem;
+  color: #6b7280;
+  text-transform: capitalize;
+}
+
+.relationship-insights h4 {
+  margin: 0 0 20px 0;
+  font-size: 1.3rem;
+  color: #1f2937;
+  font-weight: 600;
+}
+
+.insights-section {
+  margin-bottom: 25px;
+}
+
+.insights-section h5 {
+  margin: 0 0 10px 0;
+  font-size: 1.1rem;
+  color: #374151;
+  font-weight: 600;
+}
+
+.insights-section ul {
+  margin: 0;
+  padding-left: 20px;
+}
+
+.insights-section li {
+  margin-bottom: 6px;
+  color: #4b5563;
+  line-height: 1.5;
+}
+
+.insights-section p {
+  margin: 0;
+  color: #4b5563;
+  line-height: 1.5;
+}
+
+.cultural-note {
+  background: #fef3c7;
+  border: 1px solid #fbbf24;
+  border-radius: 8px;
+  padding: 20px;
+  margin: 0 30px 30px 30px;
+}
+
+.cultural-note p {
+  margin: 0;
+  color: #92400e;
+  line-height: 1.6;
+  font-size: 0.95rem;
+}
+
+.cultural-note strong {
+  color: #78350f;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .chinese-zodiac-compatibility-dashboard {
+    padding: 15px;
+  }
+
+  .dashboard-header {
+    padding: 15px;
+  }
+
+  .dashboard-header h1 {
+    font-size: 2rem;
+  }
+
+  .sign-selection {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .sign-selector {
+    min-width: auto;
+    width: 100%;
+  }
+
+  .compatibility-symbol {
+    order: -1;
+  }
+
+  .score-display {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .score-circle {
+    width: 100px;
+    height: 100px;
+  }
+
+  .score-value {
+    font-size: 1.5rem;
+  }
+
+  .compatibility-info {
+    max-width: none;
+  }
+
+  .factors-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .input-section,
+  .detailed-analysis {
+    padding: 20px;
+  }
+
+  .cultural-note {
+    margin: 0 20px 20px 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .dashboard-header h1 {
+    font-size: 1.8rem;
+  }
+
+  .dashboard-header p {
+    font-size: 1rem;
+  }
+
+  .input-section,
+  .detailed-analysis {
+    padding: 15px;
+  }
+
+  .cultural-note {
+    margin: 0 15px 15px 15px;
+    padding: 15px;
+  }
+}
+
+/* Accessibility improvements */
+@media (prefers-reduced-motion: reduce) {
+  .yin-yang {
+    animation: none;
+  }
+
+  .spinner {
+    animation: none;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .score-circle {
+    border-width: 6px;
+  }
+
+  .factor-item {
+    border-width: 2px;
+  }
+}
+
+/* Focus indicators */
+.zodiac-select:focus-visible,
+button:focus-visible {
+  outline: 2px solid #667eea;
+  outline-offset: 2px;
+}

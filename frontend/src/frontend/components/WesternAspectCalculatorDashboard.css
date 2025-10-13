@@ -1,0 +1,454 @@
+/* Western Aspect Calculator Dashboard Styles */
+
+.western-aspect-dashboard {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background-color: #f8f9fa;
+  min-height: 100vh;
+}
+
+.dashboard-header {
+  text-align: center;
+  margin-bottom: 30px;
+  padding: 20px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.dashboard-header h1 {
+  margin: 0 0 10px 0;
+  font-size: 2.5rem;
+  font-weight: 700;
+}
+
+.dashboard-header p {
+  margin: 0;
+  font-size: 1.1rem;
+  opacity: 0.9;
+}
+
+.dashboard-content {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+/* Input Section */
+.input-section {
+  background: white;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.input-section h2 {
+  margin: 0 0 20px 0;
+  color: #2c3e50;
+  font-size: 1.5rem;
+}
+
+.planet-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 15px;
+  margin-bottom: 25px;
+}
+
+.planet-card {
+  background: #f8f9fa;
+  padding: 15px;
+  border-radius: 8px;
+  border: 1px solid #e9ecef;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.planet-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.planet-card h3 {
+  margin: 0 0 10px 0;
+  color: #495057;
+  font-size: 1.1rem;
+  text-transform: capitalize;
+}
+
+.planet-details {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  font-size: 0.9rem;
+  color: #6c757d;
+}
+
+.planet-details span {
+  display: flex;
+  justify-content: space-between;
+}
+
+.calculate-button {
+  background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+  color: white;
+  border: none;
+  padding: 12px 30px;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  width: 100%;
+  max-width: 200px;
+}
+
+.calculate-button:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(40, 167, 69, 0.3);
+}
+
+.calculate-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.error-message {
+  margin-top: 15px;
+  padding: 12px;
+  background: #f8d7da;
+  border: 1px solid #f5c6cb;
+  border-radius: 6px;
+  color: #721c24;
+}
+
+/* Summary Section */
+.summary-section {
+  background: white;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.summary-section h2 {
+  margin: 0 0 20px 0;
+  color: #2c3e50;
+  font-size: 1.5rem;
+}
+
+.summary-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+.summary-card {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 20px;
+  border-radius: 8px;
+  text-align: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.summary-card h3 {
+  margin: 0 0 10px 0;
+  font-size: 0.9rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  opacity: 0.9;
+}
+
+.summary-value {
+  font-size: 2rem;
+  font-weight: 700;
+  display: block;
+}
+
+/* Aspects Section */
+.aspects-section {
+  background: white;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.aspects-section h2 {
+  margin: 0 0 20px 0;
+  color: #2c3e50;
+  font-size: 1.5rem;
+}
+
+.aspects-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.aspect-card {
+  border: 1px solid #e9ecef;
+  border-radius: 8px;
+  overflow: hidden;
+  transition: box-shadow 0.2s ease;
+}
+
+.aspect-card:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.aspect-header {
+  padding: 15px;
+  background: white;
+  cursor: pointer;
+  border-left: 4px solid #667eea;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.aspect-main {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.aspect-planets {
+  font-weight: 600;
+  color: #2c3e50;
+  font-size: 1.1rem;
+}
+
+.aspect-type {
+  padding: 4px 8px;
+  border-radius: 4px;
+  color: white;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.aspect-metrics {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  font-size: 0.9rem;
+}
+
+.aspect-strength {
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.aspect-angle {
+  color: #6c757d;
+  font-weight: 500;
+}
+
+.aspect-applying {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.aspect-applying.applying {
+  color: #28a745;
+}
+
+.aspect-applying.separating {
+  color: #dc3545;
+}
+
+.aspect-details {
+  padding: 20px;
+  background: #f8f9fa;
+  border-top: 1px solid #e9ecef;
+}
+
+.aspect-info {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 15px;
+  margin-bottom: 20px;
+  font-size: 0.9rem;
+}
+
+.aspect-info p {
+  margin: 0;
+  padding: 8px 12px;
+  background: white;
+  border-radius: 6px;
+  border: 1px solid #e9ecef;
+}
+
+.aspect-info strong {
+  color: #495057;
+}
+
+.aspect-interpretation {
+  display: grid;
+  gap: 15px;
+}
+
+.aspect-interpretation h4 {
+  margin: 0 0 8px 0;
+  color: #2c3e50;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.aspect-interpretation p {
+  margin: 0;
+  line-height: 1.5;
+  color: #495057;
+}
+
+/* Patterns Section */
+.patterns-section {
+  background: white;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.patterns-section h2 {
+  margin: 0 0 20px 0;
+  color: #2c3e50;
+  font-size: 1.5rem;
+}
+
+.patterns-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.pattern-card {
+  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+  color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.pattern-card h3 {
+  margin: 0 0 15px 0;
+  font-size: 1.2rem;
+  font-weight: 700;
+  text-align: center;
+}
+
+.pattern-details {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-size: 0.9rem;
+}
+
+.pattern-details p {
+  margin: 0;
+  padding: 6px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.pattern-details p:last-child {
+  border-bottom: none;
+}
+
+.pattern-details strong {
+  opacity: 0.9;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .western-aspect-dashboard {
+    padding: 15px;
+  }
+
+  .dashboard-header {
+    padding: 15px;
+  }
+
+  .dashboard-header h1 {
+    font-size: 2rem;
+  }
+
+  .planet-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .summary-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .aspect-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .aspect-metrics {
+    align-self: flex-end;
+  }
+
+  .patterns-list {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .aspect-main {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .aspect-metrics {
+    align-self: flex-start;
+    gap: 10px;
+  }
+
+  .aspect-info {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Loading Animation */
+@keyframes pulse {
+  0% { opacity: 1; }
+  50% { opacity: 0.5; }
+  100% { opacity: 1; }
+}
+
+.calculate-button:disabled {
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+/* Accessibility */
+.aspect-header:focus {
+  outline: 2px solid #667eea;
+  outline-offset: 2px;
+}
+
+.aspect-type {
+  user-select: none;
+}
+
+/* Print Styles */
+@media print {
+  .western-aspect-dashboard {
+    background: white;
+    box-shadow: none;
+  }
+
+  .calculate-button,
+  .aspect-header {
+    cursor: default;
+  }
+
+  .aspect-card:hover {
+    box-shadow: none;
+  }
+}

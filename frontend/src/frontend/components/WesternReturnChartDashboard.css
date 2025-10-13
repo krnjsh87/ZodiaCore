@@ -1,0 +1,1421 @@
+/* Western Return Chart Dashboard Component Styles */
+
+.western-return-chart-dashboard {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  color: #333;
+}
+
+.dashboard-header {
+  background-color: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  padding: 2rem;
+  text-align: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.dashboard-header h1 {
+  color: #2c3e50;
+  font-size: 2.5rem;
+  margin: 0 0 0.5rem 0;
+  font-weight: 700;
+}
+
+.dashboard-header p {
+  color: #6c757d;
+  font-size: 1.2rem;
+  margin: 0;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.dashboard-actions {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.action-button {
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.action-button:focus {
+  outline: 2px solid #667eea;
+  outline-offset: 2px;
+}
+
+.action-button.primary {
+  background-color: #667eea;
+  color: white;
+}
+
+.action-button.primary:hover {
+  background-color: #5a6fd8;
+  transform: translateY(-1px);
+}
+
+.action-button.secondary {
+  background-color: #6c757d;
+  color: white;
+}
+
+.action-button.secondary:hover {
+  background-color: #545b62;
+  transform: translateY(-1px);
+}
+
+.dashboard-content {
+  padding: 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.input-section,
+.chart-section {
+  background-color: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  margin-bottom: 2rem;
+}
+
+.dashboard-footer {
+  background-color: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 2rem;
+  text-align: center;
+  backdrop-filter: blur(10px);
+}
+
+.footer-content {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.footer-content p {
+  margin: 0.5rem 0;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.footer-content strong {
+  color: #667eea;
+}
+
+/* Return Chart Specific Styles */
+.western-return-chart-input {
+  padding: 2rem;
+}
+
+.input-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.input-header h2 {
+  color: #2c3e50;
+  font-size: 1.8rem;
+  margin: 0 0 0.5rem 0;
+}
+
+.input-header p {
+  color: #6c757d;
+  margin: 0;
+}
+
+.return-chart-form {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.form-section {
+  margin-bottom: 2rem;
+  padding: 1.5rem;
+  background-color: #f8f9fa;
+  border-radius: 12px;
+  border: 1px solid #e9ecef;
+}
+
+.form-section h3 {
+  color: #495057;
+  font-size: 1.3rem;
+  margin: 0 0 1rem 0;
+  font-weight: 600;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  font-weight: 600;
+  color: #495057;
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.form-group input,
+.form-group select {
+  padding: 0.75rem;
+  border: 2px solid #dee2e6;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: border-color 0.2s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+  outline: none;
+  border-color: #667eea;
+}
+
+.radio-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.radio-option {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem;
+  border: 2px solid #dee2e6;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.radio-option:hover {
+  border-color: #667eea;
+  background-color: #f8f9ff;
+}
+
+.radio-option input[type="radio"] {
+  margin: 0;
+}
+
+.radio-label {
+  font-weight: 500;
+  color: #495057;
+}
+
+.checkbox-group {
+  margin-bottom: 1rem;
+}
+
+.checkbox-option {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  border: 1px solid #dee2e6;
+}
+
+.checkbox-option input[type="checkbox"] {
+  margin: 0;
+}
+
+.checkbox-label {
+  font-weight: 500;
+  color: #495057;
+}
+
+.form-actions {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.submit-button {
+  padding: 1rem 2rem;
+  background-color: #667eea;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.submit-button:hover:not(:disabled) {
+  background-color: #5a6fd8;
+  transform: translateY(-1px);
+}
+
+.submit-button:disabled {
+  background-color: #6c757d;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.error-message {
+  background-color: #f8d7da;
+  color: #721c24;
+  padding: 1rem;
+  border-radius: 8px;
+  border: 1px solid #f5c6cb;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.info-section {
+  margin-top: 2rem;
+  padding: 1.5rem;
+  background-color: #e7f3ff;
+  border-radius: 12px;
+  border: 1px solid #b3d9ff;
+}
+
+.info-section h3 {
+  color: #0066cc;
+  margin: 0 0 1rem 0;
+}
+
+.info-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+}
+
+.info-item {
+  padding: 1rem;
+  background-color: white;
+  border-radius: 8px;
+  border: 1px solid #dee2e6;
+}
+
+.info-item h4 {
+  color: #495057;
+  margin: 0 0 0.5rem 0;
+  font-size: 1.1rem;
+}
+
+.info-item p {
+  color: #6c757d;
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* Return Chart Display Styles */
+.western-return-chart-display {
+  padding: 2rem;
+}
+
+.return-chart-loading {
+  text-align: center;
+  padding: 3rem;
+}
+
+.loading-spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid #f3f3f3;
+  border-top: 4px solid #667eea;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin: 0 auto 1rem;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.return-chart-error {
+  text-align: center;
+  padding: 3rem;
+  background-color: #f8d7da;
+  border-radius: 12px;
+  border: 1px solid #f5c6cb;
+}
+
+.return-chart-error h3 {
+  color: #721c24;
+  margin: 0 0 1rem 0;
+}
+
+.return-chart-error p {
+  color: #721c24;
+  margin: 0;
+}
+
+.return-chart-empty {
+  text-align: center;
+  padding: 3rem;
+  color: #6c757d;
+}
+
+/* Chart Components */
+.return-chart-header {
+  background-color: #f8f9fa;
+  padding: 1.5rem;
+  border-radius: 12px;
+  margin-bottom: 2rem;
+  border: 1px solid #e9ecef;
+}
+
+.return-chart-header h2 {
+  color: #2c3e50;
+  margin: 0 0 1rem 0;
+  font-size: 1.8rem;
+}
+
+.chart-meta {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+.meta-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.meta-item .label {
+  font-weight: 600;
+  color: #495057;
+  font-size: 0.9rem;
+}
+
+.meta-item .value {
+  color: #6c757d;
+  font-family: 'Courier New', monospace;
+  font-size: 0.9rem;
+}
+
+/* Positions and Houses */
+.return-chart-positions,
+.return-chart-houses {
+  margin-bottom: 2rem;
+}
+
+.return-chart-positions h3,
+.return-chart-houses h3 {
+  color: #2c3e50;
+  margin: 0 0 1rem 0;
+  font-size: 1.4rem;
+}
+
+.positions-grid,
+.houses-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1rem;
+}
+
+.position-item,
+.house-item {
+  background-color: #f8f9fa;
+  padding: 1rem;
+  border-radius: 8px;
+  border: 1px solid #e9ecef;
+  text-align: center;
+}
+
+.planet-name,
+.house-number {
+  font-weight: 600;
+  color: #495057;
+  margin-bottom: 0.5rem;
+}
+
+.position-data,
+.house-cusp,
+.house-sign {
+  font-size: 0.9rem;
+  color: #6c757d;
+  margin: 0.25rem 0;
+}
+
+.retrograde {
+  color: #dc3545;
+  font-weight: 600;
+}
+
+/* Aspects */
+.return-chart-aspects {
+  margin-bottom: 2rem;
+}
+
+.return-chart-aspects h3 {
+  color: #2c3e50;
+  margin: 0 0 1rem 0;
+  font-size: 1.4rem;
+}
+
+.aspects-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+.aspect-item {
+  background-color: #f8f9fa;
+  padding: 1rem;
+  border-radius: 8px;
+  border: 1px solid #e9ecef;
+}
+
+.aspect-planets {
+  font-weight: 600;
+  color: #495057;
+  margin-bottom: 0.5rem;
+}
+
+.aspect-details {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.9rem;
+  color: #6c757d;
+}
+
+/* Angularity */
+.return-chart-angularity {
+  margin-bottom: 2rem;
+}
+
+.return-chart-angularity h3 {
+  color: #2c3e50;
+  margin: 0 0 1rem 0;
+  font-size: 1.4rem;
+}
+
+.angularity-info {
+  background-color: #f8f9fa;
+  padding: 1.5rem;
+  border-radius: 12px;
+  border: 1px solid #e9ecef;
+}
+
+.angular-planets {
+  margin-bottom: 1rem;
+}
+
+.angular-planets h4 {
+  color: #495057;
+  margin: 0 0 0.5rem 0;
+}
+
+.planet-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.planet-tag {
+  background-color: #667eea;
+  color: white;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.angularity-score {
+  text-align: center;
+}
+
+.angularity-score h4 {
+  color: #495057;
+  margin: 0 0 0.5rem 0;
+}
+
+.score-bar {
+  width: 100%;
+  height: 8px;
+  background-color: #e9ecef;
+  border-radius: 4px;
+  overflow: hidden;
+  margin-bottom: 0.5rem;
+}
+
+.score-fill {
+  height: 100%;
+  background-color: #667eea;
+  transition: width 0.3s ease;
+}
+
+.score-text {
+  font-weight: 600;
+  color: #495057;
+  font-size: 0.9rem;
+}
+
+/* Combined Charts */
+.combined-return-charts {
+  margin-bottom: 2rem;
+}
+
+.combined-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.combined-header h2 {
+  color: #2c3e50;
+  margin: 0 0 0.5rem 0;
+  font-size: 1.8rem;
+}
+
+.combined-header p {
+  color: #6c757d;
+  margin: 0;
+}
+
+.charts-comparison {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.chart-section {
+  background-color: #f8f9fa;
+  padding: 1.5rem;
+  border-radius: 12px;
+  border: 1px solid #e9ecef;
+}
+
+.chart-section h3 {
+  color: #2c3e50;
+  margin: 0 0 1rem 0;
+  font-size: 1.4rem;
+}
+
+.return-chart-summary {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.return-chart-summary .meta-item {
+  background-color: white;
+  padding: 0.75rem;
+  border-radius: 6px;
+  border: 1px solid #dee2e6;
+}
+
+.combined-analysis {
+  background-color: #f8f9fa;
+  padding: 2rem;
+  border-radius: 12px;
+  border: 1px solid #e9ecef;
+}
+
+.combined-analysis h3 {
+  color: #2c3e50;
+  margin: 0 0 1.5rem 0;
+  font-size: 1.6rem;
+  text-align: center;
+}
+
+.harmony-score {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.harmony-score h4 {
+  color: #495057;
+  margin: 0 0 1rem 0;
+  font-size: 1.2rem;
+}
+
+.harmony-bar {
+  width: 100%;
+  height: 12px;
+  background-color: #e9ecef;
+  border-radius: 6px;
+  overflow: hidden;
+  margin-bottom: 0.5rem;
+}
+
+.harmony-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #28a745 0%, #ffc107 50%, #dc3545 100%);
+  transition: width 0.3s ease;
+}
+
+.combined-insights {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+
+.combined-insights h4 {
+  color: #495057;
+  margin: 0 0 0.5rem 0;
+  font-size: 1.1rem;
+}
+
+.combined-insights ul {
+  margin: 0;
+  padding-left: 1.5rem;
+}
+
+.combined-insights li {
+  color: #6c757d;
+  margin-bottom: 0.25rem;
+  line-height: 1.4;
+}
+
+.overall-theme {
+  text-align: center;
+  margin-top: 2rem;
+  padding: 1.5rem;
+  background-color: white;
+  border-radius: 8px;
+  border: 1px solid #dee2e6;
+}
+
+.overall-theme h4 {
+  color: #495057;
+  margin: 0 0 0.5rem 0;
+}
+
+.overall-theme p {
+  color: #6c757d;
+  margin: 0;
+  font-style: italic;
+}
+
+/* Interpretation Styles */
+.western-return-chart-interpretation {
+  margin-bottom: 2rem;
+}
+
+.western-return-chart-interpretation h3 {
+  color: #2c3e50;
+  margin: 0 0 1.5rem 0;
+  font-size: 1.6rem;
+  text-align: center;
+}
+
+.interpretation-tabs {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
+  border-bottom: 1px solid #dee2e6;
+}
+
+.tab-button {
+  padding: 0.75rem 1.5rem;
+  border: none;
+  background: none;
+  color: #6c757d;
+  font-weight: 600;
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  transition: all 0.2s ease;
+}
+
+.tab-button:hover {
+  color: #495057;
+}
+
+.tab-button.active {
+  color: #667eea;
+  border-bottom-color: #667eea;
+}
+
+.tab-content {
+  padding: 1.5rem 0;
+}
+
+/* Compact Interpretation */
+.return-chart-interpretation-compact {
+  background-color: #f8f9fa;
+  padding: 1rem;
+  border-radius: 8px;
+  border: 1px solid #e9ecef;
+}
+
+.overall-rating {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.overall-rating h4 {
+  color: #495057;
+  margin: 0 0 0.5rem 0;
+}
+
+.rating-score {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #667eea;
+}
+
+.key-themes {
+  margin-bottom: 1rem;
+}
+
+.key-themes h5 {
+  color: #495057;
+  margin: 0 0 0.5rem 0;
+}
+
+.key-themes ul {
+  margin: 0;
+  padding-left: 1.5rem;
+}
+
+.key-themes li {
+  color: #6c757d;
+  margin-bottom: 0.25rem;
+  line-height: 1.4;
+}
+
+/* Full Interpretation Tabs */
+.overview-tab,
+.themes-tab,
+.predictions-tab {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.overview-tab h4,
+.themes-tab h4,
+.predictions-tab h4 {
+  color: #2c3e50;
+  margin: 1.5rem 0 1rem 0;
+  font-size: 1.3rem;
+}
+
+.assessment-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.assessment-item {
+  background-color: white;
+  padding: 1.5rem;
+  border-radius: 12px;
+  border: 1px solid #e9ecef;
+  text-align: center;
+}
+
+.rating-circle {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 1.1rem;
+  margin: 0 auto 0.5rem;
+}
+
+.rating-circle[data-rating="excellent"] {
+  background-color: #28a745;
+  color: white;
+}
+
+.rating-circle[data-rating="very good"] {
+  background-color: #20c997;
+  color: white;
+}
+
+.rating-circle[data-rating="good"] {
+  background-color: #ffc107;
+  color: black;
+}
+
+.rating-circle[data-rating="fair"] {
+  background-color: #fd7e14;
+  color: white;
+}
+
+.rating-circle[data-rating="challenging"] {
+  background-color: #dc3545;
+  color: white;
+}
+
+.rating-circle[data-rating="difficult"] {
+  background-color: #6c757d;
+  color: white;
+}
+
+.rating-label {
+  color: #6c757d;
+  font-size: 0.9rem;
+}
+
+.score-display {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 auto;
+}
+
+.score-number {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #667eea;
+}
+
+.score-unit {
+  font-size: 1rem;
+  color: #6c757d;
+  font-weight: 600;
+}
+
+.score-label {
+  color: #6c757d;
+  font-size: 0.9rem;
+  margin-top: 0.5rem;
+}
+
+.overall-summary,
+.key-influences {
+  background-color: white;
+  padding: 1.5rem;
+  border-radius: 12px;
+  border: 1px solid #e9ecef;
+  margin-bottom: 1.5rem;
+}
+
+.overall-summary h5,
+.key-influences h5 {
+  color: #495057;
+  margin: 0 0 0.5rem 0;
+}
+
+.overall-summary p {
+  color: #6c757d;
+  margin: 0;
+  line-height: 1.6;
+}
+
+.influences-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.influence-tag {
+  background-color: #667eea;
+  color: white;
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+.planetary-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.planetary-item {
+  background-color: white;
+  padding: 1rem;
+  border-radius: 8px;
+  border: 1px solid #e9ecef;
+}
+
+.planet-name {
+  font-weight: 600;
+  color: #495057;
+  margin-bottom: 0.5rem;
+}
+
+.planet-influence,
+.planet-strength {
+  color: #6c757d;
+  margin: 0.25rem 0;
+  font-size: 0.9rem;
+}
+
+.houses-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+}
+
+.house-item {
+  background-color: white;
+  padding: 1rem;
+  border-radius: 8px;
+  border: 1px solid #e9ecef;
+  text-align: center;
+}
+
+.house-significance {
+  color: #6c757d;
+  font-size: 0.9rem;
+  margin: 0.25rem 0;
+}
+
+.house-planets {
+  color: #6c757d;
+  font-size: 0.8rem;
+  margin: 0.25rem 0;
+}
+
+.house-strength {
+  font-weight: 600;
+  color: #495057;
+  font-size: 0.9rem;
+}
+
+.themes-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1rem;
+}
+
+.theme-item {
+  background-color: white;
+  padding: 1.5rem;
+  border-radius: 12px;
+  border: 1px solid #e9ecef;
+}
+
+.theme-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.75rem;
+}
+
+.theme-header h5 {
+  color: #495057;
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+.theme-house,
+.theme-planet {
+  background-color: #667eea;
+  color: white;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.theme-description {
+  color: #6c757d;
+  margin: 0 0 0.75rem 0;
+  line-height: 1.5;
+}
+
+.theme-aspect {
+  display: flex;
+  gap: 1rem;
+  font-size: 0.9rem;
+  color: #6c757d;
+}
+
+.aspect-type {
+  font-weight: 600;
+  color: #495057;
+}
+
+.aspects-analysis {
+  background-color: white;
+  padding: 1.5rem;
+  border-radius: 12px;
+  border: 1px solid #e9ecef;
+  margin-top: 2rem;
+}
+
+.aspects-summary {
+  margin-bottom: 1rem;
+}
+
+.major-aspects {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+.predictions-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.prediction-item {
+  background-color: white;
+  padding: 1.5rem;
+  border-radius: 12px;
+  border: 1px solid #e9ecef;
+}
+
+.prediction-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.75rem;
+}
+
+.prediction-timeframe,
+.prediction-area {
+  font-weight: 600;
+  color: #495057;
+  font-size: 0.9rem;
+}
+
+.prediction-content p {
+  color: #6c757d;
+  margin: 0 0 1rem 0;
+  line-height: 1.5;
+}
+
+.prediction-confidence {
+  margin-top: 1rem;
+}
+
+.confidence-bar {
+  width: 100%;
+  height: 6px;
+  background-color: #e9ecef;
+  border-radius: 3px;
+  overflow: hidden;
+  margin-bottom: 0.5rem;
+}
+
+.confidence-fill {
+  height: 100%;
+  background-color: #667eea;
+  transition: width 0.3s ease;
+}
+
+.confidence-text {
+  font-size: 0.8rem;
+  color: #6c757d;
+  text-align: right;
+}
+
+.predictions-disclaimer {
+  background-color: #fff3cd;
+  border: 1px solid #ffeaa7;
+  border-radius: 8px;
+  padding: 1rem;
+  margin-top: 2rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+}
+
+.disclaimer-icon {
+  font-size: 1.2rem;
+  color: #856404;
+  flex-shrink: 0;
+}
+
+.disclaimer-text {
+  color: #856404;
+  margin: 0;
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+/* Validation */
+.return-chart-validation {
+  background-color: #f8f9fa;
+  padding: 1.5rem;
+  border-radius: 12px;
+  border: 1px solid #e9ecef;
+  margin-bottom: 2rem;
+}
+
+.return-chart-validation h3 {
+  color: #2c3e50;
+  margin: 0 0 1rem 0;
+  font-size: 1.4rem;
+}
+
+.validation-status {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #e9ecef;
+}
+
+.status-indicator {
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.status-indicator.valid {
+  background-color: #d4edda;
+  color: #155724;
+}
+
+.status-indicator.invalid {
+  background-color: #f8d7da;
+  color: #721c24;
+}
+
+.accuracy {
+  font-weight: 600;
+  color: #495057;
+}
+
+.validation-details {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 0.75rem;
+}
+
+.validation-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem;
+  border-radius: 6px;
+  font-size: 0.9rem;
+}
+
+.validation-item.passed {
+  background-color: #d4edda;
+  color: #155724;
+}
+
+.validation-item.failed {
+  background-color: #f8d7da;
+  color: #721c24;
+}
+
+.check-name {
+  font-weight: 500;
+}
+
+.check-status {
+  font-weight: 600;
+}
+
+.check-error {
+  font-size: 0.8rem;
+  margin-top: 0.25rem;
+  font-style: italic;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .western-return-chart-dashboard {
+    padding: 0;
+  }
+
+  .dashboard-header {
+    padding: 1.5rem 1rem;
+  }
+
+  .dashboard-header h1 {
+    font-size: 2rem;
+  }
+
+  .dashboard-header p {
+    font-size: 1rem;
+  }
+
+  .dashboard-actions {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .action-button {
+    width: 100%;
+    max-width: 250px;
+    justify-content: center;
+  }
+
+  .dashboard-content {
+    padding: 1rem;
+  }
+
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .charts-comparison {
+    grid-template-columns: 1fr;
+  }
+
+  .assessment-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .houses-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .themes-list,
+  .predictions-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .interpretation-tabs {
+    flex-direction: column;
+  }
+
+  .tab-button {
+    border-bottom: none;
+    border: 1px solid #dee2e6;
+    margin-bottom: 0.5rem;
+    border-radius: 6px;
+  }
+
+  .dashboard-footer {
+    padding: 1.5rem 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .dashboard-header h1 {
+    font-size: 1.8rem;
+  }
+
+  .dashboard-header p {
+    font-size: 0.95rem;
+  }
+
+  .dashboard-content {
+    padding: 0.5rem;
+  }
+
+  .footer-content p {
+    font-size: 0.9rem;
+  }
+
+  .houses-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .meta-item .value {
+    font-size: 0.8rem;
+  }
+}
+
+/* High Contrast Mode Support */
+@media (prefers-contrast: high) {
+  .western-return-chart-dashboard {
+    background: #000;
+    color: #fff;
+  }
+
+  .dashboard-header {
+    background-color: #fff;
+    border: 2px solid #000;
+  }
+
+  .input-section,
+  .chart-section {
+    border: 2px solid #000;
+  }
+
+  .dashboard-footer {
+    background-color: #000;
+    border-top: 2px solid #fff;
+  }
+
+  .form-section,
+  .return-chart-header,
+  .position-item,
+  .house-item,
+  .aspect-item,
+  .angularity-info,
+  .chart-section,
+  .assessment-item,
+  .overall-summary,
+  .key-influences,
+  .planetary-item,
+  .theme-item,
+  .prediction-item,
+  .aspects-analysis,
+  .return-chart-validation {
+    border: 2px solid #000;
+  }
+}
+
+/* Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+  .action-button,
+  .submit-button {
+    transition: none;
+  }
+
+  .action-button:hover,
+  .submit-button:hover:not(:disabled) {
+    transform: none;
+  }
+
+  .score-fill,
+  .harmony-fill,
+  .confidence-fill {
+    transition: none;
+  }
+
+  .loading-spinner {
+    animation: none;
+  }
+}
+
+/* Print Styles */
+@media print {
+  .western-return-chart-dashboard {
+    background: white;
+    color: black;
+  }
+
+  .dashboard-header {
+    background: white;
+    box-shadow: none;
+    border-bottom: 2px solid #000;
+  }
+
+  .dashboard-actions {
+    display: none;
+  }
+
+  .dashboard-footer {
+    background: white;
+    color: black;
+    border-top: 1px solid #000;
+  }
+
+  .interpretation-tabs {
+    display: none;
+  }
+
+  .tab-content {
+    display: block !important;
+  }
+}

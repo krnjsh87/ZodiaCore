@@ -1,0 +1,1242 @@
+/* Western Relationship Counseling Dashboard Styles */
+
+.western-relationship-counseling-dashboard {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  line-height: 1.6;
+  color: #333;
+}
+
+.dashboard-header {
+  text-align: center;
+  margin-bottom: 30px;
+  padding: 20px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.dashboard-header h1 {
+  margin: 0 0 10px 0;
+  font-size: 2.5rem;
+  font-weight: 700;
+}
+
+.dashboard-header p {
+  margin: 0;
+  font-size: 1.1rem;
+  opacity: 0.9;
+}
+
+.error-message {
+  background-color: #fee2e2;
+  border: 1px solid #fecaca;
+  color: #dc2626;
+  padding: 12px 16px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+}
+
+.error-message p {
+  margin: 0;
+  font-weight: 500;
+}
+
+.input-section {
+  margin-bottom: 30px;
+}
+
+.person-inputs {
+  display: flex;
+  gap: 40px;
+  align-items: flex-start;
+  margin-bottom: 20px;
+}
+
+.person-input {
+  flex: 1;
+  background: #f8fafc;
+  padding: 20px;
+  border-radius: 12px;
+  border: 2px solid #e2e8f0;
+  transition: border-color 0.2s ease;
+}
+
+.person-input:focus-within {
+  border-color: #667eea;
+}
+
+.person-input h2 {
+  margin: 0 0 15px 0;
+  color: #1e293b;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.chart-summary {
+  margin-top: 15px;
+  padding: 12px;
+  background: white;
+  border-radius: 8px;
+  border: 1px solid #e2e8f0;
+}
+
+.chart-summary h3 {
+  margin: 0 0 8px 0;
+  color: #1e293b;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.chart-summary p {
+  margin: 0 0 4px 0;
+  font-size: 0.9rem;
+  color: #64748b;
+}
+
+.compatibility-connector {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px 0;
+}
+
+.connector-line {
+  width: 2px;
+  height: 60px;
+  background: linear-gradient(to bottom, #667eea, #764ba2);
+  border-radius: 1px;
+}
+
+.hearts {
+  font-size: 2rem;
+  margin-top: 10px;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+}
+
+.analyze-section {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.counseling-button {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  padding: 14px 28px;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 4px 6px rgba(102, 126, 234, 0.3);
+}
+
+.counseling-button:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(102, 126, 234, 0.4);
+}
+
+.counseling-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.results-section {
+  background: #f8fafc;
+  border-radius: 12px;
+  padding: 20px;
+  margin-top: 20px;
+}
+
+.results-tabs {
+  display: flex;
+  border-bottom: 2px solid #e2e8f0;
+  margin-bottom: 20px;
+  overflow-x: auto;
+}
+
+.results-tabs button {
+  background: none;
+  border: none;
+  padding: 12px 20px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #64748b;
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  transition: color 0.2s ease, border-color 0.2s ease;
+  white-space: nowrap;
+}
+
+.results-tabs button.active {
+  color: #667eea;
+  border-bottom-color: #667eea;
+}
+
+.results-tabs button:hover {
+  color: #667eea;
+}
+
+/* Overview Tab */
+.overview-tab {
+  max-width: none;
+}
+
+.session-info {
+  background: white;
+  padding: 16px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  border: 1px solid #e2e8f0;
+}
+
+.session-info h3 {
+  margin: 0 0 4px 0;
+  color: #1e293b;
+  font-size: 1.1rem;
+}
+
+.session-info p {
+  margin: 0;
+  color: #64748b;
+  font-size: 0.9rem;
+}
+
+.overall-assessment {
+  display: grid;
+  gap: 20px;
+}
+
+.assessment-score {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  border: 1px solid #e2e8f0;
+}
+
+.score-circle {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  color: white;
+  position: relative;
+}
+
+.score-circle::before {
+  content: '';
+  position: absolute;
+  inset: 4px;
+  border-radius: 50%;
+  background: white;
+}
+
+.score-value {
+  font-size: 1.5rem;
+  z-index: 1;
+  position: relative;
+}
+
+.score-label {
+  font-size: 0.7rem;
+  z-index: 1;
+  position: relative;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.assessment-text h3 {
+  margin: 0 0 8px 0;
+  color: #1e293b;
+  font-size: 1.3rem;
+}
+
+.assessment-text p {
+  margin: 0;
+  color: #64748b;
+}
+
+.compatibility-breakdown {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  border: 1px solid #e2e8f0;
+}
+
+.compatibility-breakdown h4 {
+  margin: 0 0 15px 0;
+  color: #1e293b;
+  font-size: 1.1rem;
+}
+
+.breakdown-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 12px;
+}
+
+.breakdown-item {
+  text-align: center;
+  padding: 8px;
+  background: #f8fafc;
+  border-radius: 6px;
+}
+
+.breakdown-label {
+  display: block;
+  font-size: 0.8rem;
+  color: #64748b;
+  margin-bottom: 4px;
+}
+
+.breakdown-value {
+  display: block;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.key-insights {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.key-insights h4 {
+  margin: 0 0 10px 0;
+  color: #1e293b;
+  font-size: 1rem;
+}
+
+.key-insights ul {
+  margin: 0;
+  padding-left: 20px;
+}
+
+.key-insights li {
+  margin-bottom: 6px;
+  color: #475569;
+}
+
+.counseling-recommendations h4 {
+  margin: 0 0 15px 0;
+  color: #1e293b;
+  font-size: 1.1rem;
+}
+
+.recommendations-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 12px;
+}
+
+.recommendation-item {
+  background: white;
+  padding: 16px;
+  border-radius: 8px;
+  border: 1px solid #e2e8f0;
+  border-left: 4px solid #667eea;
+}
+
+.recommendation-item.positive {
+  border-left-color: #10b981;
+}
+
+.recommendation-item.challenging {
+  border-left-color: #f59e0b;
+}
+
+.recommendation-item.critical {
+  border-left-color: #ef4444;
+}
+
+.recommendation-category {
+  font-size: 0.8rem;
+  color: #64748b;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 4px;
+}
+
+.recommendation-advice {
+  margin: 0;
+  color: #1e293b;
+  font-weight: 500;
+}
+
+/* Synastry Tab */
+.synastry-tab h3 {
+  margin: 0 0 10px 0;
+  color: #1e293b;
+}
+
+.synastry-tab > p {
+  margin: 0 0 20px 0;
+  color: #64748b;
+}
+
+.synastry-compatibility {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  margin-bottom: 20px;
+  border: 1px solid #e2e8f0;
+}
+
+.compatibility-score h4 {
+  margin: 0 0 15px 0;
+  color: #1e293b;
+}
+
+.score-display {
+  display: flex;
+  justify-content: center;
+}
+
+.inter-aspects h4 {
+  margin: 0 0 15px 0;
+  color: #1e293b;
+}
+
+.aspects-grid {
+  display: grid;
+  gap: 12px;
+}
+
+.aspect-item {
+  background: white;
+  padding: 16px;
+  border-radius: 8px;
+  border: 1px solid #e2e8f0;
+}
+
+.aspect-planets {
+  font-weight: 600;
+  color: #1e293b;
+  margin-bottom: 8px;
+}
+
+.aspect-details {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 8px;
+  font-size: 0.9rem;
+  color: #64748b;
+}
+
+.aspect-strength {
+  font-weight: 500;
+}
+
+.aspect-description,
+.aspect-counseling {
+  margin: 8px 0;
+  font-size: 0.9rem;
+  color: #475569;
+}
+
+.house-overlays h4 {
+  margin: 0 0 15px 0;
+  color: #1e293b;
+}
+
+.overlays-grid {
+  display: grid;
+  gap: 12px;
+}
+
+.overlay-item {
+  background: white;
+  padding: 16px;
+  border-radius: 8px;
+  border: 1px solid #e2e8f0;
+}
+
+.overlay-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.overlay-planet {
+  font-weight: 600;
+  color: #1e293b;
+}
+
+.overlay-house {
+  font-size: 0.9rem;
+  color: #64748b;
+}
+
+.overlay-person {
+  font-size: 0.8rem;
+  color: #94a3b8;
+}
+
+.overlay-significance {
+  font-size: 0.9rem;
+  color: #64748b;
+  margin-bottom: 8px;
+}
+
+.overlay-interpretation,
+.overlay-advice {
+  margin: 6px 0;
+  font-size: 0.9rem;
+  color: #475569;
+}
+
+.synastry-insights h4 {
+  margin: 0 0 15px 0;
+  color: #1e293b;
+}
+
+.insights-sections {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.insight-section h5 {
+  margin: 0 0 8px 0;
+  color: #1e293b;
+  font-size: 1rem;
+}
+
+.insight-section ul {
+  margin: 0;
+  padding-left: 20px;
+}
+
+.insight-section li {
+  margin-bottom: 4px;
+  color: #475569;
+  font-size: 0.9rem;
+}
+
+/* Composite Tab */
+.composite-tab h3 {
+  margin: 0 0 10px 0;
+  color: #1e293b;
+}
+
+.composite-tab > p {
+  margin: 0 0 20px 0;
+  color: #64748b;
+}
+
+.composite-planets h4 {
+  margin: 0 0 15px 0;
+  color: #1e293b;
+}
+
+.planets-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.planet-position {
+  background: white;
+  padding: 16px;
+  border-radius: 8px;
+  border: 1px solid #e2e8f0;
+  text-align: center;
+}
+
+.planet-name {
+  font-weight: 600;
+  color: #1e293b;
+  margin-bottom: 8px;
+}
+
+.planet-coordinates {
+  font-size: 1.1rem;
+  color: #667eea;
+  font-weight: 500;
+  margin-bottom: 4px;
+}
+
+.planet-sign {
+  font-size: 0.9rem;
+  color: #64748b;
+}
+
+.composite-aspects h4 {
+  margin: 0 0 15px 0;
+  color: #1e293b;
+}
+
+.composite-angulariy h4 {
+  margin: 0 0 15px 0;
+  color: #1e293b;
+}
+
+.angularity-info {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  border: 1px solid #e2e8f0;
+}
+
+.angular-planets {
+  margin-bottom: 15px;
+}
+
+.planets-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.planet-tag {
+  background: #667eea;
+  color: white;
+  padding: 4px 8px;
+  border-radius: 12px;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+.angularity-score {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.score-bar {
+  flex: 1;
+  height: 8px;
+  background: #e2e8f0;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.score-fill {
+  height: 100%;
+  border-radius: 4px;
+}
+
+.score-value {
+  font-weight: 600;
+  color: #1e293b;
+  min-width: 50px;
+}
+
+.composite-counseling h4 {
+  margin: 0 0 15px 0;
+  color: #1e293b;
+}
+
+.dynamics-sections {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+.dynamics-section h5 {
+  margin: 0 0 8px 0;
+  color: #1e293b;
+  font-size: 1rem;
+}
+
+.dynamics-section ul {
+  margin: 0;
+  padding-left: 20px;
+}
+
+.dynamics-section li {
+  margin-bottom: 4px;
+  color: #475569;
+  font-size: 0.9rem;
+}
+
+/* Compatibility Tab */
+.compatibility-tab h3 {
+  margin: 0 0 10px 0;
+  color: #1e293b;
+}
+
+.compatibility-tab > p {
+  margin: 0 0 20px 0;
+  color: #64748b;
+}
+
+.compatibility-overview {
+  background: white;
+  padding: 30px;
+  border-radius: 12px;
+  margin-bottom: 20px;
+  border: 1px solid #e2e8f0;
+  text-align: center;
+}
+
+.compatibility-score-large {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.score-circle-large {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  color: white;
+  position: relative;
+}
+
+.score-circle-large::before {
+  content: '';
+  position: absolute;
+  inset: 6px;
+  border-radius: 50%;
+  background: white;
+}
+
+.score-value-large {
+  font-size: 2.5rem;
+  z-index: 1;
+  position: relative;
+}
+
+.score-label-large {
+  font-size: 0.9rem;
+  z-index: 1;
+  position: relative;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.compatibility-rating h3 {
+  margin: 0;
+  color: #1e293b;
+  font-size: 1.5rem;
+}
+
+.compatibility-strengths-challenges {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.strengths-section,
+.challenges-section {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  border: 1px solid #e2e8f0;
+}
+
+.strengths-section h4,
+.challenges-section h4 {
+  margin: 0 0 15px 0;
+  color: #1e293b;
+  font-size: 1.1rem;
+}
+
+.strengths-section ul,
+.challenges-section ul {
+  margin: 0;
+  padding-left: 20px;
+}
+
+.strengths-section li,
+.challenges-section li {
+  margin-bottom: 8px;
+  color: #475569;
+}
+
+.counseling-plan h4 {
+  margin: 0 0 15px 0;
+  color: #1e293b;
+  font-size: 1.1rem;
+}
+
+.plan-sections {
+  display: grid;
+  gap: 20px;
+}
+
+.plan-section {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  border: 1px solid #e2e8f0;
+}
+
+.plan-section h5 {
+  margin: 0 0 10px 0;
+  color: #1e293b;
+  font-size: 1rem;
+}
+
+.assessment-type {
+  font-weight: 600;
+  color: #667eea;
+  margin-bottom: 8px;
+}
+
+.modules-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 12px;
+}
+
+.module-item {
+  background: #f8fafc;
+  padding: 12px;
+  border-radius: 6px;
+  border: 1px solid #e2e8f0;
+}
+
+.module-name {
+  font-weight: 600;
+  color: #1e293b;
+  margin-bottom: 4px;
+}
+
+.module-priority {
+  font-size: 0.8rem;
+  color: #64748b;
+  margin-bottom: 4px;
+}
+
+.module-plan {
+  font-size: 0.9rem;
+  color: #475569;
+}
+
+.timeline {
+  display: grid;
+  gap: 12px;
+}
+
+.timeline-phase {
+  display: flex;
+  gap: 12px;
+}
+
+.phase-name {
+  font-weight: 600;
+  color: #1e293b;
+  min-width: 120px;
+}
+
+.phase-duration {
+  color: #64748b;
+  font-size: 0.9rem;
+}
+
+.phase-focus {
+  color: #475569;
+  font-size: 0.9rem;
+}
+
+.referral-status {
+  padding: 16px;
+  border-radius: 8px;
+  border: 2px solid #10b981;
+  background: #f0fdf4;
+}
+
+.referral-status.recommended {
+  border-color: #f59e0b;
+  background: #fffbeb;
+}
+
+.referral-recommended {
+  font-weight: 600;
+  color: #1e293b;
+  margin-bottom: 4px;
+}
+
+.referral-urgency,
+.referral-type,
+.referral-reason {
+  font-size: 0.9rem;
+  color: #475569;
+  margin: 2px 0;
+}
+
+.self-help-sections {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 15px;
+}
+
+.self-help-books h6,
+.self-help-exercises h6,
+.self-help-practices h6 {
+  margin: 0 0 8px 0;
+  color: #1e293b;
+  font-size: 0.95rem;
+}
+
+.self-help-books ul,
+.self-help-exercises ul,
+.self-help-practices ul {
+  margin: 0;
+  padding-left: 20px;
+}
+
+.self-help-books li,
+.self-help-exercises li,
+.self-help-practices li {
+  margin-bottom: 4px;
+  color: #475569;
+  font-size: 0.9rem;
+}
+
+/* Timing Tab */
+.timing-tab h3 {
+  margin: 0 0 10px 0;
+  color: #1e293b;
+}
+
+.timing-tab > p {
+  margin: 0 0 20px 0;
+  color: #64748b;
+}
+
+.current-timing {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  margin-bottom: 20px;
+  border: 1px solid #e2e8f0;
+}
+
+.current-timing h4 {
+  margin: 0 0 15px 0;
+  color: #1e293b;
+}
+
+.timing-score {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 15px;
+}
+
+.timing-factors h5 {
+  margin: 0 0 10px 0;
+  color: #1e293b;
+  font-size: 1rem;
+}
+
+.timing-factors ul {
+  margin: 0;
+  padding-left: 20px;
+}
+
+.timing-factors li {
+  margin-bottom: 6px;
+  color: #475569;
+}
+
+.factor-type {
+  font-weight: 500;
+}
+
+.factor-type.positive {
+  color: #10b981;
+}
+
+.factor-type.challenging {
+  color: #ef4444;
+}
+
+.future-windows h4,
+.challenging-periods h4,
+.optimal-dates h4 {
+  margin: 0 0 15px 0;
+  color: #1e293b;
+}
+
+.windows-grid,
+.periods-grid,
+.dates-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 12px;
+}
+
+.window-item,
+.period-item,
+.date-item {
+  background: white;
+  padding: 16px;
+  border-radius: 8px;
+  border: 1px solid #e2e8f0;
+}
+
+.window-date,
+.period-date,
+.date-value {
+  font-weight: 600;
+  color: #1e293b;
+  margin-bottom: 8px;
+}
+
+.window-score,
+.period-score {
+  font-size: 0.9rem;
+  margin-bottom: 4px;
+}
+
+.window-rating,
+.period-rating {
+  font-size: 0.9rem;
+  color: #64748b;
+}
+
+.date-type {
+  font-size: 0.9rem;
+  color: #64748b;
+  margin-bottom: 4px;
+}
+
+.date-significance {
+  font-size: 0.9rem;
+  color: #475569;
+}
+
+.period-counseling {
+  font-size: 0.9rem;
+  color: #ef4444;
+  font-style: italic;
+  margin-top: 8px;
+}
+
+.timing-counseling h4 {
+  margin: 0 0 15px 0;
+  color: #1e293b;
+}
+
+.counseling-advice {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.advice-section h5 {
+  margin: 0 0 8px 0;
+  color: #1e293b;
+  font-size: 1rem;
+}
+
+.advice-section p {
+  margin: 0;
+  color: #475569;
+  line-height: 1.5;
+}
+
+/* Disclaimer */
+.disclaimer {
+  margin-top: 30px;
+  padding: 20px;
+  background: #fffbeb;
+  border: 1px solid #fbbf24;
+  border-radius: 8px;
+}
+
+.disclaimer-box h4 {
+  margin: 0 0 10px 0;
+  color: #92400e;
+  font-size: 1.1rem;
+}
+
+.disclaimer-box p {
+  margin: 0 0 8px 0;
+  color: #78350f;
+  line-height: 1.5;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .western-relationship-counseling-dashboard {
+    padding: 15px;
+  }
+
+  .dashboard-header h1 {
+    font-size: 2rem;
+  }
+
+  .person-inputs {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .compatibility-connector {
+    display: none;
+  }
+
+  .results-tabs {
+    flex-wrap: wrap;
+  }
+
+  .results-tabs button {
+    flex: 1;
+    min-width: 120px;
+  }
+
+  .key-insights {
+    grid-template-columns: 1fr;
+  }
+
+  .compatibility-strengths-challenges {
+    grid-template-columns: 1fr;
+  }
+
+  .insights-sections {
+    grid-template-columns: 1fr;
+  }
+
+  .dynamics-sections {
+    grid-template-columns: 1fr;
+  }
+
+  .counseling-advice {
+    grid-template-columns: 1fr;
+  }
+
+  .planets-grid {
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  }
+
+  .aspects-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .overlays-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .windows-grid,
+  .periods-grid,
+  .dates-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .breakdown-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .recommendations-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .dashboard-header {
+    padding: 15px;
+  }
+
+  .dashboard-header h1 {
+    font-size: 1.8rem;
+  }
+
+  .person-input {
+    padding: 15px;
+  }
+
+  .results-section {
+    padding: 15px;
+  }
+
+  .assessment-score {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .score-circle {
+    margin: 0 auto;
+  }
+
+  .breakdown-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .timing-score {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .hearts {
+    animation: none;
+  }
+
+  .counseling-button {
+    transition: none;
+  }
+
+  .results-tabs button {
+    transition: none;
+  }
+}
+
+/* High contrast mode */
+@media (prefers-contrast: high) {
+  .western-relationship-counseling-dashboard {
+    border: 2px solid;
+  }
+
+  .error-message {
+    border: 3px solid #dc2626;
+  }
+
+  .results-tabs button.active {
+    border-bottom: 3px solid;
+  }
+}
+
+/* Focus styles */
+.counseling-button:focus,
+.results-tabs button:focus {
+  outline: 2px solid #667eea;
+  outline-offset: 2px;
+}
+
+/* Print styles */
+@media print {
+  .results-tabs,
+  .analyze-section {
+    display: none;
+  }
+
+  .western-relationship-counseling-dashboard {
+    box-shadow: none;
+    border: 1px solid #000;
+  }
+}

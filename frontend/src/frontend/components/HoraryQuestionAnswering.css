@@ -1,0 +1,489 @@
+/* Horary Question Answering Component Styles */
+
+.horary-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+}
+
+.horary-header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.horary-header h1 {
+  color: #2c3e50;
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+  font-weight: 300;
+}
+
+.horary-description {
+  color: #7f8c8d;
+  font-size: 1.1rem;
+  max-width: 800px;
+  margin: 0 auto;
+  line-height: 1.7;
+}
+
+/* Form Styles */
+.horary-form {
+  background: #f8f9fa;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin-bottom: 30px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: #2c3e50;
+  font-size: 0.95rem;
+}
+
+.form-group textarea,
+.form-group input[type="text"],
+.form-group input[type="number"],
+.form-group input[type="datetime-local"] {
+  width: 100%;
+  padding: 12px 16px;
+  border: 2px solid #e9ecef;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  box-sizing: border-box;
+}
+
+.form-group textarea:focus,
+.form-group input:focus {
+  outline: none;
+  border-color: #3498db;
+  box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 20px;
+}
+
+.form-group small {
+  display: block;
+  margin-top: 4px;
+  color: #6c757d;
+  font-size: 0.85rem;
+}
+
+.analyze-button {
+  background: linear-gradient(135deg, #3498db, #2980b9);
+  color: white;
+  border: none;
+  padding: 14px 32px;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  width: 100%;
+  max-width: 300px;
+  margin: 0 auto;
+  display: block;
+}
+
+.analyze-button:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(52, 152, 219, 0.3);
+}
+
+.analyze-button:disabled {
+  background: #bdc3c7;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* Error Message */
+.error-message {
+  background: #f8d7da;
+  color: #721c24;
+  padding: 16px 20px;
+  border-radius: 8px;
+  border: 1px solid #f5c6cb;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+/* Result Styles */
+.horary-result {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.result-header {
+  background: linear-gradient(135deg, #2c3e50, #34495e);
+  color: white;
+  padding: 24px;
+  text-align: center;
+}
+
+.result-header h2 {
+  margin: 0 0 10px 0;
+  font-size: 1.8rem;
+  font-weight: 300;
+}
+
+.result-meta {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  font-size: 0.9rem;
+  opacity: 0.9;
+}
+
+.result-meta span {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 4px 12px;
+  border-radius: 20px;
+}
+
+/* Answer Section */
+.answer-section {
+  padding: 30px;
+  border-bottom: 1px solid #e9ecef;
+}
+
+.main-answer {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.main-answer h3 {
+  color: #2c3e50;
+  margin-bottom: 20px;
+  font-size: 1.4rem;
+}
+
+.answer-badge {
+  display: inline-block;
+  padding: 12px 24px;
+  border-radius: 50px;
+  color: white;
+  font-size: 1.2rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 15px;
+}
+
+.answer-reasoning {
+  font-size: 1.1rem;
+  color: #495057;
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* Confidence Section */
+.confidence-section {
+  text-align: center;
+}
+
+.confidence-section h4 {
+  color: #2c3e50;
+  margin-bottom: 15px;
+  font-size: 1.1rem;
+}
+
+.confidence-bar {
+  width: 100%;
+  max-width: 400px;
+  height: 20px;
+  background: #e9ecef;
+  border-radius: 10px;
+  margin: 0 auto 10px;
+  overflow: hidden;
+}
+
+.confidence-fill {
+  height: 100%;
+  border-radius: 10px;
+  transition: width 0.5s ease;
+}
+
+.confidence-text {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #2c3e50;
+}
+
+/* Timing Section */
+.timing-section {
+  padding: 30px;
+  border-bottom: 1px solid #e9ecef;
+  background: #f8f9fa;
+}
+
+.timing-section h3 {
+  color: #2c3e50;
+  margin-bottom: 20px;
+  text-align: center;
+  font-size: 1.3rem;
+}
+
+.timing-predictions {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.timing-item {
+  margin-bottom: 12px;
+  padding: 12px 16px;
+  background: white;
+  border-radius: 8px;
+  border-left: 4px solid #3498db;
+}
+
+.timing-indicators {
+  margin-top: 20px;
+  padding: 16px;
+  background: white;
+  border-radius: 8px;
+}
+
+.timing-indicators ul {
+  margin: 0;
+  padding-left: 20px;
+}
+
+.timing-indicators li {
+  margin-bottom: 8px;
+  color: #495057;
+}
+
+/* Recommendations Section */
+.recommendations-section,
+.caveats-section {
+  padding: 30px;
+}
+
+.recommendations-section h3,
+.caveats-section h3 {
+  color: #2c3e50;
+  margin-bottom: 20px;
+  text-align: center;
+  font-size: 1.3rem;
+}
+
+.recommendations-list,
+.caveats-list {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.recommendations-list li,
+.caveats-list li {
+  margin-bottom: 16px;
+  padding: 16px;
+  background: #f8f9fa;
+  border-radius: 8px;
+  border-left: 4px solid #27ae60;
+  line-height: 1.6;
+}
+
+.caveats-list li {
+  border-left-color: #f39c12;
+}
+
+.recommendations-list li strong,
+.caveats-list li strong {
+  color: #2c3e50;
+}
+
+.recommendations-list ul {
+  margin-top: 10px;
+  padding-left: 20px;
+}
+
+.recommendations-list li li {
+  background: none;
+  border-left: none;
+  padding: 4px 0;
+  margin-bottom: 4px;
+}
+
+/* Detailed Analysis */
+.detailed-analysis {
+  padding: 30px;
+  background: #f8f9fa;
+}
+
+.detailed-analysis h3 {
+  color: #2c3e50;
+  margin-bottom: 20px;
+  text-align: center;
+  font-size: 1.3rem;
+}
+
+.analysis-tabs {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.tab-button {
+  background: #e9ecef;
+  border: none;
+  padding: 10px 20px;
+  margin: 0 5px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background-color 0.3s ease;
+}
+
+.tab-button.active {
+  background: #3498db;
+  color: white;
+}
+
+.analysis-content {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.significators-analysis h4 {
+  color: #2c3e50;
+  margin-bottom: 15px;
+  font-size: 1.1rem;
+}
+
+.significator-item {
+  margin-bottom: 12px;
+  padding: 12px;
+  background: #f8f9fa;
+  border-radius: 6px;
+  border-left: 3px solid #3498db;
+}
+
+.significator-item strong {
+  color: #2c3e50;
+  display: block;
+  margin-bottom: 4px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .horary-container {
+    padding: 15px;
+  }
+
+  .horary-header h1 {
+    font-size: 2rem;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+  .result-meta {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .answer-section {
+    padding: 20px;
+  }
+
+  .timing-section,
+  .recommendations-section,
+  .caveats-section,
+  .detailed-analysis {
+    padding: 20px;
+  }
+
+  .analysis-tabs {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .tab-button {
+    margin: 2px 0;
+    width: 100%;
+    max-width: 200px;
+  }
+}
+
+@media (max-width: 480px) {
+  .horary-header h1 {
+    font-size: 1.8rem;
+  }
+
+  .horary-form {
+    padding: 20px;
+  }
+
+  .analyze-button {
+    padding: 12px 24px;
+    font-size: 1rem;
+  }
+
+  .answer-badge {
+    padding: 10px 20px;
+    font-size: 1.1rem;
+  }
+
+  .confidence-bar {
+    height: 16px;
+  }
+}
+
+/* Loading Animation */
+@keyframes pulse {
+  0% { opacity: 1; }
+  50% { opacity: 0.5; }
+  100% { opacity: 1; }
+}
+
+.analyze-button:disabled {
+  animation: pulse 1.5s infinite;
+}
+
+/* Accessibility */
+.horary-form:focus-within {
+  box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
+}
+
+.form-group textarea:focus,
+.form-group input:focus {
+  box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
+}
+
+/* Print Styles */
+@media print {
+  .horary-form,
+  .analyze-button {
+    display: none;
+  }
+
+  .horary-result {
+    box-shadow: none;
+    border: 1px solid #ddd;
+  }
+}

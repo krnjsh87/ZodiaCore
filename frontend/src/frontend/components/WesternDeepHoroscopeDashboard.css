@@ -1,0 +1,324 @@
+/**
+ * Western Deep Horoscope Dashboard Styles
+ * Dashboard interface for Western deep horoscope generation and display
+ */
+
+.western-deep-horoscope-dashboard {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+  background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+  min-height: 100vh;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.western-deep-horoscope-dashboard__header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.western-deep-horoscope-dashboard__title {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #1a202c;
+  margin-bottom: 1rem;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.western-deep-horoscope-dashboard__subtitle {
+  font-size: 1.1rem;
+  color: #718096;
+  line-height: 1.6;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* Input Section */
+.western-deep-horoscope-dashboard__input-section {
+  background: white;
+  border-radius: 16px;
+  padding: 2.5rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.input-form__title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #2d3748;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.input-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.input-label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #4a5568;
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.input-field {
+  padding: 0.75rem 1rem;
+  border: 2px solid #e2e8f0;
+  border-radius: 8px;
+  font-size: 1rem;
+  color: #2d3748;
+  background: white;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.input-field:focus {
+  outline: none;
+  border-color: #667eea;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+.input-field:invalid {
+  border-color: #e53e3e;
+}
+
+.input-actions {
+  display: flex;
+  justify-content: center;
+  padding-top: 1rem;
+}
+
+.generate-button {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  padding: 1rem 2rem;
+  border-radius: 12px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.generate-button:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
+}
+
+.generate-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* Error and Loading States */
+.western-deep-horoscope-dashboard__error {
+  background: linear-gradient(135deg, #fed7d7 0%, #feb2b2 100%);
+  border: 1px solid #e53e3e;
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.error-message {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  color: #742a2a;
+}
+
+.error-icon {
+  font-size: 1.5rem;
+}
+
+.western-deep-horoscope-dashboard__loading {
+  background: white;
+  border-radius: 16px;
+  padding: 3rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  text-align: center;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.loading-spinner {
+  width: 50px;
+  height: 50px;
+  border: 4px solid #e2e8f0;
+  border-top: 4px solid #667eea;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin: 0 auto 1.5rem;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.loading-note {
+  color: #718096;
+  font-size: 0.9rem;
+  margin-top: 0.5rem;
+}
+
+/* Placeholder */
+.western-deep-horoscope-dashboard__placeholder {
+  background: white;
+  border-radius: 16px;
+  padding: 3rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.placeholder-content {
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.placeholder-icon {
+  font-size: 4rem;
+  margin-bottom: 1.5rem;
+  display: block;
+}
+
+.placeholder-content h3 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #2d3748;
+  margin-bottom: 1rem;
+}
+
+.placeholder-content p {
+  font-size: 1rem;
+  color: #718096;
+  line-height: 1.6;
+  margin-bottom: 2rem;
+}
+
+.placeholder-features {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+}
+
+.feature-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem;
+  background: linear-gradient(135deg, #f7fafc 0%, #edf2f7 100%);
+  border-radius: 8px;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.feature-icon {
+  font-size: 1.5rem;
+}
+
+.feature-item span:last-child {
+  font-size: 0.9rem;
+  color: #4a5568;
+  font-weight: 500;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .western-deep-horoscope-dashboard {
+    padding: 1rem;
+  }
+
+  .western-deep-horoscope-dashboard__title {
+    font-size: 2rem;
+  }
+
+  .western-deep-horoscope-dashboard__subtitle {
+    font-size: 1rem;
+  }
+
+  .western-deep-horoscope-dashboard__input-section {
+    padding: 2rem;
+  }
+
+  .input-grid {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1rem;
+  }
+
+  .input-field {
+    padding: 0.5rem 0.75rem;
+    font-size: 0.9rem;
+  }
+
+  .generate-button {
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+  }
+
+  .western-deep-horoscope-dashboard__loading {
+    padding: 2rem;
+  }
+
+  .placeholder-features {
+    grid-template-columns: 1fr;
+  }
+
+  .feature-item {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .western-deep-horoscope-dashboard {
+    padding: 0.5rem;
+  }
+
+  .western-deep-horoscope-dashboard__header {
+    margin-bottom: 2rem;
+  }
+
+  .western-deep-horoscope-dashboard__title {
+    font-size: 1.8rem;
+  }
+
+  .input-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .input-group {
+    margin-bottom: 1rem;
+  }
+
+  .western-deep-horoscope-dashboard__input-section {
+    padding: 1.5rem;
+  }
+
+  .western-deep-horoscope-dashboard__loading {
+    padding: 1.5rem;
+  }
+
+  .placeholder-content {
+    padding: 1rem;
+  }
+
+  .placeholder-icon {
+    font-size: 3rem;
+  }
+}

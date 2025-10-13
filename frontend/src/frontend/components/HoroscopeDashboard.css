@@ -1,0 +1,177 @@
+/**
+ * ZodiaCore - Horoscope Dashboard Styles
+ *
+ * Responsive and accessible styles for the horoscope dashboard component.
+ *
+ * @version 1.0.0
+ * @author ZodiaCore Development Team
+ * @license MIT
+ */
+
+.horoscope-dashboard {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  line-height: 1.6;
+  color: #333;
+}
+
+.horoscope-dashboard__header {
+  text-align: center;
+  margin-bottom: 3rem;
+  padding-bottom: 2rem;
+  border-bottom: 2px solid #f0f0f0;
+}
+
+.horoscope-dashboard__title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #2c3e50;
+  margin-bottom: 0.5rem;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.horoscope-dashboard__subtitle {
+  font-size: 1.1rem;
+  color: #7f8c8d;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.horoscope-dashboard__controls {
+  background: #f8f9fa;
+  border-radius: 12px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.horoscope-dashboard__content {
+  min-height: 400px;
+}
+
+.horoscope-dashboard__loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem 2rem;
+  text-align: center;
+  color: #6c757d;
+}
+
+.loading-spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid #e9ecef;
+  border-top: 4px solid #667eea;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-bottom: 1rem;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.horoscope-dashboard__error {
+  background: #f8d7da;
+  border: 1px solid #f5c6cb;
+  border-radius: 8px;
+  padding: 1rem;
+  margin-bottom: 2rem;
+  color: #721c24;
+}
+
+.error-message {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.error-icon {
+  font-size: 1.2rem;
+}
+
+.horoscope-dashboard__warning {
+  background: #fff3cd;
+  border: 1px solid #ffeaa7;
+  border-radius: 8px;
+  padding: 1rem;
+  margin-bottom: 2rem;
+  color: #856404;
+}
+
+.warning-message {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.warning-icon {
+  font-size: 1.2rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .horoscope-dashboard {
+    padding: 1rem;
+  }
+
+  .horoscope-dashboard__title {
+    font-size: 2rem;
+  }
+
+  .horoscope-dashboard__subtitle {
+    font-size: 1rem;
+  }
+
+  .horoscope-dashboard__controls {
+    padding: 1.5rem;
+  }
+
+  .horoscope-dashboard__loading {
+    padding: 3rem 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .horoscope-dashboard__title {
+    font-size: 1.8rem;
+  }
+
+  .horoscope-dashboard__controls {
+    padding: 1rem;
+  }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .loading-spinner {
+    animation: none;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .horoscope-dashboard {
+    border: 1px solid;
+  }
+
+  .horoscope-dashboard__controls {
+    border: 2px solid;
+  }
+}
+
+/* Focus management */
+.horoscope-dashboard button:focus,
+.horoscope-dashboard input:focus,
+.horoscope-dashboard select:focus {
+  outline: 2px solid #667eea;
+  outline-offset: 2px;
+}

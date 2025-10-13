@@ -1,0 +1,545 @@
+/* Astro-cartography and Relocation Counseling Dashboard Styles */
+
+.astro-cartography-dashboard {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  line-height: 1.6;
+  color: #333;
+}
+
+.dashboard-header {
+  text-align: center;
+  margin-bottom: 3rem;
+  padding-bottom: 2rem;
+  border-bottom: 2px solid #e0e0e0;
+}
+
+.dashboard-header h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #2c3e50;
+  margin-bottom: 0.5rem;
+}
+
+.dashboard-header p {
+  font-size: 1.2rem;
+  color: #7f8c8d;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.dashboard-content {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+/* Input Section */
+.input-section {
+  background: #f8f9fa;
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Analysis Results */
+.analysis-results {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+/* Cartography Overview */
+.cartography-overview {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+.cartography-overview h2 {
+  margin-top: 0;
+  font-size: 1.8rem;
+  font-weight: 600;
+}
+
+.lines-summary {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  margin-top: 1.5rem;
+}
+
+.summary-stat {
+  text-align: center;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  padding: 1rem;
+  min-width: 120px;
+}
+
+.stat-number {
+  display: block;
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 0.25rem;
+}
+
+.stat-label {
+  font-size: 0.9rem;
+  opacity: 0.9;
+}
+
+.lines-breakdown {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  flex: 1;
+}
+
+.planet-lines {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 6px;
+  padding: 0.75rem 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.planet-name {
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.line-count {
+  font-size: 0.8rem;
+  opacity: 0.8;
+}
+
+/* Location Analysis */
+.location-analysis {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e0e0e0;
+}
+
+.location-analysis h2 {
+  margin-top: 0;
+  color: #2c3e50;
+  font-size: 1.8rem;
+  font-weight: 600;
+}
+
+.location-input-form {
+  background: #f8f9fa;
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin: 1.5rem 0;
+}
+
+.form-row {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+}
+
+.form-group {
+  flex: 1;
+  min-width: 200px;
+}
+
+.form-group label {
+  display: block;
+  font-weight: 600;
+  color: #2c3e50;
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.form-group input,
+.form-group select {
+  width: 100%;
+  padding: 0.75rem;
+  border: 2px solid #e0e0e0;
+  border-radius: 6px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+  outline: none;
+  border-color: #667eea;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+.analyze-button {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 0.75rem 2rem;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.analyze-button:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+}
+
+.analyze-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Location Results */
+.location-results {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.location-result-card {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e0e0e0;
+}
+
+.location-result-card h3 {
+  margin-top: 0;
+  color: #2c3e50;
+  font-size: 1.4rem;
+  font-weight: 600;
+}
+
+.score-display {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin: 1rem 0;
+  padding: 1rem;
+  background: #f8f9fa;
+  border-radius: 8px;
+}
+
+.overall-score {
+  text-align: center;
+}
+
+.score-value {
+  display: block;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #667eea;
+  margin-bottom: 0.25rem;
+}
+
+.score-label {
+  font-size: 0.9rem;
+  color: #7f8c8d;
+  font-weight: 500;
+}
+
+.score-bar {
+  flex: 1;
+  height: 8px;
+  background: #e0e0e0;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.score-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+  border-radius: 4px;
+  transition: width 0.3s ease;
+}
+
+.influences-summary {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin: 1.5rem 0;
+}
+
+.beneficial-influences,
+.challenging-influences {
+  background: #f8f9fa;
+  border-radius: 8px;
+  padding: 1rem;
+}
+
+.beneficial-influences h4 {
+  color: #27ae60;
+  margin-top: 0;
+}
+
+.challenging-influences h4 {
+  color: #e74c3c;
+  margin-top: 0;
+}
+
+.influences-summary ul {
+  margin: 0.5rem 0 0 0;
+  padding-left: 1.2rem;
+}
+
+.influences-summary li {
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+.recommendations h4 {
+  color: #2c3e50;
+  margin-bottom: 0.5rem;
+}
+
+.recommendations ul {
+  margin: 0;
+  padding-left: 1.2rem;
+}
+
+.recommendations li {
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+/* Counseling Section */
+.counseling-section {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e0e0e0;
+}
+
+.counseling-section h2 {
+  margin-top: 0;
+  color: #2c3e50;
+  font-size: 1.8rem;
+  font-weight: 600;
+}
+
+.recommendations-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.recommendation-category {
+  background: #f8f9fa;
+  border-radius: 8px;
+  padding: 1.5rem;
+}
+
+.recommendation-category h3 {
+  margin-top: 0;
+  color: #2c3e50;
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.recommendation-category ul {
+  margin: 0;
+  padding-left: 1.2rem;
+}
+
+.recommendation-category li {
+  margin-bottom: 0.75rem;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.priority-high {
+  border-left: 4px solid #e74c3c;
+  padding-left: 0.75rem;
+}
+
+.priority-medium {
+  border-left: 4px solid #f39c12;
+  padding-left: 0.75rem;
+}
+
+.priority-low {
+  border-left: 4px solid #27ae60;
+  padding-left: 0.75rem;
+}
+
+.recommendation-opportunity {
+  color: #27ae60;
+}
+
+.recommendation-caution {
+  color: #e74c3c;
+}
+
+.recommendation-strength {
+  color: #3498db;
+}
+
+.recommendation-transition {
+  color: #9b59b6;
+}
+
+.recommendation-career {
+  color: #e67e22;
+}
+
+.recommendation-relationships {
+  color: #e91e63;
+}
+
+.action-item {
+  font-style: italic;
+  color: #7f8c8d;
+  margin-top: 0.25rem;
+  font-size: 0.85rem;
+}
+
+.remedy {
+  font-weight: 600;
+  color: #2c3e50;
+  margin-top: 0.25rem;
+  font-size: 0.85rem;
+}
+
+.duration {
+  color: #7f8c8d;
+  font-size: 0.8rem;
+  font-style: italic;
+}
+
+/* Error Messages */
+.error-message {
+  background: #fee;
+  border: 1px solid #fcc;
+  border-radius: 8px;
+  padding: 1rem;
+  color: #c33;
+  text-align: center;
+  margin: 1rem 0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .astro-cartography-dashboard {
+    padding: 1rem;
+  }
+
+  .dashboard-header h1 {
+    font-size: 2rem;
+  }
+
+  .lines-summary {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .form-row {
+    flex-direction: column;
+  }
+
+  .form-group {
+    min-width: auto;
+  }
+
+  .influences-summary {
+    grid-template-columns: 1fr;
+  }
+
+  .recommendations-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .score-display {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .dashboard-header h1 {
+    font-size: 1.8rem;
+  }
+
+  .location-result-card,
+  .location-input-form,
+  .recommendation-category {
+    padding: 1rem;
+  }
+
+  .lines-breakdown {
+    flex-direction: column;
+  }
+
+  .planet-lines {
+    justify-content: space-between;
+  }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .analyze-button,
+  .score-fill {
+    transition: none;
+  }
+
+  .analyze-button:hover {
+    transform: none;
+  }
+}
+
+/* Focus states for keyboard navigation */
+.analyze-button:focus,
+.form-group input:focus,
+.form-group select:focus {
+  outline: 2px solid #667eea;
+  outline-offset: 2px;
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .astro-cartography-dashboard {
+    border: 1px solid #000;
+  }
+
+  .location-result-card,
+  .recommendation-category {
+    border: 2px solid #000;
+  }
+}
+
+/* Print styles */
+@media print {
+  .astro-cartography-dashboard {
+    box-shadow: none;
+    border: 1px solid #000;
+  }
+
+  .analyze-button,
+  .location-input-form {
+    display: none;
+  }
+
+  .location-result-card,
+  .recommendation-category {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+}

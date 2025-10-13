@@ -1,0 +1,794 @@
+/* Western Medical Astrology Dashboard Styles */
+
+.western-medical-dashboard {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: #f8f9fa;
+  min-height: 100vh;
+}
+
+/* Loading State */
+.western-medical-dashboard.loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 60vh;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border-radius: 12px;
+  margin: 20px;
+}
+
+.loading-spinner {
+  width: 50px;
+  height: 50px;
+  border: 4px solid rgba(255, 255, 255, 0.3);
+  border-top: 4px solid white;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-bottom: 20px;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Error State */
+.western-medical-dashboard.error {
+  background: linear-gradient(135deg, #ff6b6b 0%, #ee5a24 100%);
+  color: white;
+  padding: 40px;
+  border-radius: 12px;
+  text-align: center;
+  margin: 20px;
+}
+
+.error-message h3 {
+  margin: 0 0 15px 0;
+  font-size: 1.5rem;
+}
+
+.error-message p {
+  margin: 0 0 20px 0;
+  opacity: 0.9;
+}
+
+.retry-button {
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  border: 2px solid white;
+  padding: 10px 20px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.retry-button:hover {
+  background: white;
+  color: #ff6b6b;
+}
+
+/* Empty State */
+.western-medical-dashboard.empty {
+  background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+  color: #333;
+  padding: 40px;
+  border-radius: 12px;
+  text-align: center;
+  margin: 20px;
+}
+
+.empty-state h3 {
+  margin: 0 0 15px 0;
+  font-size: 1.5rem;
+  color: #2c3e50;
+}
+
+.empty-state p {
+  margin: 0;
+  font-size: 1.1rem;
+  opacity: 0.8;
+}
+
+/* Dashboard Header */
+.dashboard-header {
+  background: white;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.dashboard-header h1 {
+  margin: 0 0 10px 0;
+  font-size: 2.5rem;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.profile-meta {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin-top: 15px;
+}
+
+.generated-at,
+.version {
+  font-size: 0.9rem;
+  color: #666;
+  font-weight: 500;
+}
+
+.generated-at::before {
+  content: "📅 ";
+}
+
+.version::before {
+  content: "🏷️ ";
+}
+
+/* Tab Navigation */
+.dashboard-tabs {
+  display: flex;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-bottom: 30px;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.dashboard-tabs button {
+  flex: 1;
+  min-width: 120px;
+  padding: 15px 10px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border-radius: 12px;
+  position: relative;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #666;
+}
+
+.dashboard-tabs button:hover {
+  background: rgba(102, 126, 234, 0.1);
+  color: #667eea;
+}
+
+.dashboard-tabs button.active {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  box-shadow: 0 4px 8px rgba(102, 126, 234, 0.3);
+}
+
+.tab-icon {
+  display: block;
+  font-size: 1.5rem;
+  margin-bottom: 5px;
+}
+
+.tab-label {
+  display: block;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Dashboard Content */
+.dashboard-content {
+  display: grid;
+  gap: 30px;
+}
+
+/* Health Risk Levels */
+.risk-low { color: #27ae60; }
+.risk-moderate { color: #f39c12; }
+.risk-high { color: #e74c3c; }
+.risk-critical { color: #8e44ad; }
+
+/* Constitution Section */
+.constitution-card {
+  background: white;
+  border-radius: 12px;
+  padding: 25px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.constitution-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.constitution-icon {
+  font-size: 2rem;
+  margin-right: 15px;
+}
+
+.constitution-title {
+  margin: 0;
+  font-size: 1.5rem;
+  color: #2c3e50;
+}
+
+.temperament-badge {
+  display: inline-block;
+  padding: 5px 12px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  margin-left: auto;
+}
+
+.constitution-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.constitution-item {
+  background: #f8f9fa;
+  padding: 15px;
+  border-radius: 8px;
+  border-left: 4px solid #667eea;
+}
+
+.constitution-item h4 {
+  margin: 0 0 8px 0;
+  color: #2c3e50;
+  font-size: 1rem;
+}
+
+.constitution-item p {
+  margin: 0;
+  color: #666;
+  font-size: 0.9rem;
+}
+
+/* Planetary Health Section */
+.planetary-health-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.planetary-card {
+  background: white;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.planetary-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
+}
+
+.planetary-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.planetary-icon {
+  font-size: 1.5rem;
+  margin-right: 10px;
+}
+
+.planetary-name {
+  margin: 0;
+  font-size: 1.2rem;
+  color: #2c3e50;
+}
+
+.planetary-dignity {
+  margin-left: auto;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.dignity-strong { background: #d4edda; color: #155724; }
+.dignity-moderate { background: #fff3cd; color: #856404; }
+.dignity-weak { background: #f8d7da; color: #721c24; }
+
+.planetary-metrics {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.metric-item {
+  text-align: center;
+  padding: 8px;
+  background: #f8f9fa;
+  border-radius: 6px;
+}
+
+.metric-label {
+  display: block;
+  font-size: 0.8rem;
+  color: #666;
+  margin-bottom: 2px;
+}
+
+.metric-value {
+  display: block;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #2c3e50;
+}
+
+.planetary-body-parts {
+  margin-top: 15px;
+}
+
+.body-parts-title {
+  font-size: 0.9rem;
+  color: #666;
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+
+.body-parts-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+.body-part-tag {
+  background: #e9ecef;
+  padding: 3px 8px;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  color: #495057;
+}
+
+/* Sign Health Section */
+.sign-health-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.sign-card {
+  background: white;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.sign-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.sign-icon {
+  font-size: 1.5rem;
+  margin-right: 10px;
+}
+
+.sign-name {
+  margin: 0;
+  font-size: 1.2rem;
+  color: #2c3e50;
+}
+
+.sign-strength {
+  margin-left: auto;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.sign-systems {
+  margin-bottom: 15px;
+}
+
+.systems-title {
+  font-size: 0.9rem;
+  color: #666;
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+
+.systems-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+.system-tag {
+  background: #e7f3ff;
+  padding: 3px 8px;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  color: #0066cc;
+}
+
+/* House Health Section */
+.house-health-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.house-card {
+  background: white;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.house-number {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #667eea;
+  margin-bottom: 10px;
+}
+
+.house-focus {
+  font-size: 0.9rem;
+  color: #666;
+  margin-bottom: 15px;
+  font-style: italic;
+}
+
+/* Aspect Health Section */
+.aspect-health-list {
+  display: grid;
+  gap: 15px;
+}
+
+.aspect-item {
+  background: white;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.aspect-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.aspect-planets {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #2c3e50;
+}
+
+.aspect-type {
+  margin-left: auto;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.aspect-harmonious { background: #d4edda; color: #155724; }
+.aspect-challenging { background: #f8d7da; color: #721c24; }
+.aspect-neutral { background: #e2e3e5; color: #383d41; }
+
+.aspect-description {
+  color: #666;
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+/* Disease Correlations Section */
+.correlations-list {
+  display: grid;
+  gap: 15px;
+}
+
+.correlation-item {
+  background: white;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.correlation-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.correlation-condition {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #2c3e50;
+}
+
+.correlation-strength {
+  margin-left: auto;
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 4px 8px;
+  border-radius: 4px;
+}
+
+.strength-high { background: #f8d7da; color: #721c24; }
+.strength-medium { background: #fff3cd; color: #856404; }
+.strength-low { background: #d4edda; color: #155724; }
+
+.correlation-indicator {
+  font-size: 0.9rem;
+  color: #666;
+  margin-bottom: 8px;
+}
+
+.correlation-description {
+  color: #666;
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+/* Remedies Section */
+.remedies-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.remedies-card {
+  background: white;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.remedies-title {
+  font-size: 1.3rem;
+  color: #2c3e50;
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+}
+
+.remedies-icon {
+  margin-right: 10px;
+}
+
+.remedies-list {
+  display: grid;
+  gap: 10px;
+}
+
+.remedy-item {
+  background: #f8f9fa;
+  padding: 12px;
+  border-radius: 8px;
+  border-left: 3px solid #667eea;
+}
+
+.remedy-item:hover {
+  background: #e9ecef;
+}
+
+/* Disclaimer Section */
+.disclaimer-card {
+  background: linear-gradient(135deg, #fff3cd 0%, #ffeaa7 100%);
+  border: 2px solid #f39c12;
+  border-radius: 12px;
+  padding: 25px;
+  margin-top: 30px;
+}
+
+.disclaimer-title {
+  font-size: 1.3rem;
+  color: #8b4513;
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+}
+
+.disclaimer-icon {
+  margin-right: 10px;
+}
+
+.disclaimer-content {
+  color: #5d4037;
+  line-height: 1.6;
+  font-size: 0.95rem;
+}
+
+.disclaimer-content p {
+  margin: 0 0 15px 0;
+}
+
+.disclaimer-content p:last-child {
+  margin-bottom: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .western-medical-dashboard {
+    padding: 10px;
+  }
+
+  .dashboard-header {
+    padding: 20px;
+  }
+
+  .dashboard-header h1 {
+    font-size: 2rem;
+  }
+
+  .profile-meta {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .dashboard-tabs {
+    flex-wrap: wrap;
+  }
+
+  .dashboard-tabs button {
+    min-width: 100px;
+    padding: 12px 8px;
+  }
+
+  .tab-icon {
+    font-size: 1.2rem;
+  }
+
+  .tab-label {
+    font-size: 0.7rem;
+  }
+
+  .constitution-grid,
+  .planetary-health-grid,
+  .sign-health-grid,
+  .house-health-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .constitution-header,
+  .planetary-header,
+  .sign-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .temperament-badge,
+  .planetary-dignity,
+  .sign-strength {
+    margin-left: 0;
+    margin-top: 10px;
+  }
+
+  .aspect-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .aspect-type {
+    margin-left: 0;
+    margin-top: 10px;
+  }
+
+  .correlation-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .correlation-strength {
+    margin-left: 0;
+    margin-top: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .dashboard-header h1 {
+    font-size: 1.5rem;
+  }
+
+  .constitution-card,
+  .planetary-card,
+  .sign-card,
+  .house-card,
+  .aspect-item,
+  .correlation-item,
+  .remedies-card,
+  .disclaimer-card {
+    padding: 15px;
+  }
+
+  .dashboard-tabs button {
+    min-width: 80px;
+    padding: 10px 5px;
+  }
+
+  .tab-icon {
+    font-size: 1rem;
+  }
+
+  .tab-label {
+    font-size: 0.65rem;
+  }
+}
+
+/* Accessibility Enhancements */
+@media (prefers-reduced-motion: reduce) {
+  .loading-spinner {
+    animation: none;
+  }
+
+  .planetary-card,
+  .retry-button {
+    transition: none;
+  }
+}
+
+/* High Contrast Mode */
+@media (prefers-contrast: high) {
+  .western-medical-dashboard {
+    background: white;
+    color: black;
+  }
+
+  .constitution-card,
+  .planetary-card,
+  .sign-card,
+  .house-card,
+  .aspect-item,
+  .correlation-item,
+  .remedies-card {
+    border: 2px solid black;
+  }
+
+  .dashboard-tabs button.active {
+    background: black;
+    color: white;
+  }
+}
+
+/* Print Styles */
+@media print {
+  .western-medical-dashboard {
+    background: white;
+    box-shadow: none;
+    padding: 0;
+  }
+
+  .dashboard-tabs,
+  .retry-button {
+    display: none;
+  }
+
+  .constitution-card,
+  .planetary-card,
+  .sign-card,
+  .house-card,
+  .aspect-item,
+  .correlation-item,
+  .remedies-card,
+  .disclaimer-card {
+    box-shadow: none;
+    border: 1px solid #ccc;
+    break-inside: avoid;
+  }
+}

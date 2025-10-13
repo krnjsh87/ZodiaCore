@@ -1,0 +1,1056 @@
+/* Parenting Astrology Dashboard Styles */
+
+.parenting-dashboard {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.dashboard-tabs {
+  display: flex;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #e1e5e9;
+}
+
+.main-tab {
+  padding: 12px 24px;
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 500;
+  color: #64748b;
+  border-bottom: 2px solid transparent;
+  transition: all 0.2s ease;
+}
+
+.main-tab:hover {
+  color: #0f172a;
+}
+
+.main-tab.active {
+  color: #7c3aed;
+  border-bottom-color: #7c3aed;
+}
+
+.dashboard-content {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+/* Input Section */
+.input-section {
+  padding: 32px;
+}
+
+.input-section h2 {
+  font-size: 28px;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 8px;
+}
+
+.description {
+  font-size: 16px;
+  color: #64748b;
+  line-height: 1.6;
+  margin-bottom: 32px;
+}
+
+.chart-status {
+  display: flex;
+  gap: 24px;
+  margin-bottom: 32px;
+}
+
+.status-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  color: #64748b;
+}
+
+.status-indicator {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #e2e8f0;
+}
+
+.status-indicator.active {
+  background: #10b981;
+}
+
+.status-indicator.inactive {
+  background: #f59e0b;
+}
+
+.analysis-options h3 {
+  font-size: 20px;
+  font-weight: 600;
+  color: #0f172a;
+  margin-bottom: 16px;
+}
+
+.option-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 16px;
+  margin-bottom: 32px;
+}
+
+.option-item {
+  display: flex;
+  align-items: center;
+  padding: 16px;
+  border: 2px solid #e2e8f0;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.option-item:hover {
+  border-color: #7c3aed;
+  background: #faf5ff;
+}
+
+.option-item input[type="radio"] {
+  display: none;
+}
+
+.option-item input[type="radio"]:checked + .option-content {
+  background: #7c3aed;
+  color: white;
+}
+
+.option-content {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  padding: 8px 12px;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+}
+
+.option-icon {
+  font-size: 20px;
+}
+
+.option-label {
+  font-weight: 500;
+}
+
+.action-buttons {
+  display: flex;
+  justify-content: center;
+}
+
+.analyze-btn {
+  padding: 16px 32px;
+  background: linear-gradient(135deg, #7c3aed 0%, #a855f7 100%);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 12px rgba(124, 58, 237, 0.3);
+}
+
+.analyze-btn:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(124, 58, 237, 0.4);
+}
+
+.analyze-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.error-message {
+  text-align: center;
+  color: #dc2626;
+  font-weight: 500;
+  padding: 16px;
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+  border-radius: 8px;
+  margin-top: 16px;
+}
+
+/* Results Section */
+.results-section {
+  padding: 32px;
+}
+
+.results-section h2 {
+  font-size: 28px;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 24px;
+}
+
+.results-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 32px;
+  border-bottom: 1px solid #e1e5e9;
+  padding-bottom: 16px;
+}
+
+.tab-btn {
+  padding: 10px 20px;
+  border: none;
+  background: #f1f5f9;
+  color: #64748b;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.tab-btn:hover {
+  background: #e2e8f0;
+}
+
+.tab-btn.active {
+  background: #7c3aed;
+  color: white;
+}
+
+.results-content {
+  min-height: 400px;
+}
+
+/* Result Cards */
+.result-card {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 24px;
+  margin-bottom: 24px;
+}
+
+.result-card h3 {
+  font-size: 22px;
+  font-weight: 600;
+  color: #0f172a;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.result-card h4 {
+  font-size: 18px;
+  font-weight: 600;
+  color: #1e293b;
+  margin-bottom: 16px;
+}
+
+.result-card h5 {
+  font-size: 16px;
+  font-weight: 600;
+  color: #374151;
+  margin-bottom: 8px;
+}
+
+/* Conception Results */
+.timing-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 24px;
+  margin-bottom: 24px;
+}
+
+.timing-section {
+  background: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 20px;
+}
+
+.windows-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.window-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px;
+  background: #f8fafc;
+  border-radius: 6px;
+  border: 1px solid #e2e8f0;
+}
+
+.window-item.recommended {
+  border-color: #10b981;
+  background: #f0fdf4;
+}
+
+.window-date {
+  font-weight: 600;
+  color: #0f172a;
+}
+
+.window-score {
+  font-size: 14px;
+  color: #059669;
+  font-weight: 500;
+}
+
+.window-phase {
+  font-size: 12px;
+  color: #64748b;
+}
+
+.optimal-windows {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.optimal-window {
+  background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+  border: 1px solid #f59e0b;
+  border-radius: 8px;
+  padding: 16px;
+}
+
+.optimal-date {
+  font-size: 18px;
+  font-weight: 600;
+  color: #92400e;
+  margin-bottom: 8px;
+}
+
+.optimal-scores {
+  display: flex;
+  gap: 16px;
+  font-size: 14px;
+}
+
+.recommendations ul {
+  list-style: none;
+  padding: 0;
+}
+
+.recommendations li {
+  padding: 8px 0;
+  border-bottom: 1px solid #e2e8f0;
+  color: #374151;
+}
+
+.recommendations li:last-child {
+  border-bottom: none;
+}
+
+/* Fertility Results */
+.fertility-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 24px;
+}
+
+.fertility-section {
+  background: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 20px;
+  text-align: center;
+}
+
+.fertility-score {
+  margin-bottom: 20px;
+}
+
+.score-circle {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  font-weight: 700;
+  color: white;
+  margin: 0 auto 12px;
+  background: conic-gradient(from 0deg, #10b981 0%, #10b981 var(--score), #e2e8f0 var(--score), #e2e8f0 100%);
+  position: relative;
+}
+
+.score-circle::before {
+  content: '';
+  position: absolute;
+  width: 90px;
+  height: 90px;
+  background: white;
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.score-circle span {
+  position: relative;
+  z-index: 1;
+}
+
+.score-label {
+  font-size: 16px;
+  font-weight: 600;
+  color: #0f172a;
+}
+
+.fertility-factors ul,
+.fertility-recommendations ul {
+  text-align: left;
+  list-style: none;
+  padding: 0;
+}
+
+.fertility-factors li,
+.fertility-recommendations li {
+  padding: 6px 0;
+  border-bottom: 1px solid #f1f5f9;
+  color: #374151;
+}
+
+.fertility-factors li:last-child,
+.fertility-recommendations li:last-child {
+  border-bottom: none;
+}
+
+/* Childbirth Results */
+.childbirth-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+}
+
+.childbirth-main {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 24px;
+}
+
+.expected-date {
+  background: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 20px;
+  text-align: center;
+}
+
+.date-display {
+  font-size: 20px;
+  font-weight: 700;
+  color: #7c3aed;
+  margin: 12px 0;
+}
+
+.confidence {
+  font-size: 14px;
+  color: #64748b;
+}
+
+.date-range,
+.gestation-info {
+  background: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 20px;
+}
+
+.range-display {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.range-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.range-item:last-child {
+  border-bottom: none;
+}
+
+.range-label {
+  font-weight: 600;
+  color: #374151;
+}
+
+.range-date {
+  color: #0f172a;
+}
+
+.gestation-stats {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  color: #374151;
+}
+
+.childbirth-details {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 24px;
+}
+
+.gender-prediction,
+.complications,
+.health-assessment {
+  background: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 20px;
+}
+
+.gender-result {
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+.predicted-gender {
+  font-size: 48px;
+  margin-bottom: 8px;
+}
+
+.gender-confidence {
+  font-size: 14px;
+  color: #64748b;
+}
+
+.gender-methods {
+  margin-top: 16px;
+}
+
+.method-breakdown {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.method-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 12px;
+  background: #f8fafc;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+.risk-level {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.risk-level[data-risk="low"] {
+  background: #dcfce7;
+  color: #166534;
+}
+
+.risk-level[data-risk="medium"] {
+  background: #fef3c7;
+  color: #92400e;
+}
+
+.risk-level[data-risk="high"] {
+  background: #fee2e2;
+  color: #dc2626;
+}
+
+.risk-score {
+  font-size: 14px;
+  color: #64748b;
+  margin-top: 8px;
+}
+
+.complication-list ul,
+.health-recommendations ul {
+  list-style: none;
+  padding: 0;
+  margin-top: 12px;
+}
+
+.complication-list li,
+.health-recommendations li {
+  padding: 6px 0;
+  border-bottom: 1px solid #f1f5f9;
+  color: #374151;
+}
+
+.complication-list li:last-child,
+.health-recommendations li:last-child {
+  border-bottom: none;
+}
+
+.health-overall {
+  text-align: center;
+  font-size: 18px;
+  font-weight: 600;
+  color: #059669;
+  margin-bottom: 16px;
+}
+
+/* Child Astrology Results */
+.child-astrology-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 24px;
+}
+
+.physical-characteristics,
+.mental-characteristics,
+.health-analysis,
+.career-potential,
+.relationship-patterns,
+.life-span,
+.chart-strength {
+  background: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 20px;
+}
+
+.characteristics-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.characteristic-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 12px;
+  background: #f8fafc;
+  border-radius: 6px;
+}
+
+.char-label {
+  font-weight: 600;
+  color: #374151;
+}
+
+.char-value {
+  color: #0f172a;
+}
+
+.career-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.career-tag {
+  background: #e0e7ff;
+  color: #3730a3;
+  padding: 4px 8px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.strength-score {
+  font-size: 36px;
+  font-weight: 700;
+  color: #7c3aed;
+  text-align: center;
+}
+
+.strength-label {
+  text-align: center;
+  font-size: 16px;
+  color: #64748b;
+  margin-top: 8px;
+}
+
+/* Compatibility Results */
+.compatibility-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 24px;
+}
+
+.compatibility-section {
+  background: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 20px;
+}
+
+.compatibility-score {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.score-circle.large {
+  width: 140px;
+  height: 140px;
+  font-size: 28px;
+}
+
+.score-circle.large::before {
+  width: 110px;
+  height: 110px;
+}
+
+.compatibility-breakdown {
+  margin-bottom: 20px;
+}
+
+.breakdown-bars {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 12px;
+}
+
+.breakdown-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.breakdown-label {
+  min-width: 80px;
+  font-weight: 600;
+  color: #374151;
+  font-size: 14px;
+}
+
+.breakdown-bar {
+  flex: 1;
+  height: 8px;
+  background: #e2e8f0;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.breakdown-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #7c3aed 0%, #a855f7 100%);
+  border-radius: 4px;
+  transition: width 0.3s ease;
+}
+
+.breakdown-value {
+  min-width: 40px;
+  text-align: right;
+  font-size: 14px;
+  font-weight: 600;
+  color: #7c3aed;
+}
+
+.compatibility-recommendations ul {
+  list-style: none;
+  padding: 0;
+}
+
+.compatibility-recommendations li {
+  padding: 6px 0;
+  border-bottom: 1px solid #f1f5f9;
+  color: #374151;
+}
+
+.compatibility-recommendations li:last-child {
+  border-bottom: none;
+}
+
+.family-insights ul {
+  list-style: none;
+  padding: 0;
+  margin-top: 12px;
+}
+
+.family-insights li {
+  padding: 4px 0;
+  color: #374151;
+}
+
+/* Remedies Results */
+.remedies-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 24px;
+}
+
+.remedy-section {
+  background: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 20px;
+}
+
+.remedy-category {
+  margin-bottom: 20px;
+}
+
+.remedy-category h5 {
+  color: #7c3aed;
+  margin-bottom: 12px;
+}
+
+.gemstone-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.gemstone-item {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 16px;
+}
+
+.gemstone-name {
+  font-size: 18px;
+  font-weight: 600;
+  color: #0f172a;
+  margin-bottom: 8px;
+}
+
+.gemstone-planet {
+  color: #7c3aed;
+  font-weight: 500;
+  margin-bottom: 4px;
+}
+
+.gemstone-purpose,
+.gemstone-wearing,
+.gemstone-duration {
+  font-size: 14px;
+  color: #374151;
+  margin-bottom: 2px;
+}
+
+.mantra-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.mantra-item {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 16px;
+}
+
+.mantra-deity {
+  font-weight: 600;
+  color: #dc2626;
+  margin-bottom: 8px;
+}
+
+.mantra-text {
+  font-style: italic;
+  color: #374151;
+  margin-bottom: 8px;
+  padding: 8px;
+  background: #fef7f7;
+  border-radius: 4px;
+}
+
+.mantra-purpose {
+  color: #059669;
+  font-weight: 500;
+  margin-bottom: 4px;
+}
+
+.mantra-practice {
+  font-size: 14px;
+  color: #64748b;
+}
+
+.remedy-meta {
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px solid #e2e8f0;
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+}
+
+.remedy-priority,
+.remedy-timeline {
+  color: #374151;
+}
+
+.remedy-general-advice {
+  background: #fef3c7;
+  border: 1px solid #f59e0b;
+  border-radius: 8px;
+  padding: 20px;
+  margin-top: 24px;
+}
+
+.remedy-general-advice h4 {
+  color: #92400e;
+  margin-bottom: 12px;
+}
+
+.remedy-general-advice ul {
+  list-style: none;
+  padding: 0;
+}
+
+.remedy-general-advice li {
+  padding: 6px 0;
+  color: #92400e;
+  position: relative;
+  padding-left: 20px;
+}
+
+.remedy-general-advice li::before {
+  content: '💡';
+  position: absolute;
+  left: 0;
+  top: 6px;
+}
+
+/* Disclaimer */
+.disclaimer {
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+  border-radius: 8px;
+  padding: 20px;
+  margin-top: 32px;
+}
+
+.disclaimer h3 {
+  color: #dc2626;
+  margin-bottom: 12px;
+}
+
+.disclaimer p {
+  color: #991b1b;
+  line-height: 1.6;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .parenting-dashboard {
+    padding: 16px;
+  }
+
+  .input-section,
+  .results-section {
+    padding: 20px;
+  }
+
+  .input-section h2,
+  .results-section h2 {
+    font-size: 24px;
+  }
+
+  .option-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .timing-grid,
+  .fertility-grid,
+  .childbirth-main,
+  .childbirth-details,
+  .child-astrology-grid,
+  .compatibility-grid,
+  .remedies-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .dashboard-tabs {
+    flex-direction: column;
+  }
+
+  .main-tab {
+    width: 100%;
+    text-align: center;
+  }
+
+  .results-tabs {
+    justify-content: center;
+  }
+
+  .tab-btn {
+    flex: 1;
+    text-align: center;
+  }
+
+  .optimal-scores {
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .breakdown-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .remedy-meta {
+    flex-direction: column;
+    gap: 8px;
+  }
+}
+
+@media (max-width: 480px) {
+  .input-section h2,
+  .results-section h2 {
+    font-size: 20px;
+  }
+
+  .result-card {
+    padding: 16px;
+  }
+
+  .score-circle {
+    width: 100px;
+    height: 100px;
+    font-size: 20px;
+  }
+
+  .score-circle::before {
+    width: 70px;
+    height: 70px;
+  }
+
+  .score-circle.large {
+    width: 120px;
+    height: 120px;
+    font-size: 24px;
+  }
+
+  .score-circle.large::before {
+    width: 90px;
+    height: 90px;
+  }
+
+  .predicted-gender {
+    font-size: 36px;
+  }
+}

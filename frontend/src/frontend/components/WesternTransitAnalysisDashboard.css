@@ -1,0 +1,716 @@
+/* Western Transit Analysis Dashboard Styles */
+
+.western-transit-analysis-dashboard {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: #f8f9fa;
+  min-height: 100vh;
+}
+
+.dashboard-header {
+  background: white;
+  padding: 24px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.dashboard-header h1 {
+  margin: 0;
+  color: #2c3e50;
+  font-size: 28px;
+  font-weight: 600;
+}
+
+.dashboard-controls {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.auto-refresh-toggle {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  color: #555;
+  cursor: pointer;
+}
+
+.auto-refresh-toggle input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+}
+
+.refresh-interval {
+  padding: 8px 12px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 14px;
+  background: white;
+}
+
+.refresh-button {
+  padding: 8px 16px;
+  background: #3498db;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.2s;
+}
+
+.refresh-button:hover {
+  background: #2980b9;
+}
+
+/* Loading and Error States */
+.western-transit-dashboard-loading,
+.western-transit-dashboard-error {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.loading-spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid #f3f3f3;
+  border-top: 4px solid #3498db;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-bottom: 16px;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.western-transit-dashboard-error h3 {
+  color: #e74c3c;
+  margin-bottom: 8px;
+}
+
+.retry-button {
+  padding: 10px 20px;
+  background: #e74c3c;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-top: 16px;
+}
+
+.retry-button:hover {
+  background: #c0392b;
+}
+
+/* Dashboard Tabs */
+.dashboard-tabs {
+  display: flex;
+  background: white;
+  border-radius: 12px;
+  padding: 4px;
+  margin-bottom: 24px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  overflow-x: auto;
+}
+
+.tab-button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 20px;
+  background: transparent;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  color: #666;
+  transition: all 0.2s;
+  white-space: nowrap;
+  position: relative;
+}
+
+.tab-button:hover {
+  background: #f8f9fa;
+  color: #333;
+}
+
+.tab-button.active {
+  background: #3498db;
+  color: white;
+  box-shadow: 0 2px 4px rgba(52, 152, 219, 0.3);
+}
+
+.tab-icon {
+  font-size: 16px;
+}
+
+.tab-count {
+  background: rgba(255, 255, 255, 0.2);
+  padding: 2px 6px;
+  border-radius: 10px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+/* Dashboard Content */
+.dashboard-content {
+  background: white;
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  min-height: 600px;
+}
+
+/* Overview Tab */
+.overview-tab .overview-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 24px;
+}
+
+.overview-card {
+  padding: 20px;
+  border-radius: 8px;
+  border: 1px solid #e9ecef;
+  background: #f8f9fa;
+}
+
+.overview-card h3 {
+  margin: 0 0 16px 0;
+  color: #2c3e50;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.summary-stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.stat-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0;
+  border-bottom: 1px solid #e9ecef;
+}
+
+.stat-label {
+  font-size: 14px;
+  color: #666;
+}
+
+.stat-value {
+  font-weight: 600;
+  color: #2c3e50;
+}
+
+.overall-theme {
+  margin-top: 16px;
+  padding: 12px;
+  background: white;
+  border-radius: 6px;
+  border-left: 4px solid #3498db;
+}
+
+.overall-theme h4 {
+  margin: 0 0 8px 0;
+  color: #2c3e50;
+  font-size: 16px;
+}
+
+.aspect-breakdown {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.aspect-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 12px;
+  background: white;
+  border-radius: 20px;
+  font-size: 14px;
+}
+
+.aspect-badge {
+  padding: 2px 8px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 600;
+  color: white;
+}
+
+.aspect-badge.conjunction { background: #e74c3c; }
+.aspect-badge.opposition { background: #9b59b6; }
+.aspect-badge.trine { background: #27ae60; }
+.aspect-badge.square { background: #e67e22; }
+.aspect-badge.sextile { background: #3498db; }
+
+.aspect-count {
+  font-weight: 600;
+  color: #2c3e50;
+}
+
+.life-areas-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.life-area-tag {
+  padding: 6px 12px;
+  background: #3498db;
+  color: white;
+  border-radius: 16px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.options-list .option-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0;
+  border-bottom: 1px solid #e9ecef;
+}
+
+.option-label {
+  font-size: 14px;
+  color: #666;
+}
+
+.option-value {
+  font-weight: 600;
+  color: #2c3e50;
+}
+
+/* Active Transits Tab */
+.active-transits-tab .transits-grid {
+  display: grid;
+  gap: 20px;
+}
+
+.transit-card {
+  padding: 20px;
+  border-radius: 8px;
+  border: 1px solid #e9ecef;
+  background: white;
+  transition: box-shadow 0.2s;
+}
+
+.transit-card:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.transit-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.planets {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.planet-symbol {
+  font-size: 24px;
+}
+
+.natal-planet,
+.transiting-planet {
+  font-weight: 600;
+  color: #2c3e50;
+}
+
+.aspect-type {
+  padding: 4px 12px;
+  border-radius: 16px;
+  font-size: 14px;
+  font-weight: 600;
+  color: white;
+}
+
+.aspect-type.conjunction { background: #e74c3c; }
+.aspect-type.opposition { background: #9b59b6; }
+.aspect-type.trine { background: #27ae60; }
+.aspect-type.square { background: #e67e22; }
+.aspect-type.sextile { background: #3498db; }
+
+.transit-metrics {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.intensity,
+.orb {
+  font-size: 14px;
+  color: #666;
+}
+
+.transit-interpretation {
+  border-top: 1px solid #e9ecef;
+  padding-top: 16px;
+}
+
+.transit-interpretation > div {
+  margin-bottom: 12px;
+}
+
+.transit-interpretation strong {
+  color: #2c3e50;
+  display: block;
+  margin-bottom: 4px;
+}
+
+.transit-interpretation ul {
+  margin: 8px 0;
+  padding-left: 20px;
+}
+
+.transit-interpretation li {
+  margin-bottom: 4px;
+  color: #555;
+}
+
+/* Intensity colors */
+.high-intensity {
+  border-left: 4px solid #e74c3c;
+}
+
+.medium-intensity {
+  border-left: 4px solid #f39c12;
+}
+
+.low-intensity {
+  border-left: 4px solid #27ae60;
+}
+
+/* Upcoming Transits Tab */
+.upcoming-transits-list {
+  display: grid;
+  gap: 12px;
+}
+
+.upcoming-transit-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px;
+  background: #f8f9fa;
+  border-radius: 8px;
+  border: 1px solid #e9ecef;
+}
+
+.transit-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.transit-planets {
+  font-weight: 600;
+  color: #2c3e50;
+}
+
+.transit-intensity,
+.transit-orb {
+  font-size: 14px;
+  color: #666;
+}
+
+.transit-timing {
+  text-align: right;
+  font-size: 14px;
+  color: #666;
+}
+
+/* Analysis Tab */
+.analysis-tab .analysis-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 24px;
+}
+
+.analysis-card {
+  padding: 20px;
+  border-radius: 8px;
+  border: 1px solid #e9ecef;
+  background: #f8f9fa;
+}
+
+.analysis-card h4 {
+  margin: 0 0 16px 0;
+  color: #2c3e50;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.intensity-meter {
+  margin-bottom: 12px;
+}
+
+.intensity-bar {
+  height: 8px;
+  background: #e9ecef;
+  border-radius: 4px;
+  overflow: hidden;
+  margin-bottom: 8px;
+}
+
+.intensity-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #27ae60, #f39c12, #e74c3c);
+  border-radius: 4px;
+  transition: width 0.3s ease;
+}
+
+.intensity-value {
+  font-weight: 600;
+  color: #2c3e50;
+  font-size: 14px;
+}
+
+.intensity-description {
+  font-size: 14px;
+  color: #666;
+}
+
+.areas-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.area-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 12px;
+  background: white;
+  border-radius: 6px;
+}
+
+.area-name {
+  font-weight: 500;
+  color: #2c3e50;
+}
+
+.area-indicator {
+  width: 12px;
+  height: 12px;
+  background: #3498db;
+  border-radius: 50%;
+}
+
+.stats-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.stat {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0;
+  border-bottom: 1px solid #e9ecef;
+}
+
+/* Settings Tab */
+.settings-tab .settings-form {
+  max-width: 600px;
+}
+
+.setting-group {
+  margin-bottom: 24px;
+}
+
+.setting-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 500;
+  color: #2c3e50;
+}
+
+.setting-group input[type="number"],
+.setting-group select {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 14px;
+  background: white;
+}
+
+.setting-group input[type="range"] {
+  width: 100%;
+  margin-top: 8px;
+}
+
+.range-value {
+  display: inline-block;
+  margin-left: 12px;
+  font-weight: 600;
+  color: #2c3e50;
+}
+
+.checkbox-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: normal;
+  cursor: pointer;
+}
+
+.checkbox-label input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+}
+
+.setting-actions {
+  padding-top: 24px;
+  border-top: 1px solid #e9ecef;
+}
+
+.apply-settings-button {
+  padding: 12px 24px;
+  background: #27ae60;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 500;
+  transition: background-color 0.2s;
+}
+
+.apply-settings-button:hover {
+  background: #229954;
+}
+
+/* No data states */
+.no-transits,
+.no-upcoming {
+  text-align: center;
+  padding: 60px 20px;
+  color: #666;
+}
+
+.no-transits p,
+.no-upcoming p {
+  font-size: 16px;
+  margin: 0;
+}
+
+/* Dashboard Footer */
+.dashboard-footer {
+  margin-top: 24px;
+  padding: 16px;
+  text-align: center;
+  color: #666;
+  font-size: 14px;
+  border-top: 1px solid #e9ecef;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .western-transit-analysis-dashboard {
+    padding: 16px;
+  }
+
+  .dashboard-header {
+    flex-direction: column;
+    align-items: stretch;
+    text-align: center;
+  }
+
+  .dashboard-controls {
+    justify-content: center;
+  }
+
+  .dashboard-tabs {
+    flex-wrap: wrap;
+  }
+
+  .tab-button {
+    flex: 1;
+    min-width: 120px;
+    justify-content: center;
+  }
+
+  .overview-tab .overview-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .analysis-tab .analysis-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .transit-header {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .transit-metrics {
+    justify-content: space-between;
+  }
+
+  .upcoming-transit-item {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+  }
+
+  .transit-timing {
+    text-align: left;
+  }
+}
+
+@media (max-width: 480px) {
+  .dashboard-header h1 {
+    font-size: 24px;
+  }
+
+  .planets {
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .aspect-type {
+    align-self: center;
+  }
+
+  .transit-metrics {
+    flex-direction: column;
+    gap: 8px;
+  }
+}

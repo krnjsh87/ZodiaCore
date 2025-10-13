@@ -1,0 +1,419 @@
+/**
+ * Chinese Monthly Horoscope View Styles
+ * Monthly lunar cycles, solar terms, and elemental shifts with traditional Chinese aesthetics
+ */
+
+.chinese-monthly-horoscope-view {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  min-height: 100vh;
+}
+
+.chinese-monthly-horoscope-specific {
+  margin-top: 2rem;
+  display: grid;
+  gap: 2rem;
+}
+
+.chinese-monthly-horoscope-section {
+  background: white;
+  border-radius: 16px;
+  padding: 2rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.chinese-monthly-horoscope-section__title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #2d3748;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  position: relative;
+}
+
+.chinese-monthly-horoscope-section__title::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+  border-radius: 2px;
+}
+
+/* Lunar Phases */
+.lunar-phases {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.lunar-phase {
+  background: linear-gradient(135deg, #e6fffa 0%, #b2f5ea 100%);
+  border: 1px solid #b2f5ea;
+  border-radius: 12px;
+  padding: 1.5rem;
+  border-left: 4px solid #38b2ac;
+}
+
+.lunar-phase__header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.lunar-phase__icon {
+  font-size: 2rem;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.lunar-phase__content {
+  flex: 1;
+}
+
+.lunar-phase__name {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #234e52;
+  margin-bottom: 0.25rem;
+}
+
+.lunar-phase__date {
+  font-size: 0.9rem;
+  color: #38b2ac;
+  font-weight: 500;
+}
+
+.lunar-phase__significance {
+  color: #234e52;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* Solar Terms */
+.solar-terms {
+  display: grid;
+  gap: 1rem;
+}
+
+.solar-term {
+  background: linear-gradient(135deg, #fff5f5 0%, #fed7d7 100%);
+  border: 1px solid #fed7d7;
+  border-radius: 12px;
+  padding: 1.25rem;
+  border-left: 4px solid #e53e3e;
+}
+
+.solar-term__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.75rem;
+}
+
+.solar-term__name {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #742a2a;
+  margin: 0;
+}
+
+.solar-term__date {
+  font-size: 0.9rem;
+  color: #e53e3e;
+  background: rgba(255, 255, 255, 0.8);
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  font-weight: 500;
+}
+
+.solar-term__significance {
+  color: #742a2a;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* Elemental Shifts */
+.elemental-shifts {
+  display: grid;
+  gap: 1rem;
+}
+
+.elemental-shift {
+  background: linear-gradient(135deg, #f0fff4 0%, #c6f6d5 100%);
+  border: 1px solid #c6f6d5;
+  border-radius: 12px;
+  padding: 1.25rem;
+  border-left: 4px solid #48bb78;
+}
+
+.elemental-shift__header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.elemental-shift__element {
+  font-size: 0.9rem;
+  font-weight: 600;
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.elemental-shift__arrow {
+  font-size: 1.2rem;
+  color: #48bb78;
+  font-weight: bold;
+}
+
+.elemental-shift__date {
+  font-size: 0.9rem;
+  color: #48bb78;
+  background: rgba(255, 255, 255, 0.8);
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  font-weight: 500;
+  margin-left: auto;
+}
+
+.elemental-shift__significance {
+  color: #22543d;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* Auspicious Dates */
+.auspicious-dates {
+  display: grid;
+  gap: 1rem;
+}
+
+.auspicious-date {
+  background: linear-gradient(135deg, #d4edda 0%, #c3e6cb 100%);
+  border: 1px solid #c3e6cb;
+  border-radius: 12px;
+  padding: 1.25rem;
+  border-left: 4px solid #28a745;
+}
+
+.auspicious-date__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.75rem;
+}
+
+.auspicious-date__date {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #155724;
+  margin: 0;
+}
+
+.auspicious-date__score {
+  font-size: 0.9rem;
+  color: #155724;
+  background: rgba(255, 255, 255, 0.8);
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  font-weight: 500;
+}
+
+.auspicious-date__reason {
+  color: #155724;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* Challenging Periods */
+.challenging-periods {
+  display: grid;
+  gap: 1rem;
+}
+
+.challenging-period {
+  background: linear-gradient(135deg, #f8d7da 0%, #f5c6cb 100%);
+  border: 1px solid #f5c6cb;
+  border-radius: 12px;
+  padding: 1.25rem;
+  border-left: 4px solid #dc3545;
+}
+
+.challenging-period__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.75rem;
+}
+
+.challenging-period__date {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #721c24;
+  margin: 0;
+}
+
+.challenging-period__score {
+  font-size: 0.9rem;
+  color: #721c24;
+  background: rgba(255, 255, 255, 0.8);
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  font-weight: 500;
+}
+
+.challenging-period__reason {
+  color: #721c24;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* Info Section */
+.chinese-monthly-horoscope-info {
+  margin-top: 3rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 2rem;
+}
+
+.chinese-monthly-horoscope-info__section {
+  background: white;
+  padding: 2rem;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.chinese-monthly-horoscope-info__title {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #2d3748;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.chinese-monthly-horoscope-info__text {
+  color: #4a5568;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.chinese-monthly-horoscope-info__list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.chinese-monthly-horoscope-info__list li {
+  padding: 0.75rem 0;
+  border-bottom: 1px solid #e2e8f0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.chinese-monthly-horoscope-info__list li:last-child {
+  border-bottom: none;
+}
+
+.chinese-monthly-horoscope-info__list strong {
+  color: #2d3748;
+  font-weight: 600;
+}
+
+.chinese-monthly-horoscope-info__list li span {
+  color: #718096;
+  font-size: 0.9rem;
+}
+
+/* Element colors */
+.element-wood { background: linear-gradient(135deg, #48bb78 0%, #38a169 100%); color: white; }
+.element-fire { background: linear-gradient(135deg, #f56565 0%, #e53e3e 100%); color: white; }
+.element-earth { background: linear-gradient(135deg, #ed8936 0%, #dd6b20 100%); color: white; }
+.element-metal { background: linear-gradient(135deg, #a0aec0 0%, #718096 100%); color: white; }
+.element-water { background: linear-gradient(135deg, #4299e1 0%, #3182ce 100%); color: white; }
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .chinese-monthly-horoscope-view {
+    padding: 1rem;
+  }
+
+  .chinese-monthly-horoscope-section {
+    padding: 1.5rem;
+  }
+
+  .lunar-phases {
+    grid-template-columns: 1fr;
+  }
+
+  .lunar-phase__header {
+    flex-direction: column;
+    text-align: center;
+    gap: 0.75rem;
+  }
+
+  .elemental-shift__header {
+    justify-content: center;
+    text-align: center;
+  }
+
+  .elemental-shift__date {
+    margin-left: 0;
+    margin-top: 0.5rem;
+  }
+
+  .auspicious-date__header,
+  .challenging-period__header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+
+  .chinese-monthly-horoscope-info {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .chinese-monthly-horoscope-view {
+    padding: 0.5rem;
+  }
+
+  .chinese-monthly-horoscope-section {
+    padding: 1rem;
+  }
+
+  .lunar-phase {
+    padding: 1rem;
+  }
+
+  .lunar-phase__icon {
+    width: 40px;
+    height: 40px;
+    font-size: 1.5rem;
+  }
+}

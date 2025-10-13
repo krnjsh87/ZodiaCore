@@ -1,0 +1,806 @@
+/* Personalized Dasha Guidance Dashboard Styles */
+
+.dashboard-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  min-height: 100vh;
+  color: #333;
+}
+
+.dashboard-header {
+  text-align: center;
+  margin-bottom: 30px;
+  color: white;
+}
+
+.dashboard-header h1 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+.dashboard-header p {
+  font-size: 1.1rem;
+  opacity: 0.9;
+}
+
+/* Tab Navigation */
+.guidance-tabs {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 30px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50px;
+  padding: 5px;
+  backdrop-filter: blur(10px);
+}
+
+.tab-btn {
+  background: transparent;
+  border: none;
+  padding: 12px 24px;
+  margin: 0 5px;
+  border-radius: 25px;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 1rem;
+}
+
+.tab-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.tab-btn.active {
+  background: white;
+  color: #667eea;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+/* Content Container */
+.guidance-content {
+  background: white;
+  border-radius: 20px;
+  padding: 30px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+  margin-bottom: 30px;
+}
+
+/* Overview Section */
+.guidance-overview h2 {
+  color: #667eea;
+  margin-bottom: 20px;
+  font-size: 1.8rem;
+}
+
+.dasha-info {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 30px;
+  flex-wrap: wrap;
+}
+
+.dasha-info span {
+  background: #f8f9fa;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-weight: 500;
+  color: #495057;
+}
+
+.overall-guidance h3 {
+  color: #28a745;
+  margin-bottom: 15px;
+  font-size: 1.4rem;
+}
+
+.confidence-meter {
+  position: relative;
+  height: 30px;
+  background: #e9ecef;
+  border-radius: 15px;
+  margin-bottom: 20px;
+  overflow: hidden;
+}
+
+.confidence-bar {
+  height: 100%;
+  background: linear-gradient(90deg, #28a745, #20c997);
+  transition: width 0.5s ease;
+}
+
+.confidence-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-weight: bold;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+}
+
+.opportunities-challenges {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+  margin-bottom: 30px;
+}
+
+.opportunities h4,
+.challenges h4 {
+  color: #495057;
+  margin-bottom: 10px;
+  font-size: 1.1rem;
+}
+
+.opportunities ul,
+.challenges ul {
+  list-style: none;
+  padding: 0;
+}
+
+.opportunities li,
+.challenges li {
+  padding: 8px 0;
+  border-bottom: 1px solid #e9ecef;
+  color: #6c757d;
+}
+
+.general-advice {
+  background: #f8f9fa;
+  padding: 20px;
+  border-radius: 10px;
+  border-left: 4px solid #667eea;
+}
+
+.general-advice h4 {
+  color: #667eea;
+  margin-bottom: 10px;
+}
+
+.general-advice p {
+  color: #495057;
+  line-height: 1.6;
+}
+
+/* Life Areas Grid */
+.life-areas-grid h3 {
+  color: #495057;
+  margin-bottom: 20px;
+  font-size: 1.3rem;
+}
+
+.life-areas {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.life-area-card {
+  background: #f8f9fa;
+  padding: 20px;
+  border-radius: 10px;
+  border-left: 4px solid #6c757d;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.life-area-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.life-area-card.excellent {
+  border-left-color: #28a745;
+}
+
+.life-area-card.very-good {
+  border-left-color: #20c997;
+}
+
+.life-area-card.good {
+  border-left-color: #17a2b8;
+}
+
+.life-area-card.fair {
+  border-left-color: #ffc107;
+}
+
+.life-area-card.challenging {
+  border-left-color: #fd7e14;
+}
+
+.life-area-card.difficult {
+  border-left-color: #dc3545;
+}
+
+.life-area-card h4 {
+  color: #495057;
+  margin-bottom: 10px;
+  font-size: 1.1rem;
+}
+
+.influence-bar {
+  height: 8px;
+  background: #e9ecef;
+  border-radius: 4px;
+  margin-bottom: 10px;
+  overflow: hidden;
+}
+
+.influence-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #667eea, #764ba2);
+  transition: width 0.5s ease;
+}
+
+.rating {
+  font-weight: bold;
+  color: #495057;
+}
+
+.life-area-card p {
+  color: #6c757d;
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+/* Career Guidance */
+.career-guidance h2 {
+  color: #667eea;
+  margin-bottom: 30px;
+  font-size: 1.8rem;
+}
+
+.career-strength h3,
+.suitable-fields h3 {
+  color: #495057;
+  margin-bottom: 15px;
+}
+
+.strength-meter {
+  position: relative;
+  height: 40px;
+  background: #e9ecef;
+  border-radius: 20px;
+  margin-bottom: 20px;
+  overflow: hidden;
+}
+
+.strength-bar {
+  height: 100%;
+  background: linear-gradient(90deg, #28a745, #20c997);
+  transition: width 0.5s ease;
+}
+
+.strength-meter span {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-weight: bold;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+}
+
+.fields-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 30px;
+}
+
+.field-tag {
+  background: #667eea;
+  color: white;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+}
+
+.career-sections {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+  margin-bottom: 30px;
+}
+
+.career-sections h4 {
+  color: #495057;
+  margin-bottom: 10px;
+}
+
+.career-sections ul {
+  list-style: none;
+  padding: 0;
+}
+
+.career-sections li {
+  padding: 8px 0;
+  border-bottom: 1px solid #e9ecef;
+  color: #6c757d;
+}
+
+.timing-advice,
+.recommended-actions {
+  background: #f8f9fa;
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+.timing-advice h4,
+.recommended-actions h4 {
+  color: #667eea;
+  margin-bottom: 10px;
+}
+
+/* Relationship Guidance */
+.relationship-guidance h2 {
+  color: #667eea;
+  margin-bottom: 30px;
+  font-size: 1.8rem;
+}
+
+.relationship-strength h3,
+.marriage-timing h3,
+.compatibility-factors h3 {
+  color: #495057;
+  margin-bottom: 15px;
+}
+
+.timing-card {
+  background: #f8f9fa;
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 30px;
+}
+
+.likelihood {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #28a745;
+  margin-bottom: 10px;
+}
+
+.timeframe {
+  color: #6c757d;
+  margin-bottom: 15px;
+}
+
+.factors h4 {
+  color: #495057;
+  margin-bottom: 10px;
+}
+
+.factors ul {
+  list-style: none;
+  padding: 0;
+}
+
+.factors li {
+  padding: 5px 0;
+  color: #6c757d;
+}
+
+.factors-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.factor {
+  text-align: center;
+}
+
+.factor span:first-child {
+  display: block;
+  font-weight: bold;
+  color: #495057;
+  margin-bottom: 10px;
+}
+
+.factor-bar {
+  height: 10px;
+  background: #e9ecef;
+  border-radius: 5px;
+  margin-bottom: 5px;
+  overflow: hidden;
+}
+
+.factor-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #e83e8c, #dc3545);
+  transition: width 0.5s ease;
+}
+
+.relationship-status,
+.relationship-advice,
+.relationship-remedies {
+  background: #f8f9fa;
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+.relationship-status h4,
+.relationship-advice h4,
+.relationship-remedies h4 {
+  color: #667eea;
+  margin-bottom: 10px;
+}
+
+/* Remedies Section */
+.remedies-section h2 {
+  color: #667eea;
+  margin-bottom: 30px;
+  font-size: 1.8rem;
+}
+
+.remedy-header {
+  background: #f8f9fa;
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 30px;
+}
+
+.remedy-header p {
+  margin: 5px 0;
+  color: #495057;
+}
+
+.recommended-remedies h3 {
+  color: #495057;
+  margin-bottom: 20px;
+}
+
+.remedy-group {
+  background: white;
+  border: 1px solid #e9ecef;
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.remedy-group h4 {
+  color: #dc3545;
+  margin-bottom: 5px;
+}
+
+.remedy-reason {
+  color: #6c757d;
+  font-style: italic;
+  margin-bottom: 15px;
+}
+
+.remedy-item {
+  margin-bottom: 15px;
+  padding: 15px;
+  background: #f8f9fa;
+  border-radius: 8px;
+}
+
+.remedy-item p {
+  margin: 5px 0;
+  color: #495057;
+}
+
+.implementation-schedule h3 {
+  color: #495057;
+  margin-bottom: 20px;
+}
+
+.schedule-phase {
+  background: #f8f9fa;
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 15px;
+}
+
+.schedule-phase h4 {
+  color: #667eea;
+  margin-bottom: 10px;
+}
+
+.schedule-phase ul {
+  list-style: none;
+  padding: 0;
+}
+
+.schedule-phase li {
+  padding: 5px 0;
+  color: #6c757d;
+}
+
+.expected-benefits {
+  background: #d4edda;
+  padding: 20px;
+  border-radius: 10px;
+  border-left: 4px solid #28a745;
+}
+
+.expected-benefits h4 {
+  color: #155724;
+  margin-bottom: 10px;
+}
+
+.expected-benefits p {
+  color: #155724;
+}
+
+/* Timing Section */
+.timing-section h2 {
+  color: #667eea;
+  margin-bottom: 30px;
+  font-size: 1.8rem;
+}
+
+.timing-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  margin-bottom: 40px;
+}
+
+.timing-card {
+  background: #f8f9fa;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.timing-card h3 {
+  color: #495057;
+  margin-bottom: 15px;
+}
+
+.hours-list,
+.days-list,
+.dates-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 15px;
+}
+
+.hour-tag,
+.day-tag,
+.date-tag {
+  background: #667eea;
+  color: white;
+  padding: 6px 12px;
+  border-radius: 15px;
+  font-size: 0.85rem;
+}
+
+.timing-card h4 {
+  color: #495057;
+  margin-bottom: 10px;
+  font-size: 1rem;
+}
+
+.timing-card ul {
+  list-style: none;
+  padding: 0;
+}
+
+.timing-card li {
+  padding: 5px 0;
+  color: #6c757d;
+}
+
+.major-activities h3 {
+  color: #495057;
+  margin-bottom: 20px;
+}
+
+.activities-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.activity-item {
+  background: #f8f9fa;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.activity-item h4 {
+  color: #667eea;
+  margin-bottom: 10px;
+}
+
+.activity-item p {
+  color: #6c757d;
+}
+
+.avoidance-periods {
+  background: #f8d7da;
+  padding: 20px;
+  border-radius: 10px;
+  border-left: 4px solid #dc3545;
+}
+
+.avoidance-periods h4 {
+  color: #721c24;
+  margin-bottom: 10px;
+}
+
+.avoidance-periods ul {
+  list-style: none;
+  padding: 0;
+}
+
+.avoidance-periods li {
+  padding: 5px 0;
+  color: #721c24;
+}
+
+/* Footer */
+.guidance-footer {
+  background: rgba(255, 255, 255, 0.9);
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.metadata {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.metadata p {
+  margin: 0;
+  color: #6c757d;
+  font-size: 0.9rem;
+}
+
+/* Loading and Error States */
+.loading,
+.error,
+.no-data {
+  text-align: center;
+  padding: 50px 20px;
+  color: white;
+}
+
+.loading .spinner {
+  width: 50px;
+  height: 50px;
+  border: 4px solid rgba(255, 255, 255, 0.3);
+  border-top: 4px solid white;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin: 0 auto 20px;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.error h2 {
+  color: #dc3545;
+  margin-bottom: 15px;
+}
+
+.retry-btn {
+  background: #dc3545;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background 0.3s ease;
+}
+
+.retry-btn:hover {
+  background: #c82333;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .dashboard-container {
+    padding: 10px;
+  }
+
+  .dashboard-header h1 {
+    font-size: 2rem;
+  }
+
+  .guidance-tabs {
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .tab-btn {
+    margin: 0;
+  }
+
+  .guidance-content {
+    padding: 20px;
+  }
+
+  .opportunities-challenges {
+    grid-template-columns: 1fr;
+  }
+
+  .life-areas {
+    grid-template-columns: 1fr;
+  }
+
+  .career-sections {
+    grid-template-columns: 1fr;
+  }
+
+  .timing-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .activities-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .metadata {
+    flex-direction: column;
+    gap: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .dashboard-header h1 {
+    font-size: 1.5rem;
+  }
+
+  .dasha-info {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .factors-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Accessibility */
+.tab-btn:focus,
+.retry-btn:focus {
+  outline: 2px solid #fff;
+  outline-offset: 2px;
+}
+
+.life-area-card:focus-within,
+.timing-card:focus-within {
+  outline: 2px solid #667eea;
+  outline-offset: 2px;
+}
+
+/* Print Styles */
+@media print {
+  .dashboard-container {
+    background: white;
+    color: black;
+  }
+
+  .guidance-tabs {
+    display: none;
+  }
+
+  .tab-btn {
+    display: none;
+  }
+
+  .guidance-content {
+    box-shadow: none;
+    border: 1px solid #ccc;
+  }
+}

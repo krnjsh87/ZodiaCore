@@ -1,0 +1,272 @@
+/* Planetary Lines Visualization Styles */
+
+.planetary-lines-visualization {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e0e0e0;
+}
+
+.visualization-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.visualization-header h3 {
+  margin: 0;
+  color: #2c3e50;
+  font-size: 1.4rem;
+  font-weight: 600;
+}
+
+.legend {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.85rem;
+  color: #7f8c8d;
+}
+
+.legend-color {
+  width: 12px;
+  height: 12px;
+  border-radius: 2px;
+  flex-shrink: 0;
+}
+
+.map-container {
+  position: relative;
+  margin-bottom: 1.5rem;
+}
+
+.world-map {
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.planetary-line {
+  cursor: pointer;
+  transition: stroke-width 0.2s ease;
+}
+
+.planetary-line:hover {
+  stroke-width: 3px;
+}
+
+.planetary-line.selected {
+  stroke-width: 4px;
+  stroke-dasharray: 5, 5;
+}
+
+.selected-indicator {
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    r: 6;
+    opacity: 1;
+  }
+  50% {
+    r: 10;
+    opacity: 0.7;
+  }
+  100% {
+    r: 6;
+    opacity: 1;
+  }
+}
+
+.line-details {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 8px;
+  padding: 1rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  backdrop-filter: blur(10px);
+  max-width: 300px;
+  border: 1px solid #e0e0e0;
+}
+
+.line-details h4 {
+  margin: 0 0 0.75rem 0;
+  color: #2c3e50;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.line-info {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.info-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.label {
+  font-weight: 600;
+  color: #7f8c8d;
+  font-size: 0.85rem;
+}
+
+.value {
+  color: #2c3e50;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.line-description {
+  font-size: 0.9rem;
+  line-height: 1.4;
+  color: #34495e;
+  margin: 0;
+}
+
+.visualization-stats {
+  display: flex;
+  justify-content: space-around;
+  gap: 1rem;
+  padding: 1rem;
+  background: #f8f9fa;
+  border-radius: 8px;
+  flex-wrap: wrap;
+}
+
+.stat {
+  text-align: center;
+  min-width: 80px;
+}
+
+.stat-number {
+  display: block;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #667eea;
+  margin-bottom: 0.25rem;
+}
+
+.stat-label {
+  font-size: 0.8rem;
+  color: #7f8c8d;
+  font-weight: 500;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .visualization-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .legend {
+    justify-content: flex-start;
+    gap: 0.75rem;
+  }
+
+  .line-details {
+    position: static;
+    margin-top: 1rem;
+    max-width: none;
+  }
+
+  .visualization-stats {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .stat {
+    min-width: auto;
+    width: 100%;
+    max-width: 200px;
+  }
+}
+
+@media (max-width: 480px) {
+  .planetary-lines-visualization {
+    padding: 1rem;
+  }
+
+  .legend {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+
+  .line-info {
+    grid-template-columns: 1fr;
+  }
+
+  .world-map {
+    width: 100%;
+    height: auto;
+  }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .planetary-line {
+    transition: none;
+  }
+
+  .selected-indicator {
+    animation: none;
+  }
+}
+
+/* High contrast mode */
+@media (prefers-contrast: high) {
+  .planetary-lines-visualization {
+    border: 2px solid #000;
+  }
+
+  .line-details {
+    border: 2px solid #000;
+    background: #fff;
+  }
+
+  .legend-color {
+    border: 1px solid #000;
+  }
+}
+
+/* Focus states */
+.planetary-line:focus {
+  outline: none;
+  stroke: #2c3e50;
+  stroke-width: 4px;
+}
+
+/* Print styles */
+@media print {
+  .planetary-lines-visualization {
+    box-shadow: none;
+    border: 1px solid #000;
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  .line-details {
+    position: static;
+    background: #fff;
+    border: 1px solid #000;
+  }
+}

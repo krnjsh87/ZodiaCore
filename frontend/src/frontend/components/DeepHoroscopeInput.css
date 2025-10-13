@@ -1,0 +1,239 @@
+/* Deep Horoscope Input Component Styles */
+
+.deep-horoscope-input {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.input-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.input-header h2 {
+  color: #2c3e50;
+  font-size: 1.8rem;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+.input-header p {
+  color: #7f8c8d;
+  font-size: 1rem;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.input-error {
+  background: #fee;
+  border: 1px solid #e74c3c;
+  border-radius: 6px;
+  padding: 1rem;
+  margin-bottom: 1.5rem;
+  color: #c0392b;
+}
+
+.input-error p {
+  margin: 0;
+  font-weight: 500;
+}
+
+/* Form Styles */
+.birth-data-form {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.form-section {
+  border: 1px solid #ecf0f1;
+  border-radius: 8px;
+  padding: 1.5rem;
+  background: #fafbfc;
+}
+
+.form-section legend {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #2c3e50;
+  padding: 0 0.5rem;
+  margin-bottom: 1rem;
+  border: none;
+  width: auto;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  font-weight: 500;
+  color: #34495e;
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.form-group input,
+.form-group select {
+  padding: 0.75rem;
+  border: 2px solid #ecf0f1;
+  border-radius: 6px;
+  font-size: 1rem;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  background: #ffffff;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+  outline: none;
+  border-color: #3498db;
+  box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
+}
+
+.form-group input.error,
+.form-group select.error {
+  border-color: #e74c3c;
+  background: #fdf2f2;
+}
+
+.field-error {
+  color: #e74c3c;
+  font-size: 0.8rem;
+  margin-top: 0.25rem;
+  font-weight: 500;
+}
+
+.field-help {
+  color: #7f8c8d;
+  font-size: 0.8rem;
+  margin-top: 0.25rem;
+  font-style: italic;
+}
+
+/* Form Actions */
+.form-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  padding: 2rem 0;
+  border-top: 1px solid #ecf0f1;
+}
+
+.generate-button {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  padding: 1rem 2rem;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  min-width: 200px;
+}
+
+.generate-button:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(102, 126, 234, 0.3);
+}
+
+.generate-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.button-help {
+  color: #7f8c8d;
+  font-size: 0.9rem;
+  text-align: center;
+  max-width: 500px;
+  line-height: 1.4;
+}
+
+/* Privacy Notice */
+.privacy-notice {
+  margin-top: 2rem;
+  padding: 1.5rem;
+  background: #ecf0f1;
+  border-radius: 8px;
+  border-left: 4px solid #3498db;
+}
+
+.privacy-notice h3 {
+  color: #2c3e50;
+  margin: 0 0 1rem 0;
+  font-size: 1.1rem;
+}
+
+.privacy-notice p {
+  color: #34495e;
+  margin: 0.5rem 0;
+  line-height: 1.5;
+  font-size: 0.95rem;
+}
+
+.privacy-notice strong {
+  color: #2c3e50;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .deep-horoscope-input {
+    padding: 1rem;
+    margin: 0 1rem;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .input-header h2 {
+    font-size: 1.5rem;
+  }
+
+  .form-section {
+    padding: 1rem;
+  }
+
+  .generate-button {
+    width: 100%;
+    padding: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .deep-horoscope-input {
+    padding: 0.75rem;
+    margin: 0 0.5rem;
+  }
+
+  .input-header {
+    margin-bottom: 1.5rem;
+  }
+
+  .input-header h2 {
+    font-size: 1.3rem;
+  }
+
+  .form-section {
+    padding: 0.75rem;
+  }
+
+  .privacy-notice {
+    padding: 1rem;
+  }
+}

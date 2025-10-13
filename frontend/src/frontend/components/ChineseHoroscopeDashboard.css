@@ -1,0 +1,374 @@
+/**
+ * Chinese Horoscope Dashboard Styles
+ * Unified dashboard interface with navigation, overview cards, and responsive design
+ */
+
+.chinese-horoscope-dashboard {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+/* Dashboard Header */
+.dashboard-header {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 3rem 2rem;
+  text-align: center;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+.dashboard-title__main {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.dashboard-title__subtitle {
+  font-size: 1.1rem;
+  opacity: 0.9;
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.5;
+}
+
+/* Overview Cards */
+.overview-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.overview-card {
+  background: white;
+  border-radius: 16px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.overview-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+}
+
+.overview-card.active {
+  border-color: #667eea;
+  box-shadow: 0 4px 20px rgba(102, 126, 234, 0.2);
+}
+
+.overview-card__icon {
+  font-size: 2.5rem;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.overview-card__content {
+  flex: 1;
+}
+
+.overview-card__title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #2d3748;
+  margin-bottom: 0.5rem;
+}
+
+.overview-card__rating {
+  margin-bottom: 0.75rem;
+}
+
+.rating-badge {
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.rating-excellent { background: linear-gradient(135deg, #48bb78 0%, #38a169 100%); color: white; }
+.rating-very-good { background: linear-gradient(135deg, #68d391 0%, #48bb78 100%); color: white; }
+.rating-good { background: linear-gradient(135deg, #9ae6b4 0%, #68d391 100%); color: #22543d; }
+.rating-fair { background: linear-gradient(135deg, #fbb6ce 0%, #ed64a6 100%); color: white; }
+.rating-challenging { background: linear-gradient(135deg, #f56565 0%, #e53e3e 100%); color: white; }
+.rating-difficult { background: linear-gradient(135deg, #fc8181 0%, #f56565 100%); color: white; }
+
+.overview-card__summary {
+  color: #4a5568;
+  font-size: 0.9rem;
+  line-height: 1.4;
+  margin: 0;
+}
+
+/* Dashboard Controls */
+.dashboard-controls {
+  background: white;
+  border-radius: 16px;
+  margin: 0 2rem 2rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+}
+
+/* Navigation Tabs */
+.chinese-horoscope-tabs {
+  display: flex;
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  border-bottom: 1px solid #dee2e6;
+}
+
+.chinese-horoscope-tab {
+  flex: 1;
+  padding: 1rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  position: relative;
+}
+
+.chinese-horoscope-tab:hover {
+  background: rgba(102, 126, 234, 0.05);
+}
+
+.chinese-horoscope-tab.active {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+}
+
+.chinese-horoscope-tab.active::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60%;
+  height: 3px;
+  background: white;
+  border-radius: 2px;
+}
+
+.tab-icon {
+  font-size: 1.5rem;
+}
+
+.tab-label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Date Navigation */
+.date-navigation {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.5rem 2rem;
+  background: white;
+}
+
+.nav-button {
+  padding: 0.75rem 1.5rem;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.nav-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+}
+
+.nav-button:active {
+  transform: translateY(0);
+}
+
+.current-date-range {
+  text-align: center;
+  flex: 1;
+  margin: 0 2rem;
+}
+
+.date-range-text {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #2d3748;
+  display: block;
+  margin-bottom: 0.25rem;
+}
+
+.date-range-type {
+  font-size: 0.9rem;
+  color: #718096;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Dashboard Content */
+.dashboard-content {
+  padding: 0 2rem 2rem;
+}
+
+/* Dashboard Footer */
+.dashboard-footer {
+  background: #2d3748;
+  color: white;
+  padding: 2rem;
+  margin-top: 3rem;
+}
+
+.dashboard-footer__content {
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.dashboard-footer__text {
+  font-size: 0.95rem;
+  opacity: 0.9;
+  margin-bottom: 1.5rem;
+  line-height: 1.5;
+}
+
+.dashboard-footer__links {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.footer-link {
+  color: #667eea;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.footer-link:hover {
+  color: #764ba2;
+  text-decoration: underline;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .chinese-horoscope-dashboard {
+    padding: 0;
+  }
+
+  .dashboard-header {
+    padding: 2rem 1rem;
+  }
+
+  .dashboard-title__main {
+    font-size: 2rem;
+  }
+
+  .dashboard-title__subtitle {
+    font-size: 1rem;
+  }
+
+  .overview-cards {
+    padding: 1rem;
+    grid-template-columns: 1fr;
+  }
+
+  .overview-card {
+    flex-direction: column;
+    text-align: center;
+    gap: 1rem;
+  }
+
+  .dashboard-controls {
+    margin: 0 1rem 1rem;
+  }
+
+  .chinese-horoscope-tabs {
+    flex-wrap: wrap;
+  }
+
+  .chinese-horoscope-tab {
+    min-width: 120px;
+  }
+
+  .date-navigation {
+    padding: 1rem;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .current-date-range {
+    margin: 0;
+  }
+
+  .date-range-text {
+    font-size: 1.1rem;
+  }
+
+  .dashboard-content {
+    padding: 0 1rem 1rem;
+  }
+
+  .dashboard-footer {
+    padding: 1.5rem 1rem;
+  }
+
+  .dashboard-footer__links {
+    gap: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .chinese-horoscope-tabs {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .chinese-horoscope-tab {
+    padding: 0.75rem;
+  }
+
+  .tab-icon {
+    font-size: 1.2rem;
+  }
+
+  .tab-label {
+    font-size: 0.8rem;
+  }
+
+  .nav-button {
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+  }
+
+  .date-range-text {
+    font-size: 1rem;
+  }
+}

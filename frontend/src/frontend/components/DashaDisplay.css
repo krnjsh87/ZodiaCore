@@ -1,0 +1,115 @@
+/* Dasha Display Component Styles */
+
+.dasha-display h3 {
+  margin: 0 0 20px 0;
+  color: #495057;
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.dasha-section {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.dasha-card {
+  background: white;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e9ecef;
+}
+
+.dasha-card.mahadasha {
+  border-left: 4px solid #007bff;
+}
+
+.dasha-card.antardasha {
+  border-left: 4px solid #28a745;
+}
+
+.dasha-card h4 {
+  margin: 0 0 15px 0;
+  color: #495057;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.planet-name {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #007bff;
+  margin-bottom: 10px;
+}
+
+.dasha-dates {
+  color: #6c757d;
+  font-size: 0.9rem;
+  margin-bottom: 15px;
+}
+
+.progress-info {
+  margin-bottom: 15px;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 8px;
+  background: #e9ecef;
+  border-radius: 4px;
+  overflow: hidden;
+  margin-bottom: 5px;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #007bff 0%, #0056b3 100%);
+  border-radius: 4px;
+  transition: width 0.3s ease;
+}
+
+.progress-text {
+  font-size: 0.85rem;
+  color: #6c757d;
+  text-align: center;
+}
+
+.remaining-time {
+  font-size: 0.9rem;
+  color: #495057;
+  font-weight: 500;
+}
+
+.dasha-summary {
+  margin-top: 20px;
+  padding: 15px;
+  background: #f8f9fa;
+  border-radius: 6px;
+  border: 1px solid #e9ecef;
+}
+
+.dasha-summary p {
+  margin: 0;
+  color: #495057;
+  font-size: 0.95rem;
+}
+
+.dasha-summary strong {
+  color: #007bff;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .dasha-section {
+    gap: 15px;
+  }
+
+  .dasha-card {
+    padding: 15px;
+  }
+
+  .planet-name {
+    font-size: 1.3rem;
+  }
+}

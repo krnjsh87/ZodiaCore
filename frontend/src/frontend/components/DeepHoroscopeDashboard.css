@@ -1,0 +1,327 @@
+/* Deep Horoscope Dashboard Styles */
+
+.deep-horoscope-dashboard {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  min-height: 100vh;
+  color: #333;
+}
+
+.dashboard-header {
+  text-align: center;
+  margin-bottom: 30px;
+  color: white;
+}
+
+.dashboard-header h1 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+.dashboard-header p {
+  font-size: 1.1rem;
+  opacity: 0.9;
+}
+
+.interpretation-meta {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 15px;
+  font-size: 0.9rem;
+}
+
+.interpretation-meta span {
+  background: rgba(255,255,255,0.2);
+  padding: 5px 10px;
+  border-radius: 15px;
+  backdrop-filter: blur(10px);
+}
+
+/* Loading and Error States */
+.loading-container, .error-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 60vh;
+  background: rgba(255,255,255,0.95);
+  border-radius: 20px;
+  padding: 40px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+.loading-spinner {
+  width: 60px;
+  height: 60px;
+  border: 4px solid #f3f3f3;
+  border-top: 4px solid #667eea;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-bottom: 20px;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.loading-container h3, .error-container h3 {
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.loading-container p, .error-container p {
+  color: #666;
+  text-align: center;
+  max-width: 400px;
+}
+
+.retry-button {
+  background: #667eea;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 25px;
+  cursor: pointer;
+  font-size: 1rem;
+  margin-top: 20px;
+  transition: all 0.3s ease;
+}
+
+.retry-button:hover {
+  background: #5a6fd8;
+  transform: translateY(-2px);
+}
+
+/* Navigation Tabs */
+.dashboard-tabs {
+  display: flex;
+  background: rgba(255,255,255,0.95);
+  border-radius: 15px;
+  padding: 5px;
+  margin-bottom: 30px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  backdrop-filter: blur(10px);
+}
+
+.tab-button {
+  flex: 1;
+  background: transparent;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  color: #666;
+}
+
+.tab-button:hover {
+  background: rgba(102, 126, 234, 0.1);
+  color: #667eea;
+}
+
+.tab-button.active {
+  background: #667eea;
+  color: white;
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+}
+
+/* Tab Content */
+.tab-content {
+  background: rgba(255,255,255,0.95);
+  border-radius: 20px;
+  padding: 30px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+  backdrop-filter: blur(10px);
+  min-height: 600px;
+}
+
+/* Overview Section */
+.overview-section {
+  display: grid;
+  gap: 30px;
+}
+
+.basic-info-card, .assessment-card, .recommendations-card {
+  background: white;
+  border-radius: 15px;
+  padding: 25px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.basic-info-card h3, .assessment-card h3, .recommendations-card h3 {
+  color: #333;
+  margin-bottom: 20px;
+  font-size: 1.3rem;
+}
+
+.info-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 15px;
+}
+
+.info-item {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.info-item label {
+  font-weight: 600;
+  color: #667eea;
+  font-size: 0.9rem;
+}
+
+.info-item span {
+  color: #333;
+  font-size: 1rem;
+}
+
+.strength-indicator {
+  margin: 20px 0;
+}
+
+.strength-indicator label {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: 600;
+  color: #333;
+}
+
+.strength-bar {
+  height: 20px;
+  background: #e0e0e0;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 5px;
+}
+
+.strength-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #667eea, #764ba2);
+  border-radius: 10px;
+  transition: width 0.5s ease;
+}
+
+.assessment-summary {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #555;
+}
+
+.key-themes {
+  margin-top: 20px;
+}
+
+.key-themes h4 {
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.key-themes ul {
+  list-style: none;
+  padding: 0;
+}
+
+.key-themes li {
+  padding: 5px 0;
+  color: #555;
+}
+
+.recommendations-list {
+  list-style: none;
+  padding: 0;
+}
+
+.recommendations-list li {
+  padding: 10px 15px;
+  margin-bottom: 10px;
+  border-radius: 8px;
+  border-left: 4px solid;
+}
+
+.recommendation-High {
+  background: #fff3cd;
+  border-left-color: #ffc107;
+}
+
+.recommendation-Medium {
+  background: #d1ecf1;
+  border-left-color: #17a2b8;
+}
+
+.recommendation-Low {
+  background: #d4edda;
+  border-left-color: #28a745;
+}
+
+/* Footer */
+.dashboard-footer {
+  margin-top: 30px;
+  text-align: center;
+  padding: 20px;
+  background: rgba(255,255,255,0.9);
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.dashboard-footer p {
+  color: #666;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .deep-horoscope-dashboard {
+    padding: 15px;
+  }
+
+  .dashboard-header h1 {
+    font-size: 2rem;
+  }
+
+  .dashboard-tabs {
+    flex-direction: column;
+  }
+
+  .tab-button {
+    margin-bottom: 5px;
+  }
+
+  .tab-content {
+    padding: 20px;
+  }
+
+  .info-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .interpretation-meta {
+    flex-direction: column;
+    gap: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .dashboard-header h1 {
+    font-size: 1.8rem;
+  }
+
+  .tab-content {
+    padding: 15px;
+  }
+
+  .basic-info-card, .assessment-card, .recommendations-card {
+    padding: 20px;
+  }
+}

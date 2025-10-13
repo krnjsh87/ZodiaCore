@@ -1,0 +1,967 @@
+/* Mundane Astrology Dashboard Styles */
+
+.mundane-astrology-dashboard {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  min-height: 100vh;
+  color: #333;
+}
+
+.dashboard-header {
+  text-align: center;
+  margin-bottom: 30px;
+  color: white;
+}
+
+.dashboard-header h1 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+  font-weight: 700;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+
+.dashboard-header p {
+  font-size: 1.1rem;
+  opacity: 0.9;
+  max-width: 800px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+.dashboard-actions {
+  margin-top: 20px;
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+}
+
+.action-button {
+  padding: 12px 24px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.action-button.primary {
+  background: #4CAF50;
+  color: white;
+}
+
+.action-button.primary:hover {
+  background: #45a049;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(76, 175, 80, 0.3);
+}
+
+.action-button.secondary {
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+.action-button.secondary:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: translateY(-2px);
+}
+
+.dashboard-content {
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  overflow: hidden;
+  margin-bottom: 30px;
+}
+
+.input-section,
+.results-section {
+  padding: 30px;
+}
+
+.dashboard-footer {
+  text-align: center;
+  color: white;
+  opacity: 0.8;
+}
+
+.footer-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.footer-content p {
+  margin: 10px 0;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+/* Input Component Styles */
+.mundane-astrology-input {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.input-header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.input-header h2 {
+  color: #2c3e50;
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.input-header p {
+  color: #7f8c8d;
+  font-size: 1.1rem;
+}
+
+.input-error {
+  background: #fee;
+  border: 1px solid #fcc;
+  border-radius: 8px;
+  padding: 15px;
+  margin-bottom: 20px;
+  color: #c0392b;
+}
+
+.mundane-analysis-form {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.form-section {
+  background: #f8f9fa;
+  border-radius: 12px;
+  padding: 25px;
+  border: 1px solid #e9ecef;
+}
+
+.form-section legend {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #2c3e50;
+  padding: 0 10px;
+  margin-bottom: 15px;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  font-weight: 600;
+  color: #2c3e50;
+  margin-bottom: 8px;
+  font-size: 0.95rem;
+}
+
+.form-group input,
+.form-group select {
+  padding: 12px 16px;
+  border: 2px solid #e9ecef;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+  outline: none;
+  border-color: #667eea;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+.form-group input.error,
+.form-group select.error {
+  border-color: #e74c3c;
+}
+
+.field-help {
+  font-size: 0.85rem;
+  color: #6c757d;
+  margin-top: 4px;
+}
+
+.field-error {
+  font-size: 0.85rem;
+  color: #e74c3c;
+  margin-top: 4px;
+  font-weight: 500;
+}
+
+.checkbox-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: normal;
+  cursor: pointer;
+}
+
+.checkbox-label input[type="checkbox"] {
+  width: auto;
+  margin: 0;
+}
+
+.checkbox-group {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.checkbox-group .checkbox-label {
+  margin: 0;
+}
+
+.national-data-section {
+  margin-top: 20px;
+  padding: 20px;
+  background: white;
+  border-radius: 8px;
+  border: 1px solid #e9ecef;
+}
+
+.form-actions {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 30px;
+}
+
+.generate-button {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 15px 40px;
+  border: none;
+  border-radius: 50px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+}
+
+.generate-button:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+}
+
+.generate-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.button-help {
+  text-align: center;
+  margin-top: 10px;
+  font-size: 0.9rem;
+  color: #6c757d;
+}
+
+.info-notice {
+  background: #e8f4f8;
+  border: 1px solid #bee5eb;
+  border-radius: 8px;
+  padding: 20px;
+  margin-top: 30px;
+}
+
+.info-notice h3 {
+  color: #0c5460;
+  margin-bottom: 10px;
+}
+
+.info-notice p {
+  color: #0c5460;
+  margin: 5px 0;
+  line-height: 1.5;
+}
+
+/* Results Component Styles */
+.mundane-astrology-results {
+  max-width: 100%;
+}
+
+.results-header {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 25px;
+  text-align: center;
+}
+
+.results-header h2 {
+  margin: 0 0 15px 0;
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.analysis-meta {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+  font-size: 0.95rem;
+  opacity: 0.9;
+}
+
+.analysis-meta span {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.results-tabs {
+  display: flex;
+  flex-direction: column;
+}
+
+.tab-navigation {
+  display: flex;
+  background: #f8f9fa;
+  border-bottom: 1px solid #dee2e6;
+  overflow-x: auto;
+}
+
+.tab-button {
+  padding: 15px 25px;
+  background: none;
+  border: none;
+  border-bottom: 3px solid transparent;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #6c757d;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+.tab-button:hover {
+  background: rgba(102, 126, 234, 0.05);
+  color: #667eea;
+}
+
+.tab-button.active {
+  color: #667eea;
+  border-bottom-color: #667eea;
+  background: white;
+}
+
+.tab-content {
+  padding: 30px;
+  background: white;
+  min-height: 400px;
+}
+
+/* Overview Tab */
+.overview-tab {
+  max-width: 100%;
+}
+
+.overview-summary h3 {
+  color: #2c3e50;
+  margin-bottom: 20px;
+  font-size: 1.5rem;
+}
+
+.summary-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.summary-item {
+  background: #f8f9fa;
+  padding: 20px;
+  border-radius: 12px;
+  border: 1px solid #e9ecef;
+}
+
+.summary-item h4 {
+  color: #2c3e50;
+  margin: 0 0 10px 0;
+  font-size: 1.1rem;
+}
+
+.summary-item p {
+  margin: 5px 0;
+  color: #495057;
+}
+
+.summary-item small {
+  color: #6c757d;
+  font-size: 0.85rem;
+}
+
+.summary-item ul {
+  margin: 10px 0 0 0;
+  padding-left: 20px;
+}
+
+.summary-item li {
+  margin: 5px 0;
+  color: #495057;
+}
+
+.key-findings p {
+  background: #fff3cd;
+  padding: 8px 12px;
+  border-radius: 6px;
+  margin: 5px 0;
+  border-left: 4px solid #ffc107;
+}
+
+.analysis-disclaimer {
+  background: #f8f9fa;
+  padding: 20px;
+  border-radius: 12px;
+  border: 1px solid #e9ecef;
+}
+
+.analysis-disclaimer h4 {
+  color: #2c3e50;
+  margin-bottom: 15px;
+}
+
+.analysis-disclaimer ul {
+  margin: 0;
+  padding-left: 20px;
+}
+
+.analysis-disclaimer li {
+  margin: 8px 0;
+  color: #495057;
+  line-height: 1.5;
+}
+
+/* Horoscope Tab */
+.horoscope-tab h3 {
+  color: #2c3e50;
+  margin-bottom: 20px;
+}
+
+.horoscope-info {
+  background: #f8f9fa;
+  padding: 20px;
+  border-radius: 12px;
+  margin-bottom: 20px;
+}
+
+.horoscope-details {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 15px;
+}
+
+.detail-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 0;
+  border-bottom: 1px solid #e9ecef;
+}
+
+.detail-item:last-child {
+  border-bottom: none;
+}
+
+.positions-grid,
+.houses-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 10px;
+}
+
+.position-item,
+.house-item {
+  background: #f8f9fa;
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #e9ecef;
+  font-size: 0.9rem;
+}
+
+.position-item strong,
+.house-item strong {
+  color: #2c3e50;
+}
+
+/* Transits Tab */
+.transits-tab h3 {
+  color: #2c3e50;
+  margin-bottom: 20px;
+}
+
+.transits-header {
+  background: #f8f9fa;
+  padding: 20px;
+  border-radius: 12px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.transit-positions h4,
+.transit-aspects h4,
+.transit-strength h4 {
+  color: #2c3e50;
+  margin-bottom: 15px;
+}
+
+.aspects-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.aspect-item {
+  background: #f8f9fa;
+  padding: 15px;
+  border-radius: 8px;
+  border: 1px solid #e9ecef;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.aspect-planets {
+  font-weight: 600;
+  color: #2c3e50;
+}
+
+.aspect-details {
+  font-size: 0.9rem;
+  color: #6c757d;
+}
+
+.strength-meter {
+  background: #e9ecef;
+  height: 20px;
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+}
+
+.strength-bar {
+  background: linear-gradient(90deg, #28a745 0%, #ffc107 70%, #dc3545 100%);
+  height: 100%;
+  transition: width 0.3s ease;
+}
+
+.strength-value {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #2c3e50;
+}
+
+/* Predictions Tab */
+.predictions-tab h3 {
+  color: #2c3e50;
+  margin-bottom: 20px;
+}
+
+.prediction-category {
+  margin-bottom: 30px;
+}
+
+.prediction-category h4 {
+  color: #2c3e50;
+  margin-bottom: 15px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #e9ecef;
+}
+
+.prediction-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.prediction-item {
+  background: #f8f9fa;
+  padding: 20px;
+  border-radius: 12px;
+  border: 1px solid #e9ecef;
+  display: flex;
+  gap: 20px;
+}
+
+.prediction-date {
+  font-weight: 600;
+  color: #667eea;
+  min-width: 120px;
+}
+
+.prediction-content p {
+  margin: 0 0 10px 0;
+  color: #495057;
+  line-height: 1.5;
+}
+
+.prediction-details {
+  display: flex;
+  gap: 15px;
+  font-size: 0.9rem;
+  color: #6c757d;
+}
+
+/* Weather Tab */
+.weather-tab h3 {
+  color: #2c3e50;
+  margin-bottom: 20px;
+}
+
+.weather-location {
+  background: #f8f9fa;
+  padding: 20px;
+  border-radius: 12px;
+  margin-bottom: 20px;
+}
+
+.weather-predictions {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.weather-prediction {
+  background: #f8f9fa;
+  padding: 20px;
+  border-radius: 12px;
+  border: 1px solid #e9ecef;
+}
+
+.prediction-type {
+  font-weight: 600;
+  color: #2c3e50;
+  margin-bottom: 8px;
+}
+
+.prediction-text {
+  color: #495057;
+  margin-bottom: 8px;
+  line-height: 1.5;
+}
+
+.prediction-strength {
+  font-size: 0.9rem;
+  color: #6c757d;
+}
+
+/* Economic Tab */
+.economic-tab h3 {
+  color: #2c3e50;
+  margin-bottom: 20px;
+}
+
+.economic-indicators,
+.economic-prediction {
+  background: #f8f9fa;
+  padding: 20px;
+  border-radius: 12px;
+  margin-bottom: 20px;
+}
+
+.economic-indicators h4,
+.economic-prediction h4 {
+  color: #2c3e50;
+  margin-bottom: 15px;
+}
+
+.economic-indicators ul {
+  margin: 0;
+  padding-left: 20px;
+}
+
+.economic-indicators li {
+  margin: 8px 0;
+  color: #495057;
+}
+
+.economic-prediction p {
+  color: #495057;
+  line-height: 1.5;
+}
+
+/* Dasha Tab */
+.dasha-tab h3 {
+  color: #2c3e50;
+  margin-bottom: 20px;
+}
+
+.dasha-current,
+.dasha-effects {
+  background: #f8f9fa;
+  padding: 20px;
+  border-radius: 12px;
+  margin-bottom: 20px;
+}
+
+.dasha-info {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 15px;
+}
+
+.dasha-info p {
+  margin: 8px 0;
+  padding: 8px 12px;
+  background: white;
+  border-radius: 6px;
+  border: 1px solid #e9ecef;
+}
+
+.effects-breakdown {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.effect-item {
+  background: white;
+  padding: 15px;
+  border-radius: 8px;
+  border: 1px solid #e9ecef;
+}
+
+.effect-item strong {
+  color: #2c3e50;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.effect-item p {
+  color: #495057;
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* Validation Tab */
+.validation-tab h3 {
+  color: #2c3e50;
+  margin-bottom: 20px;
+}
+
+.validation-summary {
+  background: #f8f9fa;
+  padding: 20px;
+  border-radius: 12px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.validation-summary p {
+  font-size: 1.1rem;
+  color: #2c3e50;
+  margin: 10px 0;
+}
+
+.validation-details {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.validation-item {
+  background: #f8f9fa;
+  padding: 20px;
+  border-radius: 12px;
+  border: 1px solid #e9ecef;
+}
+
+.validation-event {
+  margin-bottom: 15px;
+}
+
+.validation-event strong {
+  color: #2c3e50;
+  font-size: 1.1rem;
+}
+
+.validation-date {
+  color: #6c757d;
+  font-size: 0.9rem;
+}
+
+.validation-analysis p {
+  color: #495057;
+  margin-bottom: 10px;
+  line-height: 1.5;
+}
+
+.validation-metrics {
+  display: flex;
+  gap: 15px;
+  font-size: 0.9rem;
+  color: #6c757d;
+}
+
+/* Collaborative Insights */
+.collaborative-insights {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 25px;
+  border-radius: 12px;
+  margin-top: 20px;
+}
+
+.collaborative-insights h3 {
+  margin: 0 0 15px 0;
+  font-size: 1.5rem;
+}
+
+.insights-content p {
+  margin: 0;
+  opacity: 0.9;
+  line-height: 1.5;
+}
+
+/* Loading and Error States */
+.mundane-results-loading,
+.mundane-results-error {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.loading-spinner {
+  width: 50px;
+  height: 50px;
+  border: 4px solid #f3f3f3;
+  border-top: 4px solid #667eea;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-bottom: 20px;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.mundane-results-error h3 {
+  color: #e74c3c;
+  margin-bottom: 10px;
+}
+
+.mundane-results-error p {
+  color: #6c757d;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .mundane-astrology-dashboard {
+    padding: 15px;
+  }
+
+  .dashboard-header h1 {
+    font-size: 2rem;
+  }
+
+  .dashboard-actions {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .analysis-meta {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .tab-navigation {
+    flex-wrap: wrap;
+  }
+
+  .tab-button {
+    padding: 12px 20px;
+    font-size: 0.9rem;
+  }
+
+  .summary-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+
+  .prediction-item {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .aspect-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .dasha-info {
+    grid-template-columns: 1fr;
+  }
+
+  .horoscope-details {
+    grid-template-columns: 1fr;
+  }
+
+  .positions-grid,
+  .houses-grid {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  }
+}
+
+@media (max-width: 480px) {
+  .dashboard-header h1 {
+    font-size: 1.8rem;
+  }
+
+  .results-header h2 {
+    font-size: 1.5rem;
+  }
+
+  .tab-content {
+    padding: 20px;
+  }
+
+  .summary-item,
+  .horoscope-info,
+  .transits-header,
+  .weather-location,
+  .economic-indicators,
+  .economic-prediction,
+  .dasha-current,
+  .dasha-effects,
+  .validation-summary {
+    padding: 15px;
+  }
+
+  .prediction-item,
+  .weather-prediction,
+  .validation-item {
+    padding: 15px;
+  }
+}

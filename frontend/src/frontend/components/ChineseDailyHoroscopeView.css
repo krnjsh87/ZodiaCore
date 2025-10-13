@@ -1,0 +1,323 @@
+/**
+ * Chinese Daily Horoscope View Styles
+ * Traditional Chinese astrology inspired design with elemental colors and lunar aesthetics
+ */
+
+.chinese-daily-horoscope-view {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  min-height: 100vh;
+}
+
+.chinese-daily-horoscope-specific {
+  margin-top: 2rem;
+  display: grid;
+  gap: 2rem;
+}
+
+.chinese-daily-horoscope-section {
+  background: white;
+  border-radius: 16px;
+  padding: 2rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.chinese-daily-horoscope-section__title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #2d3748;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  position: relative;
+}
+
+.chinese-daily-horoscope-section__title::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+  border-radius: 2px;
+}
+
+/* Lunar & Solar Grid */
+.lunar-solar-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.lunar-solar-element {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.5rem;
+  background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+  border-radius: 12px;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.lunar-solar-element:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+.lunar-solar-element__icon {
+  font-size: 2.5rem;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 50%;
+  color: white;
+  flex-shrink: 0;
+}
+
+.lunar-solar-element__content {
+  flex: 1;
+}
+
+.lunar-solar-element__title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #4a5568;
+  margin-bottom: 0.5rem;
+}
+
+.lunar-solar-element__value {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #2d3748;
+  margin-bottom: 0.25rem;
+}
+
+.lunar-solar-element__detail {
+  font-size: 0.9rem;
+  color: #718096;
+  line-height: 1.4;
+}
+
+/* Auspicious Hours */
+.auspicious-hours {
+  display: grid;
+  gap: 1rem;
+}
+
+.auspicious-hour {
+  padding: 1.25rem;
+  background: linear-gradient(135deg, #d4edda 0%, #c3e6cb 100%);
+  border: 1px solid #c3e6cb;
+  border-radius: 12px;
+  border-left: 4px solid #28a745;
+}
+
+.auspicious-hour__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.75rem;
+}
+
+.auspicious-hour__name {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #155724;
+  margin: 0;
+}
+
+.auspicious-hour__time {
+  font-size: 0.9rem;
+  color: #155724;
+  background: rgba(255, 255, 255, 0.8);
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  font-weight: 500;
+}
+
+.auspicious-hour__significance {
+  color: #155724;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* Challenging Hours */
+.challenging-hours {
+  display: grid;
+  gap: 1rem;
+}
+
+.challenging-hour {
+  padding: 1.25rem;
+  background: linear-gradient(135deg, #f8d7da 0%, #f5c6cb 100%);
+  border: 1px solid #f5c6cb;
+  border-radius: 12px;
+  border-left: 4px solid #dc3545;
+}
+
+.challenging-hour__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.75rem;
+}
+
+.challenging-hour__name {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #721c24;
+  margin: 0;
+}
+
+.challenging-hour__time {
+  font-size: 0.9rem;
+  color: #721c24;
+  background: rgba(255, 255, 255, 0.8);
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  font-weight: 500;
+}
+
+.challenging-hour__significance {
+  color: #721c24;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* Info Section */
+.chinese-daily-horoscope-info {
+  margin-top: 3rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 2rem;
+}
+
+.chinese-daily-horoscope-info__section {
+  background: white;
+  padding: 2rem;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.chinese-daily-horoscope-info__title {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #2d3748;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.chinese-daily-horoscope-info__text {
+  color: #4a5568;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.chinese-daily-horoscope-info__list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.chinese-daily-horoscope-info__list li {
+  padding: 0.75rem 0;
+  border-bottom: 1px solid #e2e8f0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.chinese-daily-horoscope-info__list li:last-child {
+  border-bottom: none;
+}
+
+.chinese-daily-horoscope-info__list strong {
+  color: #2d3748;
+  font-weight: 600;
+}
+
+.chinese-daily-horoscope-info__list li span {
+  color: #718096;
+  font-size: 0.9rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .chinese-daily-horoscope-view {
+    padding: 1rem;
+  }
+
+  .chinese-daily-horoscope-section {
+    padding: 1.5rem;
+  }
+
+  .lunar-solar-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .lunar-solar-element {
+    flex-direction: column;
+    text-align: center;
+    gap: 1rem;
+  }
+
+  .lunar-solar-element__icon {
+    align-self: center;
+  }
+
+  .chinese-daily-horoscope-info {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .auspicious-hour__header,
+  .challenging-hour__header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .chinese-daily-horoscope-view {
+    padding: 0.5rem;
+  }
+
+  .chinese-daily-horoscope-section {
+    padding: 1rem;
+  }
+
+  .chinese-daily-horoscope-section__title {
+    font-size: 1.3rem;
+  }
+
+  .lunar-solar-element__icon {
+    width: 50px;
+    height: 50px;
+    font-size: 2rem;
+  }
+}
+
+/* Element-specific colors */
+.chinese-daily-horoscope-section--lunar-solar .lunar-solar-element:nth-child(1) .lunar-solar-element__icon {
+  background: linear-gradient(135deg, #4a90e2 0%, #357abd 100%);
+}
+
+.chinese-daily-horoscope-section--lunar-solar .lunar-solar-element:nth-child(2) .lunar-solar-element__icon {
+  background: linear-gradient(135deg, #f5a623 0%, #e67e22 100%);
+}
+
+.chinese-daily-horoscope-section--lunar-solar .lunar-solar-element:nth-child(3) .lunar-solar-element__icon {
+  background: linear-gradient(135deg, #7ed321 0%, #5ba300 100%);
+}

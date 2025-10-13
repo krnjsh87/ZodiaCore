@@ -1,0 +1,485 @@
+/* ZC1.19 Remedies Display Styles */
+
+.remedies-display {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  line-height: 1.6;
+  color: #333;
+}
+
+.remedies-header {
+  text-align: center;
+  margin-bottom: 30px;
+  padding-bottom: 20px;
+  border-bottom: 2px solid #e9ecef;
+}
+
+.remedies-header h2 {
+  color: #2c3e50;
+  font-size: 2.2rem;
+  margin-bottom: 8px;
+}
+
+.timestamp {
+  color: #6c757d;
+  font-size: 0.9rem;
+  font-style: italic;
+}
+
+.remedies-navigation {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 30px;
+  background: #f8f9fa;
+  border-radius: 8px;
+  padding: 4px;
+  flex-wrap: wrap;
+}
+
+.remedies-navigation button {
+  background: transparent;
+  border: none;
+  padding: 12px 24px;
+  margin: 2px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  flex: 1;
+  min-width: 120px;
+}
+
+.remedies-navigation button:hover {
+  background: #e9ecef;
+}
+
+.remedies-navigation button.active {
+  background: #007bff;
+  color: white;
+  box-shadow: 0 2px 4px rgba(0,123,255,0.3);
+}
+
+/* Afflictions Section */
+.afflictions-section h3 {
+  color: #2c3e50;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.afflictions-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.affliction-card {
+  background: white;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  border: 2px solid #e9ecef;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.affliction-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+}
+
+.affliction-card.severe {
+  border-color: #dc3545;
+  background: linear-gradient(135deg, #fff5f5 0%, white 100%);
+}
+
+.affliction-card.moderate {
+  border-color: #fd7e14;
+  background: linear-gradient(135deg, #fffbf0 0%, white 100%);
+}
+
+.affliction-card.mild {
+  border-color: #ffc107;
+  background: linear-gradient(135deg, #fffef0 0%, white 100%);
+}
+
+.affliction-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.affliction-header h4 {
+  margin: 0;
+  color: #2c3e50;
+  font-size: 1.3rem;
+}
+
+.severity-badge {
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: bold;
+  color: white;
+}
+
+.affliction-score {
+  font-weight: 600;
+  color: #495057;
+  margin-bottom: 15px;
+}
+
+.affliction-details {
+  margin-top: 15px;
+  padding-top: 15px;
+  border-top: 1px solid #e9ecef;
+}
+
+.detail-section {
+  margin-bottom: 12px;
+}
+
+.detail-section h5 {
+  color: #495057;
+  margin-bottom: 6px;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.detail-section ul {
+  margin: 0;
+  padding-left: 20px;
+}
+
+.detail-section li {
+  margin-bottom: 4px;
+  color: #6c757d;
+}
+
+/* Remedies Section */
+.remedies-section h3 {
+  color: #2c3e50;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.remedies-tabs {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 30px;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.remedy-tab {
+  background: #f8f9fa;
+  border: 2px solid #dee2e6;
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.remedy-tab:hover {
+  background: #e9ecef;
+  border-color: #adb5bd;
+}
+
+.remedy-tab.active {
+  background: #007bff;
+  color: white;
+  border-color: #007bff;
+}
+
+.planet-remedies {
+  background: white;
+  border-radius: 12px;
+  padding: 25px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.planet-remedies h4 {
+  color: #2c3e50;
+  margin-bottom: 20px;
+  text-align: center;
+  font-size: 1.5rem;
+}
+
+.remedy-category {
+  margin-bottom: 25px;
+}
+
+.remedy-category h5 {
+  color: #495057;
+  border-bottom: 2px solid #e9ecef;
+  padding-bottom: 8px;
+  margin-bottom: 15px;
+  font-size: 1.1rem;
+}
+
+.remedy-items {
+  display: grid;
+  gap: 15px;
+}
+
+.remedy-item {
+  background: #f8f9fa;
+  border-radius: 8px;
+  padding: 20px;
+  border-left: 4px solid #007bff;
+}
+
+.remedy-item h6 {
+  color: #2c3e50;
+  margin-bottom: 10px;
+  font-size: 1.1rem;
+}
+
+.remedy-item p {
+  margin: 6px 0;
+  color: #6c757d;
+}
+
+.procedure, .instructions {
+  margin-top: 15px;
+}
+
+.procedure h6, .instructions h6 {
+  color: #495057;
+  margin-bottom: 8px;
+  font-size: 0.95rem;
+}
+
+.procedure ul, .procedure ol,
+.instructions ul, .instructions ol {
+  margin: 0;
+  padding-left: 20px;
+}
+
+.procedure li, .instructions li {
+  margin-bottom: 4px;
+  color: #6c757d;
+}
+
+/* Timing Section */
+.timing-section h3,
+.timing-section h4 {
+  color: #2c3e50;
+  margin-bottom: 20px;
+}
+
+.timing-info {
+  display: grid;
+  gap: 25px;
+}
+
+.overall-period, .lunar-phase {
+  background: white;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.overall-period h4, .lunar-phase h5 {
+  color: #2c3e50;
+  margin-bottom: 15px;
+}
+
+.overall-period p {
+  margin: 8px 0;
+  color: #6c757d;
+}
+
+/* Implementation Section */
+.implementation-section h3,
+.implementation-section h4,
+.implementation-section h5 {
+  color: #2c3e50;
+}
+
+.implementation-summary {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 30px;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.summary-item {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  text-align: center;
+  min-width: 200px;
+}
+
+.summary-item strong {
+  display: block;
+  font-size: 1.2rem;
+  color: #2c3e50;
+  margin-bottom: 8px;
+}
+
+.implementation-phases {
+  margin-bottom: 30px;
+}
+
+.phase {
+  background: white;
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.phase h5 {
+  margin-bottom: 10px;
+  color: #007bff;
+}
+
+.phase p {
+  margin: 8px 0;
+  color: #6c757d;
+}
+
+.phase ul {
+  margin: 15px 0 0 0;
+  padding-left: 20px;
+}
+
+.phase li {
+  margin-bottom: 6px;
+  color: #6c757d;
+}
+
+.monitoring {
+  background: white;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.monitoring h5 {
+  margin-top: 20px;
+  margin-bottom: 10px;
+  color: #495057;
+}
+
+.monitoring ul {
+  margin: 0;
+  padding-left: 20px;
+}
+
+.monitoring li {
+  margin-bottom: 6px;
+  color: #6c757d;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .remedies-display {
+    padding: 15px;
+  }
+
+  .remedies-header h2 {
+    font-size: 1.8rem;
+  }
+
+  .remedies-navigation {
+    flex-direction: column;
+  }
+
+  .remedies-navigation button {
+    width: 100%;
+  }
+
+  .afflictions-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .affliction-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .implementation-summary {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .summary-item {
+    width: 100%;
+    max-width: 300px;
+  }
+
+  .remedies-tabs {
+    flex-direction: column;
+  }
+
+  .remedy-tab {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .remedies-display {
+    padding: 10px;
+  }
+
+  .affliction-card,
+  .remedy-item,
+  .phase,
+  .overall-period,
+  .lunar-phase,
+  .monitoring {
+    padding: 15px;
+  }
+
+  .planet-remedies {
+    padding: 20px;
+  }
+}
+
+/* Accessibility */
+.remedies-navigation button:focus,
+.remedy-tab:focus,
+.affliction-card:focus {
+  outline: 2px solid #007bff;
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .affliction-card,
+  .remedies-navigation button,
+  .remedy-tab {
+    transition: none;
+  }
+
+  .affliction-card:hover {
+    transform: none;
+  }
+}
+
+/* Print Styles */
+@media print {
+  .remedies-navigation,
+  .affliction-card:hover {
+    display: none;
+  }
+
+  .affliction-details {
+    display: block !important;
+  }
+
+  .remedies-display {
+    max-width: none;
+    box-shadow: none;
+  }
+}

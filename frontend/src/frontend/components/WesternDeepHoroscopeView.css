@@ -1,0 +1,1204 @@
+/**
+ * Western Deep Horoscope View Styles
+ * Comprehensive Western astrology interpretation with modern, elegant design
+ */
+
+.western-deep-horoscope-view {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 2rem;
+  background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+  min-height: 100vh;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+/* Header Styles */
+.western-deep-horoscope-header {
+  background: white;
+  border-radius: 20px;
+  padding: 2.5rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.western-deep-horoscope-header__main {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.western-deep-horoscope-header__title {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #1a202c;
+  margin-bottom: 1rem;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.western-deep-horoscope-header__meta {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.western-deep-horoscope-header__version,
+.western-deep-horoscope-header__confidence,
+.western-deep-horoscope-header__date {
+  font-size: 0.9rem;
+  color: #718096;
+  font-weight: 500;
+}
+
+.western-deep-horoscope-header__chart-info {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.chart-info-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+  background: linear-gradient(135deg, #f7fafc 0%, #edf2f7 100%);
+  border-radius: 12px;
+  min-width: 120px;
+}
+
+.chart-info-label {
+  font-size: 0.85rem;
+  color: #718096;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 0.5rem;
+}
+
+.chart-info-value {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #2d3748;
+}
+
+/* Navigation Styles */
+.western-deep-horoscope-nav {
+  background: white;
+  border-radius: 16px;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.western-deep-horoscope-nav__tabs {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.western-deep-horoscope-nav__tab {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  background: #f7fafc;
+  border: 2px solid transparent;
+  border-radius: 12px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #4a5568;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-decoration: none;
+}
+
+.western-deep-horoscope-nav__tab:hover {
+  background: #edf2f7;
+  border-color: #e2e8f0;
+  transform: translateY(-1px);
+}
+
+.western-deep-horoscope-nav__tab.active {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border-color: transparent;
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+}
+
+.nav-tab-icon {
+  font-size: 1rem;
+}
+
+.nav-tab-label {
+  white-space: nowrap;
+}
+
+/* Section Styles */
+.western-deep-horoscope-section {
+  background: white;
+  border-radius: 16px;
+  padding: 2.5rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.western-deep-horoscope-section__title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #1a202c;
+  margin-bottom: 2rem;
+  text-align: center;
+  position: relative;
+}
+
+.western-deep-horoscope-section__title::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+  border-radius: 2px;
+}
+
+/* Overview Grid */
+.overview-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.overview-card {
+  padding: 2rem;
+  border-radius: 12px;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.overview-card--dominant {
+  background: linear-gradient(135deg, #e6fffa 0%, #b2f5ea 100%);
+  border-left: 4px solid #38b2ac;
+}
+
+.overview-card--strength {
+  background: linear-gradient(135deg, #ebf8ff 0%, #bee3f8 100%);
+  border-left: 4px solid #4299e1;
+}
+
+.overview-card--assessment {
+  background: linear-gradient(135deg, #f0fff4 0%, #c6f6d5 100%);
+  border-left: 4px solid #48bb78;
+}
+
+.overview-card__title {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #2d3748;
+  margin-bottom: 1.5rem;
+}
+
+.dominant-planets {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.dominant-planet {
+  background: rgba(56, 178, 172, 0.1);
+  color: #234e52;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.no-data {
+  color: #a0aec0;
+  font-style: italic;
+}
+
+.chart-strength {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.strength-bar {
+  height: 12px;
+  background: #e2e8f0;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.strength-bar__fill {
+  height: 100%;
+  background: linear-gradient(90deg, #48bb78 0%, #38a169 100%);
+  border-radius: 6px;
+  transition: width 0.3s ease;
+}
+
+.strength-value {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #2d3748;
+  text-align: center;
+}
+
+.assessment-summary {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #2d3748;
+  margin-bottom: 1.5rem;
+}
+
+.assessment-key-themes h4 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #2d3748;
+  margin-bottom: 0.75rem;
+}
+
+.assessment-key-themes ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.assessment-key-themes li {
+  padding: 0.5rem 0;
+  color: #4a5568;
+  border-bottom: 1px solid rgba(74, 85, 104, 0.2);
+}
+
+.assessment-key-themes li:last-child {
+  border-bottom: none;
+}
+
+/* Planetary Analysis */
+.planetary-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.planetary-card {
+  background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+  border-radius: 12px;
+  padding: 1.5rem;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.planetary-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+.planetary-card__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.planetary-card__name {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #1a202c;
+}
+
+.planetary-card__strength {
+  padding: 0.25rem 0.75rem;
+  border-radius: 12px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.strength-excellent { background: #c6f6d5; color: #22543d; }
+.strength-very-good { background: #9ae6b4; color: #22543d; }
+.strength-good { background: #68d391; color: #22543d; }
+.strength-moderate { background: #faf089; color: #744210; }
+.strength-weak { background: #fbb6ce; color: #702459; }
+.strength-very-weak { background: #feb2b2; color: #742a2a; }
+
+.planetary-card__details {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.planetary-strength-breakdown h4 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #2d3748;
+  margin-bottom: 0.75rem;
+}
+
+.strength-components {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 0.75rem;
+}
+
+.strength-component {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem;
+  background: white;
+  border-radius: 8px;
+  border: 1px solid #e2e8f0;
+}
+
+.component-label {
+  font-size: 0.85rem;
+  color: #718096;
+  font-weight: 500;
+}
+
+.component-value {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #2d3748;
+}
+
+.planetary-interpretation p {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #4a5568;
+  margin: 0;
+}
+
+/* Life Areas */
+.life-areas-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2rem;
+}
+
+.life-area-card {
+  background: linear-gradient(135deg, #fefefe 0%, #f8fafc 100%);
+  border-radius: 16px;
+  padding: 2rem;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.life-area-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+.life-area-card__header {
+  margin-bottom: 1.5rem;
+}
+
+.life-area-card__title {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #1a202c;
+  margin-bottom: 1rem;
+}
+
+.life-area-strength {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.life-area-card__content {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.life-area-ruler {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.ruler-label {
+  font-size: 0.9rem;
+  color: #718096;
+  font-weight: 500;
+}
+
+.ruler-value {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #2d3748;
+}
+
+.ruler-strength {
+  font-size: 0.85rem;
+  color: #a0aec0;
+}
+
+.life-area-planets {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.planets-label {
+  font-size: 0.9rem;
+  color: #718096;
+  font-weight: 500;
+}
+
+.planets-list {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.planet-tag {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 0.25rem 0.75rem;
+  border-radius: 12px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.life-area-predictions h4 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #2d3748;
+  margin-bottom: 0.75rem;
+}
+
+.life-area-predictions p {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #4a5568;
+  margin: 0;
+}
+
+.life-area-challenges h4 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #2d3748;
+  margin-bottom: 0.75rem;
+}
+
+.life-area-challenges ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.life-area-challenges li {
+  padding: 0.5rem 0;
+  font-size: 0.9rem;
+  color: #4a5568;
+  border-bottom: 1px solid rgba(74, 85, 104, 0.2);
+}
+
+.life-area-challenges li:last-child {
+  border-bottom: none;
+}
+
+/* Predictions */
+.predictions-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.prediction-card {
+  background: linear-gradient(135deg, #fefefe 0%, #f8fafc 100%);
+  border-radius: 16px;
+  padding: 2rem;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.prediction-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+.prediction-card__title {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #1a202c;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.prediction-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.prediction-summary {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #2d3748;
+}
+
+.prediction-details h4 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #2d3748;
+  margin-bottom: 0.75rem;
+}
+
+.prediction-details ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.prediction-details li {
+  padding: 0.5rem 0;
+  font-size: 0.9rem;
+  color: #4a5568;
+  border-bottom: 1px solid rgba(74, 85, 104, 0.2);
+}
+
+.prediction-details li:last-child {
+  border-bottom: none;
+}
+
+.marriage-timing {
+  background: linear-gradient(135deg, #fff5f5 0%, #fed7d7 100%);
+  padding: 1rem;
+  border-radius: 8px;
+  border-left: 4px solid #e53e3e;
+}
+
+.confidence {
+  font-size: 0.85rem;
+  color: #c53030;
+  font-weight: 600;
+  margin-top: 0.5rem;
+}
+
+/* Current Period */
+.current-period-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 2rem;
+}
+
+.current-dasha {
+  background: linear-gradient(135deg, #f0fff4 0%, #c6f6d5 100%);
+  padding: 2rem;
+  border-radius: 12px;
+  border-left: 4px solid #48bb78;
+}
+
+.current-dasha__title {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #22543d;
+  margin-bottom: 1.5rem;
+}
+
+.dasha-info {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.dasha-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 8px;
+}
+
+.dasha-label {
+  font-size: 0.9rem;
+  color: #22543d;
+  font-weight: 600;
+}
+
+.dasha-value {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #22543d;
+}
+
+.dasha-progress {
+  font-size: 0.8rem;
+  color: #38a169;
+  font-weight: 500;
+}
+
+.current-influences {
+  background: linear-gradient(135deg, #ebf8ff 0%, #bee3f8 100%);
+  padding: 2rem;
+  border-radius: 12px;
+  border-left: 4px solid #4299e1;
+}
+
+.current-influences h3 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #2a4365;
+  margin-bottom: 1.5rem;
+}
+
+.influence-effects {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.influence-positive,
+.influence-negative {
+  padding: 1rem;
+  border-radius: 8px;
+}
+
+.influence-positive {
+  background: rgba(72, 187, 120, 0.1);
+  border-left: 3px solid #48bb78;
+}
+
+.influence-negative {
+  background: rgba(229, 62, 62, 0.1);
+  border-left: 3px solid #e53e3e;
+}
+
+.influence-positive h4,
+.influence-negative h4 {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.influence-positive h4 { color: #22543d; }
+.influence-negative h4 { color: #742a2a; }
+
+.influence-positive p,
+.influence-negative p {
+  font-size: 0.9rem;
+  line-height: 1.5;
+  margin: 0;
+  color: #4a5568;
+}
+
+/* Remedies */
+.remedies-content {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.remedies-priority {
+  background: linear-gradient(135deg, #fff5f5 0%, #fed7d7 100%);
+  padding: 2rem;
+  border-radius: 12px;
+  border-left: 4px solid #e53e3e;
+}
+
+.remedies-priority h3 {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #742a2a;
+  margin-bottom: 1.5rem;
+}
+
+.priority-levels {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.priority-level {
+  padding: 1.5rem;
+  border-radius: 8px;
+}
+
+.priority-critical {
+  background: rgba(229, 62, 62, 0.1);
+  border-left: 4px solid #e53e3e;
+}
+
+.priority-important {
+  background: rgba(237, 137, 54, 0.1);
+  border-left: 4px solid #ed8936;
+}
+
+.priority-beneficial {
+  background: rgba(72, 187, 120, 0.1);
+  border-left: 4px solid #48bb78;
+}
+
+.priority-level h4 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.priority-level ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.priority-level li {
+  padding: 0.5rem 0;
+  font-size: 0.95rem;
+  color: #4a5568;
+  border-bottom: 1px solid rgba(74, 85, 104, 0.2);
+}
+
+.priority-level li:last-child {
+  border-bottom: none;
+}
+
+.remedies-gemstones {
+  background: linear-gradient(135deg, #f0fff4 0%, #c6f6d5 100%);
+  padding: 2rem;
+  border-radius: 12px;
+  border-left: 4px solid #48bb78;
+}
+
+.remedies-gemstones h3 {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #22543d;
+  margin-bottom: 1.5rem;
+}
+
+.gemstones-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.gemstone-item {
+  background: rgba(255, 255, 255, 0.8);
+  padding: 1.5rem;
+  border-radius: 8px;
+  border: 1px solid rgba(198, 246, 213, 0.5);
+}
+
+.gemstone-item h4 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #22543d;
+  margin-bottom: 1rem;
+}
+
+.gemstone-item p {
+  font-size: 0.9rem;
+  color: #4a5568;
+  margin: 0.5rem 0;
+  line-height: 1.5;
+}
+
+.remedies-mantras {
+  background: linear-gradient(135deg, #ebf8ff 0%, #bee3f8 100%);
+  padding: 2rem;
+  border-radius: 12px;
+  border-left: 4px solid #4299e1;
+}
+
+.remedies-mantras h3 {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #2a4365;
+  margin-bottom: 1.5rem;
+}
+
+.mantras-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.mantra-item {
+  background: rgba(255, 255, 255, 0.8);
+  padding: 1.5rem;
+  border-radius: 8px;
+  border: 1px solid rgba(190, 227, 248, 0.5);
+}
+
+.mantra-item h4 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #2a4365;
+  margin-bottom: 1rem;
+}
+
+.mantra-text {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #4299e1;
+  margin-bottom: 1rem;
+  text-align: center;
+  font-family: 'Georgia', serif;
+}
+
+.mantra-item p {
+  font-size: 0.9rem;
+  color: #4a5568;
+  margin: 0.5rem 0;
+  line-height: 1.5;
+}
+
+/* Assessment */
+.assessment-content {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.overall-strength {
+  text-align: center;
+  padding: 2rem;
+  background: linear-gradient(135deg, #f7fafc 0%, #edf2f7 100%);
+  border-radius: 12px;
+}
+
+.overall-strength h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #1a202c;
+  margin-bottom: 1rem;
+}
+
+.life-purpose {
+  background: linear-gradient(135deg, #fff5f5 0%, #fed7d7 100%);
+  padding: 2rem;
+  border-radius: 12px;
+  border-left: 4px solid #e53e3e;
+}
+
+.life-purpose h3 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #742a2a;
+  margin-bottom: 1rem;
+}
+
+.life-purpose p {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #4a5568;
+}
+
+.key-influences {
+  background: linear-gradient(135deg, #ebf8ff 0%, #bee3f8 100%);
+  padding: 2rem;
+  border-radius: 12px;
+  border-left: 4px solid #4299e1;
+}
+
+.key-influences h3 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #2a4365;
+  margin-bottom: 1rem;
+}
+
+.key-influences ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 0.75rem;
+}
+
+.key-influences li {
+  padding: 0.75rem;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 8px;
+  font-size: 0.9rem;
+  color: #4a5568;
+  border: 1px solid rgba(190, 227, 248, 0.5);
+}
+
+.karmic-lessons {
+  background: linear-gradient(135deg, #f0fff4 0%, #c6f6d5 100%);
+  padding: 2rem;
+  border-radius: 12px;
+  border-left: 4px solid #48bb78;
+}
+
+.karmic-lessons h3 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #22543d;
+  margin-bottom: 1rem;
+}
+
+.karmic-lessons ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.karmic-lessons li {
+  padding: 0.75rem 0;
+  font-size: 0.95rem;
+  color: #4a5568;
+  border-bottom: 1px solid rgba(198, 246, 213, 0.5);
+}
+
+.karmic-lessons li:last-child {
+  border-bottom: none;
+}
+
+.final-recommendations {
+  background: linear-gradient(135deg, #fef5e7 0%, #fdeaa7 100%);
+  padding: 2rem;
+  border-radius: 12px;
+  border-left: 4px solid #ed8936;
+}
+
+.final-recommendations h3 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #744210;
+  margin-bottom: 1.5rem;
+}
+
+.recommendations-list {
+  display: grid;
+  gap: 1rem;
+}
+
+.recommendation-item {
+  padding: 1.5rem;
+  border-radius: 8px;
+  border: 1px solid rgba(237, 137, 54, 0.3);
+}
+
+.priority-high {
+  background: rgba(237, 137, 54, 0.1);
+  border-left: 4px solid #ed8936;
+}
+
+.priority-medium {
+  background: rgba(72, 187, 120, 0.1);
+  border-left: 4px solid #48bb78;
+}
+
+.priority-low {
+  background: rgba(66, 153, 225, 0.1);
+  border-left: 4px solid #4299e1;
+}
+
+.recommendation-item h4 {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.recommendation-item p {
+  font-size: 0.9rem;
+  color: #4a5568;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* Footer */
+.western-deep-horoscope-footer {
+  margin-top: 3rem;
+  text-align: center;
+}
+
+.western-deep-horoscope-footer__disclaimer {
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.western-deep-horoscope-footer__disclaimer p {
+  font-size: 0.9rem;
+  color: #718096;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.western-deep-horoscope-footer__disclaimer strong {
+  color: #2d3748;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .western-deep-horoscope-view {
+    padding: 1.5rem;
+  }
+
+  .western-deep-horoscope-section {
+    padding: 2rem;
+  }
+
+  .overview-grid,
+  .predictions-grid {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  }
+
+  .life-areas-grid {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .western-deep-horoscope-view {
+    padding: 1rem;
+  }
+
+  .western-deep-horoscope-header {
+    padding: 2rem;
+  }
+
+  .western-deep-horoscope-header__title {
+    font-size: 2rem;
+  }
+
+  .western-deep-horoscope-header__meta {
+    gap: 1rem;
+  }
+
+  .western-deep-horoscope-header__chart-info {
+    gap: 1rem;
+  }
+
+  .western-deep-horoscope-nav__tabs {
+    gap: 0.25rem;
+  }
+
+  .western-deep-horoscope-nav__tab {
+    padding: 0.5rem 1rem;
+    font-size: 0.8rem;
+  }
+
+  .western-deep-horoscope-section {
+    padding: 1.5rem;
+  }
+
+  .western-deep-horoscope-section__title {
+    font-size: 1.5rem;
+  }
+
+  .overview-grid,
+  .predictions-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .life-areas-grid {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  }
+
+  .planetary-grid {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  }
+
+  .current-period-content {
+    grid-template-columns: 1fr;
+  }
+
+  .gemstones-grid,
+  .mantras-list {
+    grid-template-columns: 1fr;
+  }
+
+  .key-influences ul {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .western-deep-horoscope-view {
+    padding: 0.5rem;
+  }
+
+  .western-deep-horoscope-header {
+    padding: 1.5rem;
+  }
+
+  .western-deep-horoscope-header__title {
+    font-size: 1.8rem;
+  }
+
+  .western-deep-horoscope-header__meta {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .western-deep-horoscope-header__chart-info {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .chart-info-item {
+    min-width: auto;
+    width: 100%;
+  }
+
+  .western-deep-horoscope-nav__tabs {
+    flex-direction: column;
+  }
+
+  .western-deep-horoscope-nav__tab {
+    justify-content: center;
+  }
+
+  .western-deep-horoscope-section {
+    padding: 1rem;
+  }
+
+  .life-areas-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .planetary-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .strength-components {
+    grid-template-columns: 1fr;
+  }
+
+  .life-area-card__header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .life-area-strength {
+    width: 100%;
+  }
+
+  .dasha-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+
+  .recommendations-list {
+    gap: 0.75rem;
+  }
+
+  .recommendation-item {
+    padding: 1rem;
+  }
+}

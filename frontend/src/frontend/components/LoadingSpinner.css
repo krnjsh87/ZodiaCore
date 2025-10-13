@@ -1,0 +1,134 @@
+/* Loading Spinner Component Styles */
+
+.loading-spinner-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.loading-spinner-container.small {
+  padding: 10px;
+}
+
+.loading-spinner-container.large {
+  padding: 40px;
+}
+
+.loading-spinner {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  border: 4px solid #e0e0e0;
+  border-top: 4px solid #667eea;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+.loading-spinner-container.small .loading-spinner {
+  width: 24px;
+  height: 24px;
+  border-width: 3px;
+}
+
+.loading-spinner-container.large .loading-spinner {
+  width: 60px;
+  height: 60px;
+  border-width: 6px;
+}
+
+.loading-spinner-inner {
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  right: 4px;
+  bottom: 4px;
+  border: 2px solid transparent;
+  border-top: 2px solid rgba(102, 126, 234, 0.3);
+  border-radius: 50%;
+  animation: spin-reverse 0.8s linear infinite;
+}
+
+.loading-spinner-container.small .loading-spinner-inner {
+  top: 3px;
+  left: 3px;
+  right: 3px;
+  bottom: 3px;
+  border-width: 1.5px;
+}
+
+.loading-spinner-container.large .loading-spinner-inner {
+  top: 6px;
+  left: 6px;
+  right: 6px;
+  bottom: 6px;
+  border-width: 3px;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes spin-reverse {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(-360deg); }
+}
+
+.loading-message {
+  margin-top: 16px;
+  color: #666;
+  font-size: 1rem;
+  text-align: center;
+  line-height: 1.4;
+}
+
+.loading-spinner-container.small .loading-message {
+  margin-top: 12px;
+  font-size: 0.9rem;
+}
+
+.loading-spinner-container.large .loading-message {
+  margin-top: 20px;
+  font-size: 1.1rem;
+}
+
+/* Accessibility */
+.loading-spinner-container {
+  position: relative;
+}
+
+.loading-spinner {
+  border: 4px solid transparent;
+}
+
+.loading-spinner-container:focus-within .loading-spinner {
+  outline: 2px solid #667eea;
+  outline-offset: 2px;
+}
+
+/* Reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  .loading-spinner,
+  .loading-spinner-inner {
+    animation: none;
+  }
+
+  .loading-spinner {
+    border-top: 4px solid #667eea;
+    transform: rotate(45deg);
+  }
+}
+
+/* High contrast mode */
+@media (prefers-contrast: high) {
+  .loading-spinner {
+    border-color: #000;
+    border-top-color: #fff;
+  }
+
+  .loading-spinner-inner {
+    border-top-color: rgba(255, 255, 255, 0.5);
+  }
+}

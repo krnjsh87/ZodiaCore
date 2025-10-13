@@ -1,0 +1,360 @@
+/* Varga Bala Display Styles */
+
+.varga-bala-display {
+  background: #ffffff;
+  border: 1px solid #e1e5e9;
+  border-radius: 8px;
+  padding: 1.5rem;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.varga-bala-display:focus-within {
+  outline: 2px solid #007acc;
+  outline-offset: 2px;
+}
+
+/* Header */
+.varga-bala__header {
+  margin-bottom: 1.5rem;
+}
+
+.varga-bala__header h3 {
+  margin: 0 0 0.5rem 0;
+  color: #2c3e50;
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.varga-bala-description {
+  margin: 0 0 1rem 0;
+  color: #5a6c7d;
+  font-size: 0.95rem;
+  line-height: 1.4;
+}
+
+/* Strength Summary */
+.strength-summary {
+  background: #f8f9fa;
+  padding: 1rem;
+  border-radius: 6px;
+  border: 1px solid #e9ecef;
+}
+
+.summary-metric {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.metric-label {
+  font-weight: 600;
+  color: #2c3e50;
+}
+
+.metric-value {
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+/* Planet Strength Grid */
+.planet-strength-grid {
+  margin-bottom: 1.5rem;
+  border: 1px solid #e1e5e9;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.grid-header {
+  display: grid;
+  grid-template-columns: 1.5fr 2fr 1fr 1fr 2fr;
+  background: #f8f9fa;
+  border-bottom: 1px solid #e1e5e9;
+  font-weight: 600;
+  color: #2c3e50;
+  font-size: 0.9rem;
+}
+
+.grid-header .header-cell {
+  padding: 0.75rem;
+  text-align: center;
+  border-right: 1px solid #e1e5e9;
+}
+
+.grid-header .header-cell:last-child {
+  border-right: none;
+}
+
+.planet-row {
+  display: grid;
+  grid-template-columns: 1.5fr 2fr 1fr 1fr 2fr;
+  border-bottom: 1px solid #f0f0f0;
+  transition: background-color 0.2s ease;
+}
+
+.planet-row:hover {
+  background: #f8f9fa;
+}
+
+.planet-row:last-child {
+  border-bottom: none;
+}
+
+.planet-cell,
+.score-cell,
+.percentage-cell,
+.level-cell,
+.breakdown-cell {
+  padding: 0.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-right: 1px solid #f0f0f0;
+}
+
+.planet-cell {
+  justify-content: flex-start;
+  padding-left: 1rem;
+}
+
+.breakdown-cell:last-child {
+  border-right: none;
+}
+
+/* Planet Info */
+.planet-info {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.planet-symbol {
+  font-size: 1.25rem;
+  width: 2rem;
+  text-align: center;
+  flex-shrink: 0;
+}
+
+.planet-name {
+  font-weight: 600;
+  color: #2c3e50;
+}
+
+/* Score Bar */
+.score-bar {
+  position: relative;
+  width: 100%;
+  height: 8px;
+  background: #e9ecef;
+  border-radius: 4px;
+  overflow: hidden;
+  margin-bottom: 0.25rem;
+}
+
+.score-fill {
+  height: 100%;
+  border-radius: 4px;
+  transition: width 0.3s ease;
+}
+
+.score-text {
+  font-size: 0.8rem;
+  color: #7f8c8d;
+  text-align: center;
+}
+
+/* Percentage and Level */
+.percentage-cell {
+  font-weight: 600;
+  color: #2c3e50;
+}
+
+.strength-level {
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+}
+
+/* Chart Breakdown */
+.chart-breakdown {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+  justify-content: center;
+}
+
+.chart-weight {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  background: #f8f9fa;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  border: 1px solid #e9ecef;
+}
+
+.chart-code {
+  font-weight: 600;
+  color: #2c3e50;
+}
+
+.weight-value {
+  color: #5a6c7d;
+}
+
+/* Footer */
+.varga-bala__footer {
+  padding-top: 1rem;
+  border-top: 1px solid #f0f0f0;
+}
+
+.strength-explanation h4 {
+  margin: 0 0 0.75rem 0;
+  color: #2c3e50;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.strength-explanation ul {
+  margin: 0;
+  padding-left: 1.5rem;
+}
+
+.strength-explanation li {
+  margin-bottom: 0.5rem;
+  color: #5a6c7d;
+  line-height: 1.4;
+}
+
+.strength-explanation strong {
+  color: #2c3e50;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .grid-header,
+  .planet-row {
+    grid-template-columns: 1.5fr 2fr 1fr 1fr;
+  }
+
+  .breakdown-header,
+  .breakdown-cell {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .varga-bala-display {
+    padding: 1rem;
+  }
+
+  .grid-header,
+  .planet-row {
+    grid-template-columns: 2fr 1.5fr 1fr;
+  }
+
+  .score-header,
+  .score-cell,
+  .percentage-header,
+  .percentage-cell {
+    display: none;
+  }
+
+  .planet-cell {
+    grid-column: 1 / -1;
+    justify-content: center;
+    padding: 1rem;
+  }
+
+  .level-cell {
+    justify-content: center;
+  }
+
+  .strength-summary {
+    text-align: center;
+  }
+
+  .summary-metric {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .varga-bala-display {
+    padding: 0.75rem;
+  }
+
+  .varga-bala__header h3 {
+    font-size: 1.1rem;
+  }
+
+  .planet-info {
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  .planet-symbol {
+    font-size: 1.1rem;
+  }
+
+  .chart-breakdown {
+    justify-content: flex-start;
+  }
+
+  .chart-weight {
+    font-size: 0.7rem;
+    padding: 0.2rem 0.4rem;
+  }
+}
+
+/* Accessibility Enhancements */
+@media (prefers-reduced-motion: reduce) {
+  .planet-row,
+  .score-fill {
+    transition: none;
+  }
+}
+
+/* High contrast mode */
+@media (prefers-contrast: high) {
+  .varga-bala-display {
+    border: 2px solid #000;
+  }
+
+  .planet-row {
+    border-bottom: 1px solid #000;
+  }
+
+  .score-bar {
+    border: 1px solid #000;
+  }
+
+  .chart-weight {
+    border: 1px solid #000;
+  }
+}
+
+/* Focus styles */
+.planet-row:focus {
+  outline: 2px solid #007acc;
+  outline-offset: -2px;
+}
+
+/* Print styles */
+@media print {
+  .varga-bala-display {
+    box-shadow: none;
+    border: 1px solid #000;
+    break-inside: avoid;
+  }
+
+  .planet-row {
+    background: #fff !important;
+  }
+
+  .score-fill {
+    -webkit-print-color-adjust: exact;
+    color-adjust: exact;
+  }
+}

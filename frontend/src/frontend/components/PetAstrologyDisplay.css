@@ -1,0 +1,365 @@
+/* Pet Astrology Display Styles */
+
+.pet-display-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  min-height: 100vh;
+  color: #333;
+}
+
+.display-header {
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 15px;
+  padding: 30px;
+  margin-bottom: 30px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+  text-align: center;
+}
+
+.display-header h1 {
+  color: #333;
+  margin: 0 0 20px 0;
+  font-size: 2.5rem;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.pet-summary h2 {
+  color: #333;
+  margin: 0 0 10px 0;
+  font-size: 1.8rem;
+}
+
+.pet-summary p {
+  color: #666;
+  margin: 0 0 10px 0;
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+
+.pet-summary small {
+  color: #888;
+  font-style: italic;
+}
+
+.back-button {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 20px;
+}
+
+.back-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+}
+
+.display-content {
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 15px;
+  padding: 30px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+}
+
+.display-content section {
+  margin-bottom: 40px;
+}
+
+.display-content section:last-child {
+  margin-bottom: 0;
+}
+
+.display-content h3 {
+  color: #333;
+  margin: 0 0 20px 0;
+  font-size: 1.6rem;
+  border-bottom: 3px solid #667eea;
+  padding-bottom: 10px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.display-content h4 {
+  color: #444;
+  margin: 0 0 15px 0;
+  font-size: 1.3rem;
+}
+
+/* Summary Section */
+.summary-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+.summary-item {
+  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+  color: white;
+  padding: 20px;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 4px 15px rgba(240, 147, 251, 0.3);
+}
+
+.summary-item strong {
+  display: block;
+  font-size: 0.9rem;
+  opacity: 0.9;
+  margin-bottom: 8px;
+}
+
+/* Details Section */
+.details-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.detail-card {
+  background: rgba(255, 255, 255, 0.9);
+  padding: 20px;
+  border-radius: 12px;
+  border: 1px solid rgba(102, 126, 234, 0.1);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+.detail-card h4 {
+  color: #667eea;
+  margin: 0 0 15px 0;
+  font-size: 1.2rem;
+}
+
+.detail-card ul {
+  margin: 0;
+  padding-left: 20px;
+}
+
+.detail-card li {
+  margin: 8px 0;
+  color: #555;
+  line-height: 1.5;
+}
+
+.detail-card strong {
+  color: #333;
+}
+
+/* Remedies Section */
+.remedies-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.remedy-category {
+  background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+  padding: 20px;
+  border-radius: 12px;
+  color: #333;
+}
+
+.remedy-category h4 {
+  margin: 0 0 15px 0;
+  color: #333;
+  font-size: 1.2rem;
+}
+
+.remedy-category ul {
+  margin: 0;
+  padding-left: 20px;
+}
+
+.remedy-category li {
+  margin: 8px 0;
+  color: #444;
+  line-height: 1.5;
+}
+
+.color-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.color-item {
+  padding: 8px 16px;
+  border-radius: 20px;
+  color: white;
+  font-weight: 500;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+  font-size: 0.9rem;
+}
+
+/* Predictions Section */
+.predictions-list {
+  display: grid;
+  gap: 20px;
+}
+
+.prediction-item {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+}
+
+.prediction-item h4 {
+  margin: 0 0 15px 0;
+  color: #ffd700;
+  font-size: 1.3rem;
+}
+
+.prediction-item p {
+  margin: 10px 0;
+  line-height: 1.6;
+}
+
+.prediction-item p:first-of-type {
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+.prediction-item em {
+  color: rgba(255, 255, 255, 0.8);
+  font-style: italic;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .pet-display-container {
+    padding: 10px;
+  }
+
+  .display-header {
+    padding: 20px;
+    margin-bottom: 20px;
+  }
+
+  .display-header h1 {
+    font-size: 2rem;
+  }
+
+  .display-content {
+    padding: 20px;
+  }
+
+  .summary-grid,
+  .details-grid,
+  .remedies-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .summary-item {
+    padding: 15px;
+  }
+
+  .detail-card,
+  .remedy-category {
+    padding: 15px;
+  }
+
+  .prediction-item {
+    padding: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .display-header h1 {
+    font-size: 1.8rem;
+  }
+
+  .pet-summary h2 {
+    font-size: 1.5rem;
+  }
+
+  .display-content h3 {
+    font-size: 1.4rem;
+  }
+
+  .display-content h4 {
+    font-size: 1.1rem;
+  }
+
+  .back-button {
+    width: 100%;
+    margin-top: 15px;
+  }
+}
+
+/* Accessibility Improvements */
+.pet-display-container:focus-within {
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+}
+
+.back-button:focus {
+  outline: 2px solid #667eea;
+  outline-offset: 2px;
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .pet-display-container {
+    background: white;
+    border: 2px solid black;
+  }
+
+  .display-header,
+  .display-content {
+    background: white;
+    border: 1px solid black;
+  }
+
+  .summary-item,
+  .detail-card,
+  .remedy-category,
+  .prediction-item {
+    border: 2px solid black;
+  }
+
+  .back-button {
+    border: 2px solid black;
+  }
+}
+
+/* Print styles */
+@media print {
+  .pet-display-container {
+    background: white;
+    box-shadow: none;
+  }
+
+  .display-header,
+  .display-content {
+    background: white;
+    box-shadow: none;
+    border: 1px solid #ccc;
+  }
+
+  .back-button {
+    display: none;
+  }
+
+  .summary-item,
+  .detail-card,
+  .remedy-category,
+  .prediction-item {
+    break-inside: avoid;
+    border: 1px solid #ccc;
+    box-shadow: none;
+  }
+}

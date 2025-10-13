@@ -1,0 +1,379 @@
+/* ZC1.11 Results Display Styles */
+
+.zc111-results {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.results-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.results-header h2 {
+  color: #2c3e50;
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.results-header p {
+  color: #7f8c8d;
+  font-size: 1.1rem;
+}
+
+.results-section {
+  background: white;
+  border-radius: 12px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+.results-section h3 {
+  color: #2c3e50;
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.executive-summary .summary-card {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+
+.summary-key-findings h4,
+.summary-recommendations h4 {
+  color: #34495e;
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+}
+
+.summary-key-findings ul,
+.summary-recommendations ul {
+  list-style: none;
+  padding: 0;
+}
+
+.summary-key-findings li,
+.summary-recommendations li {
+  padding: 0.5rem 0;
+  border-bottom: 1px solid #ecf0f1;
+  color: #2c3e50;
+}
+
+.numbers-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+
+.number-category {
+  background: #f8f9fa;
+  border-radius: 8px;
+  padding: 1.5rem;
+}
+
+.number-category h4 {
+  color: #2c3e50;
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+}
+
+.numbers-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+  gap: 0.75rem;
+}
+
+.lucky-number {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border-radius: 8px;
+  padding: 1rem;
+  text-align: center;
+  font-size: 1.2rem;
+  font-weight: bold;
+  box-shadow: 0 2px 8px rgba(102, 126, 234, 0.3);
+}
+
+.lucky-number.secondary {
+  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+}
+
+.lucky-number .number {
+  display: block;
+  font-size: 1.5rem;
+  margin-bottom: 0.25rem;
+}
+
+.lucky-number .significance {
+  font-size: 0.8rem;
+  opacity: 0.9;
+}
+
+.profile-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+}
+
+.profile-card {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border-radius: 12px;
+  padding: 1.5rem;
+  text-align: center;
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+}
+
+.number-display {
+  margin-bottom: 1rem;
+}
+
+.big-number {
+  font-size: 2.5rem;
+  font-weight: bold;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.planet-name {
+  font-size: 1.1rem;
+  opacity: 0.9;
+}
+
+.qualities {
+  font-size: 0.9rem;
+  line-height: 1.4;
+  opacity: 0.9;
+}
+
+.activity-guidance .guidance-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+
+.lucky-numbers-section h4,
+.timing-info h4 {
+  color: #34495e;
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+}
+
+.activity-numbers {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  gap: 0.75rem;
+}
+
+.activity-number {
+  background: #27ae60;
+  color: white;
+  border-radius: 8px;
+  padding: 0.75rem;
+  text-align: center;
+  font-weight: bold;
+}
+
+.activity-number.medium {
+  background: #f39c12;
+}
+
+.activity-number.low {
+  background: #95a5a6;
+}
+
+.activity-number .number {
+  display: block;
+  font-size: 1.2rem;
+  margin-bottom: 0.25rem;
+}
+
+.activity-number .reason {
+  font-size: 0.8rem;
+  opacity: 0.9;
+}
+
+.months-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.month-badge {
+  background: #3498db;
+  color: white;
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.85rem;
+}
+
+.timing-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.timing-card {
+  background: #f8f9fa;
+  border-radius: 8px;
+  padding: 1.5rem;
+  border-left: 4px solid #3498db;
+}
+
+.timing-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.rank {
+  background: #3498db;
+  color: white;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  font-weight: bold;
+}
+
+.date {
+  font-weight: 600;
+  color: #2c3e50;
+}
+
+.compatibility {
+  color: #27ae60;
+  font-weight: bold;
+}
+
+.timing-details {
+  color: #7f8c8d;
+  font-size: 0.9rem;
+}
+
+.results-actions {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.view-details-btn,
+.download-btn {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  padding: 1rem 2rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+}
+
+.view-details-btn:hover,
+.download-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+}
+
+/* Loading State */
+.loading {
+  text-align: center;
+  padding: 4rem 2rem;
+}
+
+.loading-spinner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid #f3f3f3;
+  border-top: 4px solid #3498db;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Error State */
+.error {
+  text-align: center;
+  padding: 4rem 2rem;
+}
+
+.error-content h3 {
+  color: #e74c3c;
+  margin-bottom: 1rem;
+}
+
+.error-content p {
+  color: #7f8c8d;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .zc111-results {
+    margin: 1rem;
+  }
+
+  .results-section {
+    padding: 1.5rem;
+  }
+
+  .results-header h2 {
+    font-size: 1.8rem;
+  }
+
+  .numbers-grid,
+  .executive-summary .summary-card,
+  .activity-guidance .guidance-content {
+    grid-template-columns: 1fr;
+  }
+
+  .profile-cards {
+    grid-template-columns: 1fr;
+  }
+
+  .results-actions {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .view-details-btn,
+  .download-btn {
+    width: 100%;
+    max-width: 300px;
+  }
+}
+
+@media (max-width: 480px) {
+  .results-section {
+    padding: 1rem;
+  }
+
+  .results-header h2 {
+    font-size: 1.5rem;
+  }
+
+  .numbers-list {
+    grid-template-columns: repeat(auto-fill, minmax(60px, 1fr));
+  }
+
+  .activity-numbers {
+    grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+  }
+}

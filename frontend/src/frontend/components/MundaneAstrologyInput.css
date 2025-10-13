@@ -1,0 +1,494 @@
+/* Mundane Astrology Input Component Styles */
+
+.mundane-astrology-input {
+  max-width: 900px;
+  margin: 0 auto;
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  overflow: hidden;
+}
+
+.input-header {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 30px;
+  text-align: center;
+}
+
+.input-header h2 {
+  margin: 0 0 10px 0;
+  font-size: 2rem;
+  font-weight: 700;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+
+.input-header p {
+  margin: 0;
+  font-size: 1.1rem;
+  opacity: 0.9;
+  line-height: 1.6;
+}
+
+.input-error {
+  background: #fee;
+  border: 1px solid #fcc;
+  border-radius: 8px;
+  padding: 15px;
+  margin: 20px;
+  color: #c0392b;
+  text-align: center;
+}
+
+.input-error p {
+  margin: 0;
+  font-weight: 500;
+}
+
+.mundane-analysis-form {
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.form-section {
+  background: #f8f9fa;
+  border-radius: 12px;
+  padding: 25px;
+  border: 1px solid #e9ecef;
+  transition: box-shadow 0.3s ease;
+}
+
+.form-section:hover {
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+.form-section legend {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #2c3e50;
+  padding: 0 10px;
+  margin-bottom: 15px;
+  background: white;
+  border-radius: 6px;
+  width: auto;
+  display: inline-block;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.form-group label {
+  font-weight: 600;
+  color: #2c3e50;
+  margin-bottom: 8px;
+  font-size: 0.95rem;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.form-group input,
+.form-group select {
+  padding: 12px 16px;
+  border: 2px solid #e9ecef;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  background: white;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+  outline: none;
+  border-color: #667eea;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+  transform: translateY(-1px);
+}
+
+.form-group input.error,
+.form-group select.error {
+  border-color: #e74c3c;
+  box-shadow: 0 0 0 3px rgba(231, 76, 60, 0.1);
+}
+
+.field-help {
+  font-size: 0.85rem;
+  color: #6c757d;
+  margin-top: 4px;
+  line-height: 1.4;
+}
+
+.field-error {
+  font-size: 0.85rem;
+  color: #e74c3c;
+  margin-top: 4px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.field-error::before {
+  content: '⚠';
+  font-size: 0.9rem;
+}
+
+.checkbox-label {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-weight: normal;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 6px;
+  transition: background-color 0.3s ease;
+  margin-top: 10px;
+}
+
+.checkbox-label:hover {
+  background: rgba(102, 126, 234, 0.05);
+}
+
+.checkbox-label input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  margin: 0;
+  accent-color: #667eea;
+}
+
+.checkbox-group {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 15px;
+}
+
+.checkbox-group .checkbox-label {
+  margin: 0;
+  padding: 12px;
+  border: 1px solid #e9ecef;
+  background: white;
+  transition: all 0.3s ease;
+}
+
+.checkbox-group .checkbox-label:hover {
+  border-color: #667eea;
+  background: rgba(102, 126, 234, 0.02);
+}
+
+.checkbox-group .checkbox-label input:checked + * {
+  font-weight: 600;
+  color: #667eea;
+}
+
+.national-data-section {
+  margin-top: 25px;
+  padding: 25px;
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  border-radius: 12px;
+  border: 2px solid #dee2e6;
+  animation: slideDown 0.3s ease-out;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.national-data-section .form-row {
+  margin-bottom: 15px;
+}
+
+.national-data-section .form-row:last-child {
+  margin-bottom: 0;
+}
+
+.form-actions {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 35px;
+  padding-top: 25px;
+  border-top: 2px solid #e9ecef;
+}
+
+.generate-button {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 16px 50px;
+  border: none;
+  border-radius: 50px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+  position: relative;
+  overflow: hidden;
+}
+
+.generate-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+  transition: left 0.5s ease;
+}
+
+.generate-button:hover:not(:disabled)::before {
+  left: 100%;
+}
+
+.generate-button:hover:not(:disabled) {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+}
+
+.generate-button:active:not(:disabled) {
+  transform: translateY(-1px);
+}
+
+.generate-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: 0 2px 8px rgba(102, 126, 234, 0.2);
+}
+
+.button-help {
+  text-align: center;
+  margin-top: 12px;
+  font-size: 0.9rem;
+  color: #6c757d;
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.info-notice {
+  background: linear-gradient(135deg, #e8f4f8 0%, #d1ecf1 100%);
+  border: 2px solid #bee5eb;
+  border-radius: 12px;
+  padding: 25px;
+  margin-top: 30px;
+  text-align: center;
+}
+
+.info-notice h3 {
+  color: #0c5460;
+  margin: 0 0 15px 0;
+  font-size: 1.3rem;
+}
+
+.info-notice p {
+  color: #0c5460;
+  margin: 8px 0;
+  line-height: 1.6;
+  font-size: 1rem;
+}
+
+.info-notice strong {
+  font-weight: 600;
+}
+
+/* Loading state */
+.loading-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+}
+
+.loading-content {
+  text-align: center;
+  padding: 30px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+}
+
+.loading-spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid #f3f3f3;
+  border-top: 4px solid #667eea;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin: 0 auto 15px;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.loading-content p {
+  margin: 0;
+  color: #6c757d;
+  font-size: 1rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .mundane-astrology-input {
+    margin: 0 15px;
+    border-radius: 12px;
+  }
+
+  .input-header {
+    padding: 25px 20px;
+  }
+
+  .input-header h2 {
+    font-size: 1.8rem;
+  }
+
+  .input-header p {
+    font-size: 1rem;
+  }
+
+  .input-error {
+    margin: 15px 20px;
+  }
+
+  .mundane-analysis-form {
+    padding: 20px;
+  }
+
+  .form-section {
+    padding: 20px;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+  .national-data-section {
+    padding: 20px;
+  }
+
+  .form-actions {
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 25px;
+    padding-top: 20px;
+  }
+
+  .generate-button {
+    padding: 14px 40px;
+    font-size: 1rem;
+  }
+
+  .button-help {
+    font-size: 0.85rem;
+  }
+
+  .info-notice {
+    padding: 20px;
+    margin: 20px;
+  }
+
+  .checkbox-group .checkbox-label {
+    padding: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .input-header {
+    padding: 20px 15px;
+  }
+
+  .input-header h2 {
+    font-size: 1.5rem;
+  }
+
+  .mundane-analysis-form {
+    padding: 15px;
+  }
+
+  .form-section {
+    padding: 15px;
+  }
+
+  .generate-button {
+    padding: 12px 30px;
+    font-size: 0.95rem;
+  }
+
+  .info-notice {
+    margin: 15px;
+    padding: 15px;
+  }
+
+  .info-notice h3 {
+    font-size: 1.1rem;
+  }
+}
+
+/* Accessibility improvements */
+@media (prefers-reduced-motion: reduce) {
+  .generate-button,
+  .form-group input,
+  .form-group select,
+  .checkbox-label,
+  .national-data-section {
+    transition: none;
+    animation: none;
+  }
+
+  .loading-spinner {
+    animation: none;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .form-section {
+    border: 2px solid #000;
+  }
+
+  .generate-button {
+    border: 2px solid #000;
+  }
+
+  .checkbox-label {
+    border: 2px solid #000;
+  }
+}
+
+/* Focus visible for keyboard navigation */
+.generate-button:focus-visible,
+.form-group input:focus-visible,
+.form-group select:focus-visible,
+.checkbox-label input:focus-visible {
+  outline: 2px solid #667eea;
+  outline-offset: 2px;
+}

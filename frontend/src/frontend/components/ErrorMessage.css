@@ -1,0 +1,142 @@
+/* Error Message Component Styles */
+
+.error-message {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 20px;
+  text-align: center;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border: 1px solid #ffebee;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.error-icon {
+  width: 64px;
+  height: 64px;
+  margin-bottom: 20px;
+  color: #f44336;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.error-icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+.error-content {
+  width: 100%;
+}
+
+.error-title {
+  margin: 0 0 12px 0;
+  color: #333;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.error-description {
+  margin: 0 0 24px 0;
+  color: #666;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.error-retry-button {
+  padding: 12px 24px;
+  background: linear-gradient(135deg, #f44336, #d32f2f);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 4px rgba(244, 67, 54, 0.3);
+}
+
+.error-retry-button:hover {
+  background: linear-gradient(135deg, #d32f2f, #b71c1c);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(244, 67, 54, 0.4);
+}
+
+.error-retry-button:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 4px rgba(244, 67, 54, 0.3);
+}
+
+.error-retry-button:focus {
+  outline: none;
+  box-shadow: 0 2px 4px rgba(244, 67, 54, 0.3), 0 0 0 3px rgba(244, 67, 54, 0.2);
+}
+
+/* Responsive design */
+@media (max-width: 480px) {
+  .error-message {
+    padding: 30px 15px;
+  }
+
+  .error-icon {
+    width: 48px;
+    height: 48px;
+    margin-bottom: 15px;
+  }
+
+  .error-title {
+    font-size: 1.3rem;
+  }
+
+  .error-description {
+    font-size: 0.95rem;
+  }
+
+  .error-retry-button {
+    padding: 10px 20px;
+    font-size: 0.95rem;
+  }
+}
+
+/* Accessibility */
+.error-message {
+  position: relative;
+}
+
+.error-retry-button {
+  border: 1px solid transparent;
+}
+
+/* High contrast mode */
+@media (prefers-contrast: high) {
+  .error-message {
+    border: 2px solid #f44336;
+  }
+
+  .error-icon {
+    color: #000;
+  }
+
+  .error-title {
+    color: #000;
+  }
+
+  .error-description {
+    color: #000;
+  }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .error-retry-button {
+    transition: none;
+  }
+
+  .error-retry-button:hover {
+    transform: none;
+  }
+}

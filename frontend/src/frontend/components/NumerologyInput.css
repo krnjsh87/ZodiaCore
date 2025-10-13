@@ -1,0 +1,202 @@
+/* Numerology Input Styles */
+
+.numerology-input {
+  background: white;
+  border-radius: 12px;
+  padding: 30px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  margin-bottom: 30px;
+}
+
+.input-header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.input-header h2 {
+  color: #2c3e50;
+  font-size: 1.8rem;
+  margin: 0 0 10px 0;
+  font-weight: 600;
+}
+
+.input-header p {
+  color: #6c757d;
+  margin: 0;
+  font-size: 1rem;
+}
+
+.numerology-form {
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.form-group {
+  margin-bottom: 25px;
+}
+
+.form-label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: #2c3e50;
+  font-size: 1rem;
+}
+
+.form-input {
+  width: 100%;
+  padding: 12px 16px;
+  border: 2px solid #e9ecef;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  background: white;
+  box-sizing: border-box;
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: #667eea;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+.form-input.error {
+  border-color: #dc3545;
+  box-shadow: 0 0 0 3px rgba(220, 53, 69, 0.1);
+}
+
+.form-input:disabled {
+  background: #f8f9fa;
+  color: #6c757d;
+  cursor: not-allowed;
+}
+
+.error-message {
+  color: #dc3545;
+  font-size: 0.875rem;
+  margin-top: 5px;
+  display: block;
+}
+
+.form-help {
+  color: #6c757d;
+  font-size: 0.875rem;
+  margin-top: 5px;
+  font-style: italic;
+}
+
+.form-error {
+  background: #f8d7da;
+  color: #721c24;
+  padding: 12px 16px;
+  border-radius: 8px;
+  border: 1px solid #f5c6cb;
+  margin-bottom: 20px;
+}
+
+.calculate-button {
+  width: 100%;
+  padding: 14px 24px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.calculate-button:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.3);
+}
+
+.calculate-button:disabled {
+  background: #6c757d;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+.loading-indicator {
+  text-align: center;
+  color: #6c757d;
+  font-style: italic;
+  margin-top: 15px;
+}
+
+.input-info {
+  margin-top: 40px;
+  padding-top: 30px;
+  border-top: 1px solid #e9ecef;
+}
+
+.info-section {
+  margin-bottom: 25px;
+}
+
+.info-section h3 {
+  color: #2c3e50;
+  font-size: 1.2rem;
+  margin: 0 0 15px 0;
+  font-weight: 600;
+}
+
+.info-section ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.info-section li {
+  padding: 8px 0;
+  border-bottom: 1px solid #f8f9fa;
+  color: #495057;
+}
+
+.info-section li strong {
+  color: #2c3e50;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .numerology-input {
+    padding: 20px;
+  }
+
+  .input-header h2 {
+    font-size: 1.5rem;
+  }
+
+  .numerology-form {
+    max-width: 100%;
+  }
+
+  .calculate-button {
+    font-size: 1rem;
+    padding: 12px 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .numerology-input {
+    padding: 15px;
+  }
+
+  .input-header h2 {
+    font-size: 1.3rem;
+  }
+
+  .form-input {
+    padding: 10px 14px;
+    font-size: 0.95rem;
+  }
+
+  .calculate-button {
+    font-size: 0.95rem;
+    padding: 10px 18px;
+  }
+}

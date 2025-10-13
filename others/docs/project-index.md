@@ -1,0 +1,463 @@
+# ZodiaCore Project Index
+
+This document provides an index of all files in the ZodiaCore project, organized by directory structure. Each file includes a brief description based on its name and location.
+
+## Root Directory
+
+- `astro-cartography-comprehensivetest.js`: Comprehensive test suite for astro-cartography relocation calculations and functionality.
+- `project-index.md`: This index document providing an overview of all project files.
+
+## .kilocode/rules/
+
+- `development-rules-for-ai-agent.md`: Markdown document outlining development rules and guidelines for AI agents in the project.
+
+## projectdocs/
+
+- `comprehensive-astrology-web-app-project-planning-document.docx`: Word document containing comprehensive project planning for the astrology web app.
+- `generated-image.png`: Generated image file, likely for documentation or design purposes.
+- `indian-astrology-reference.md`: Reference document for Indian astrology concepts and practices.
+- `vedic-astrology-implementation.md`: Documentation on Vedic astrology implementation details.
+- `zc-logo.png`: Logo image for ZodiaCore.
+- `zc-services-by-astrology-type.md`: Documentation of ZodiaCore services categorized by astrology type.
+- `zc-services.md`: General documentation of ZodiaCore services.
+
+### design/
+
+- `birth-chart-generation.png`: Design image for birth chart generation interface.
+- `birth-chart-report.png`: Design image for birth chart report display.
+- `home-dashboard.png`: Design image for the home dashboard.
+- `Horoscope.png`: Design image for horoscope display.
+- `indian-vedic-astrology-services.png`: Design image for Indian Vedic astrology services page.
+- `user-profile--settings.png`: Design image for user profile and settings.
+- `zc-logo.svg`: SVG version of the ZodiaCore logo.
+
+### references/
+
+- `zc1-1-vedic-birth-chart-implementation.md`: Reference for Vedic birth chart implementation (ZC1-1).
+- `zc1-2-dasha-planetary-transit-calculations.md`: Reference for dasha and planetary transit calculations (ZC1-2).
+- `zc1-3-divisional-charts-vargas.md`: Reference for divisional charts (Vargas) (ZC1-3).
+- `zc1-4-muhurat-auspicious-timing-selection.md`: Reference for muhurat (auspicious timing) selection (ZC1-4).
+- `zc1-5-panchang-calendar-details.md`: Reference for Panchang calendar details (ZC1-5).
+- `zc1-6-daily-weekly-monthly-yearly-horoscopes.md`: Reference for horoscopes (daily, weekly, monthly, yearly) (ZC1-6).
+- `zc1-7-solar-lunar-return-charts.md`: Reference for solar and lunar return charts (ZC1-7).
+- `zc1-8-synastry-composite-chart-compatibility.md`: Reference for synastry and composite chart compatibility (ZC1-8).
+- `zc1-9-guna-milan-ashtakoota-compatibility.md`: Reference for Guna Milan and Ashtakoota compatibility (ZC1-9).
+- `zc1-10-manglik-nadi-dosha-varsha-analysis.md`: Reference for Manglik, Nadi, Dosha, and Varsha analysis (ZC1-10).
+- `zc1-11-lucky-number-auspicious-timing-generator.md`: Reference for lucky number and auspicious timing generator (ZC1-11).
+- `zc1-12-medical-astrology-profile.md`: Reference for medical astrology profile (ZC1-12).
+- `zc1-13-pet-astrology-implementation.md`: Reference for pet astrology implementation (ZC1-13).
+- `zc1-14-deep-horoscope-life-interpretation.md`: Reference for deep horoscope life interpretation (ZC1-14).
+- `zc1-15-advanced-kp-nadi-lal-kitab-varshaphal-consultation.md`: Reference for advanced KP, Nadi, Lal Kitab, and Varshaphal consultation (ZC1-15).
+- `zc1-16-personalized-dasha-period-guidance.md`: Reference for personalized dasha period guidance (ZC1-16).
+- `zc1-17-parenting-childbirth-astrology.md`: Reference for parenting and childbirth astrology (ZC1-17).
+- `zc1-18-relationship-marriage-compatibility-counseling.md`: Reference for relationship and marriage compatibility counseling (ZC1-18).
+- `zc1-19-personalized-remedy-mantra-pooja-prescription.md`: Reference for personalized remedy, mantra, and pooja prescription (ZC1-19).
+- `zc1-20-horary-prashna-question-answering.md`: Reference for horary (Prashna) question answering (ZC1-20).
+- `zc1-21-astro-cartography-relocation-counseling.md`: Reference for astro-cartography relocation counseling (ZC1-21).
+- `zc1-22-career-finance-business-medical-astrology-counseling.md`: Reference for career, finance, business, and medical astrology counseling (ZC1-22).
+- `zc1-23-complex-mundane-astrology-implementation.md`: Reference for complex mundane astrology implementation (ZC1-23).
+- `zc1-24-yoga-formation-analysis-and-interpretation.md`: Reference for yoga formation analysis and interpretation (ZC1-24).
+- `zc1-25-lal-kitab-karmic-debt-analysis.md`: Reference for Lal Kitab karmic debt analysis (ZC1-25).
+- `zc1-26-transit-analysis-and-alerts.md`: Reference for transit analysis and alerts (ZC1-26).
+- `zc1-27-yantra-sacred-geometry-implementation.md`: Reference for yantra sacred geometry implementation (ZC1-27).
+- `zc1-28-charity-and-donation-guidance-based-on-planetary-positions.md`: Reference for charity and donation guidance based on planetary positions (ZC1-28).
+- `zc1-29-fasting-vrata-recommendations.md`: Reference for fasting (Vrata) recommendations (ZC1-29).
+
+## src/
+
+### frontend/
+
+- `App.css`: CSS styles for the main App component.
+- `App.tsx`: Main React application component.
+
+#### components/
+
+- `AdvancedConsultationDashboard.css`: CSS styles for the advanced consultation dashboard component.
+- `AdvancedConsultationDashboard.tsx`: React component for advanced astrology consultation dashboard.
+- `AstroCartographyRelocationDashboard.css`: CSS styles for astro-cartography relocation dashboard.
+- `AstroCartographyRelocationDashboard.tsx`: React component for astro-cartography relocation counseling dashboard.
+- `BirthChartDashboard.css`: CSS styles for birth chart dashboard.
+- `BirthChartDashboard.tsx`: React component for birth chart generation and display dashboard.
+- `BirthChartDisplay.css`: CSS styles for birth chart display component.
+- `BirthChartDisplay.tsx`: React component for displaying birth charts.
+- `BirthChartInput.css`: CSS styles for birth chart input form.
+- `BirthChartInput.tsx`: React component for inputting birth chart data.
+- `CharityGuidanceDashboard.css`: CSS styles for charity guidance dashboard.
+- `CharityGuidanceDashboard.tsx`: React component for charity and donation guidance dashboard.
+- `CharityGuidanceInput.css`: CSS styles for charity guidance input.
+- `CharityGuidanceInput.tsx`: React component for inputting charity guidance parameters.
+- `CompatibilityDashboard.css`: CSS styles for compatibility dashboard.
+- `CompatibilityDashboard.tsx`: React component for relationship compatibility analysis dashboard.
+- `CurrentPeriodDisplay.tsx`: React component for displaying current dasha period.
+- `DailyHoroscopeView.tsx`: React component for daily horoscope view.
+- `DashaDisplay.css`: CSS styles for dasha display.
+- `DashaDisplay.tsx`: React component for displaying dasha periods.
+- `DashaTransitDashboard.css`: CSS styles for dasha transit dashboard.
+- `DashaTransitDashboard.tsx`: React component for dasha and transit analysis dashboard.
+- `DeepHoroscopeDashboard.css`: CSS styles for deep horoscope dashboard.
+- `DeepHoroscopeDashboard.tsx`: React component for deep horoscope interpretation dashboard.
+- `DeepHoroscopeInput.css`: CSS styles for deep horoscope input.
+- `DeepHoroscopeInput.tsx`: React component for inputting deep horoscope parameters.
+- `DivisionalChartDisplay.css`: CSS styles for divisional chart display.
+- `DivisionalChartDisplay.tsx`: React component for displaying divisional charts (Vargas).
+- `DivisionalChartSelector.css`: CSS styles for divisional chart selector.
+- `DivisionalChartSelector.tsx`: React component for selecting divisional charts.
+- `FastingVrataDashboard.css`: CSS styles for fasting vrata dashboard.
+- `FastingVrataDashboard.tsx`: React component for fasting and vrata recommendations dashboard.
+- `HoraryQuestionAnswering.css`: CSS styles for horary question answering.
+- `HoraryQuestionAnswering.tsx`: React component for horary (Prashna) question answering.
+- `HoroscopeComponents.css`: CSS styles for horoscope components.
+- `HoroscopeDashboard.css`: CSS styles for horoscope dashboard.
+- `HoroscopeDashboard.tsx`: React component for horoscope generation dashboard.
+- `HoroscopeDisplay.tsx`: React component for displaying horoscopes.
+- `HoroscopeInput.tsx`: React component for inputting horoscope parameters.
+- `LalKitabKarmicDebtDashboard.css`: CSS styles for Lal Kitab karmic debt dashboard.
+- `LalKitabKarmicDebtDashboard.tsx`: React component for Lal Kitab karmic debt analysis dashboard.
+- `LifeAreasDisplay.css`: CSS styles for life areas display.
+- `LifeAreasDisplay.tsx`: React component for displaying life areas analysis.
+- `MedicalAstrologyDashboard.css`: CSS styles for medical astrology dashboard.
+- `MedicalAstrologyDashboard.tsx`: React component for medical astrology counseling dashboard.
+- `MonthlyHoroscopeView.tsx`: React component for monthly horoscope view.
+- `MuhuratDashboard.css`: CSS styles for muhurat dashboard.
+- `MuhuratDashboard.tsx`: React component for auspicious timing (Muhurat) selection dashboard.
+- `MuhuratDetails.css`: CSS styles for muhurat details.
+- `MuhuratDetails.tsx`: React component for displaying muhurat details.
+- `MuhuratInput.css`: CSS styles for muhurat input.
+- `MuhuratInput.tsx`: React component for inputting muhurat parameters.
+- `MuhuratResults.css`: CSS styles for muhurat results.
+- `MuhuratResults.tsx`: React component for displaying muhurat results.
+- `MundaneAstrologyDashboard.css`: CSS styles for mundane astrology dashboard.
+- `MundaneAstrologyDashboard.tsx`: React component for mundane astrology analysis dashboard.
+- `MundaneAstrologyInput.css`: CSS styles for mundane astrology input.
+- `MundaneAstrologyInput.tsx`: React component for inputting mundane astrology parameters.
+- `MundaneAstrologyResults.tsx`: React component for displaying mundane astrology results.
+- `OverallAssessmentDisplay.tsx`: React component for displaying overall assessments.
+- `PanchangDashboard.css`: CSS styles for Panchang dashboard.
+- `PanchangDashboard.tsx`: React component for Panchang calendar details dashboard.
+- `PanchangDisplay.css`: CSS styles for Panchang display.
+- `PanchangDisplay.tsx`: React component for displaying Panchang information.
+- `PanchangInput.css`: CSS styles for Panchang input.
+- `PanchangInput.tsx`: React component for inputting Panchang parameters.
+- `ParentingAstrologyDashboard.css`: CSS styles for parenting astrology dashboard.
+- `ParentingAstrologyDashboard.tsx`: React component for parenting and childbirth astrology dashboard.
+- `PeriodAnalysisDisplay.tsx`: React component for displaying period analysis.
+- `PersonalizedDashaGuidanceDashboard.css`: CSS styles for personalized dasha guidance dashboard.
+- `PersonalizedDashaGuidanceDashboard.tsx`: React component for personalized dasha period guidance dashboard.
+- `PetAstrologyDashboard.css`: CSS styles for pet astrology dashboard.
+- `PetAstrologyDashboard.tsx`: React component for pet astrology analysis dashboard.
+- `PetAstrologyDisplay.css`: CSS styles for pet astrology display.
+- `PetAstrologyDisplay.tsx`: React component for displaying pet astrology charts.
+- `PetAstrologyInput.css`: CSS styles for pet astrology input.
+- `PetAstrologyInput.tsx`: React component for inputting pet astrology parameters.
+- `PlanetaryAnalysisDisplay.css`: CSS styles for planetary analysis display.
+- `PlanetaryAnalysisDisplay.tsx`: React component for displaying planetary analysis.
+- `PlanetaryLinesVisualization.css`: CSS styles for planetary lines visualization.
+- `PlanetaryLinesVisualization.tsx`: React component for visualizing planetary lines in astro-cartography.
+- `PredictionsDisplay.tsx`: React component for displaying predictions.
+- `RelationshipCounselingDashboard.css`: CSS styles for relationship counseling dashboard.
+- `RelationshipCounselingDashboard.tsx`: React component for relationship and marriage compatibility counseling dashboard.
+- `RemediesDisplay.css`: CSS styles for remedies display.
+- `RemediesDisplay.tsx`: React component for displaying remedial measures.
+- `TransitAnalysisDashboard.css`: CSS styles for transit analysis dashboard.
+- `TransitAnalysisDashboard.tsx`: React component for transit analysis and alerts dashboard.
+- `TransitDisplay.tsx`: React component for displaying transit information.
+- `VargaBalaDisplay.css`: CSS styles for Varga Bala display.
+- `VargaBalaDisplay.tsx`: React component for displaying Varga Bala strengths.
+- `WeeklyHoroscopeView.tsx`: React component for weekly horoscope view.
+- `YantraActivationRitual.tsx`: React component for yantra activation ritual guide.
+- `YantraDashboard.css`: CSS styles for yantra dashboard.
+- `YantraDashboard.tsx`: React component for yantra sacred geometry dashboard.
+- `YantraMaterialsList.tsx`: React component for listing yantra materials.
+- `YantraMeditationGuide.tsx`: React component for yantra meditation guide.
+- `YantraPracticeTracker.tsx`: React component for tracking yantra practice.
+- `YantraRecommendations.tsx`: React component for yantra recommendations.
+- `YantraViewer.tsx`: React component for viewing yantras.
+- `YearlyHoroscopeView.tsx`: React component for yearly horoscope view.
+- `YogaFormationDashboard.css`: CSS styles for yoga formation dashboard.
+- `YogaFormationDashboard.tsx`: React component for yoga formation analysis dashboard.
+- `YogaFormationInput.css`: CSS styles for yoga formation input.
+- `YogaFormationInput.tsx`: React component for inputting yoga formation parameters.
+- `YogaFormationResults.css`: CSS styles for yoga formation results.
+- `YogaFormationResults.tsx`: React component for displaying yoga formation results.
+- `YogasDisplay.tsx`: React component for displaying yogas.
+- `ZC110AnalysisDashboard.css`: CSS styles for ZC1-10 analysis dashboard.
+- `ZC110AnalysisDashboard.tsx`: React component for Manglik, Nadi, Dosha, Varsha analysis dashboard (ZC1-10).
+- `ZC111Dashboard.css`: CSS styles for ZC1-11 dashboard.
+- `ZC111Dashboard.tsx`: React component for lucky number and auspicious timing generator dashboard (ZC1-11).
+- `ZC111Details.css`: CSS styles for ZC1-11 details.
+- `ZC111Details.tsx`: React component for displaying ZC1-11 details.
+- `ZC111Input.css`: CSS styles for ZC1-11 input.
+- `ZC111Input.tsx`: React component for inputting ZC1-11 parameters.
+- `ZC111Results.css`: CSS styles for ZC1-11 results.
+- `ZC111Results.tsx`: React component for displaying ZC1-11 results.
+- `ZC122CounselingDashboard.css`: CSS styles for ZC1-22 counseling dashboard.
+- `ZC122CounselingDashboard.tsx`: React component for career, finance, business, medical astrology counseling dashboard (ZC1-22).
+
+#### services/
+
+- `api.ts`: TypeScript file for API service functions.
+- `yantraService.ts`: TypeScript service for yantra-related operations.
+
+#### types/
+
+- `astrology.ts`: TypeScript type definitions for astrology-related data structures.
+
+### services/astrology/
+
+This directory contains numerous JavaScript files for various astrology calculations, systems, and utilities. Each file is described briefly below:
+
+- `activity-recommender.js`: Recommends activities based on astrological factors.
+- `advanced-astrology-constants.js`: Constants for advanced astrology features.
+- `advanced-astrology-consultation.js`: System for advanced astrology consultations.
+- `animal-classifications.js`: Classifications for animal astrology.
+- `animal-zodiac-characteristics.js`: Characteristics of animals in zodiac contexts.
+- `aspect-calculator.js`: Calculates planetary aspects.
+- `astro-cartography-calculator.js`: Calculator for astro-cartography relocation analysis.
+- `astro-cartography-calculatortest.js`: Test file for astro-cartography calculator.
+- `astro-cartography-integrationtest.js`: Integration test for astro-cartography.
+- `astro-constants.js`: General astro constants.
+- `astrology-constants.js`: Constants for astrology calculations.
+- `astrology-utils.js`: Utility functions for astrology.
+- `astronomical-calculations.js`: Astronomical calculation utilities.
+- `birth-chart-algorithms.js`: Algorithms for birth chart generation.
+- `birth-chart-helpers.js`: Helper functions for birth charts.
+- `breed-astrological-traits.js`: Astrological traits for animal breeds.
+- `business-muhurat-calculator.js`: Calculator for business auspicious timings.
+- `business-success-analyzer.js`: Analyzer for business success based on astrology.
+- `business-success-analyzertest.js`: Test for business success analyzer.
+- `cache-manager.js`: Manages caching for performance.
+- `cache.js`: Cache implementation.
+- `career-timing-analyzer.js`: Analyzes career timings.
+- `career-timing-analyzertest.js`: Test for career timing analyzer.
+- `charity-constants.js`: Constants for charity guidance.
+- `charity-costs.js`: Cost calculations for charity recommendations.
+- `charity-prescription-engine.js`: Engine for prescribing charity remedies.
+- `charity-recommendation-engine.js`: Engine for charity recommendations.
+- `charity-strength-analyzer.js`: Analyzes planetary strength for charity.
+- `charity-timing-calculator.js`: Calculator for charity timings.
+- `charity-timing-constants.js`: Constants for charity timing.
+- `compatibility-analyzertest.js`: Test for compatibility analysis.
+- `compatibility-scorer.js`: Scores compatibility between charts.
+- `compatibility-utils.js`: Utilities for compatibility calculations.
+- `composite-chart-generator.js`: Generates composite charts for relationships.
+- `constitution-analyzer.js`: Analyzes astrological constitution.
+- `counseling-engine.js`: Engine for astrology counseling.
+- `counseling-enginetest.js`: Test for counseling engine.
+- `counseling-interpretation-engine.js`: Engine for interpreting counseling data.
+- `counseling-session-manager.js`: Manages counseling sessions.
+- `daily-horoscope-generator.js`: Generates daily horoscopes.
+- `dasha-analyzer.js`: Analyzes dasha periods.
+- `dasha-calculator.js`: Calculates dasha periods.
+- `dasha-effects-config.js`: Configuration for dasha effects.
+- `dasha-transit-calculator-README.md`: README for dasha transit calculator.
+- `dasha-transit-calculator.js`: Calculator for dasha and transit interactions.
+- `dasha-transit-calculatortest.js`: Test for dasha transit calculator.
+- `dasha-utils.js`: Utilities for dasha calculations.
+- `deep-horoscope-constants.js`: Constants for deep horoscope analysis.
+- `deep-horoscope-interpreter.js`: Interprets deep horoscope data.
+- `deep-horoscopetest.js`: Test for deep horoscope.
+- `disease-analyzer.js`: Analyzes diseases astrologically.
+- `divisional-chart-calculator.js`: Calculates divisional charts.
+- `divisional-chart-calculatortest.js`: Test for divisional chart calculator.
+- `divisional-chart-config.js`: Configuration for divisional charts.
+- `dosha-analysis-engine.js`: Engine for dosha analysis.
+- `dosha-constants.js`: Constants for doshas.
+- `encryption-utils.js`: Utilities for encryption.
+- `ephemeris-calculator.js`: Calculates ephemeris data.
+- `error-handler.js`: Handles errors in the system.
+- `errors.js`: Error definitions.
+- `example-usage.js`: Example usage of astrology functions.
+- `fasting-api-client.js`: API client for fasting recommendations.
+- `fasting-astronomical-calculator.js`: Astronomical calculator for fasting.
+- `fasting-constants.js`: Constants for fasting.
+- `fasting-database-schema.sql`: Database schema for fasting data.
+- `fasting-database.js`: Database operations for fasting.
+- `financial-prosperity-analyzer.js`: Analyzes financial prosperity.
+- `financial-prosperity-analyzertest.js`: Test for financial prosperity analyzer.
+- `gemstone-prescription-engine.js`: Engine for gemstone prescriptions.
+- `guna-milan-calculator.js`: Calculator for Guna Milan compatibility.
+- `guna-milan-calculatortest.js`: Test for Guna Milan calculator.
+- `health-predictor.js`: Predicts health based on astrology.
+- `horary-answer-formulator.js`: Formulates answers for horary questions.
+- `horary-aspect-analyzer.js`: Analyzes aspects in horary charts.
+- `horary-chart-generator.js`: Generates horary charts.
+- `horary-constants.js`: Constants for horary astrology.
+- `horary-question-answering-system.js`: System for horary question answering.
+- `horary-question-answering-systemtest.js`: Test for horary question answering.
+- `horary-timing-analyzer.js`: Analyzes timing in horary.
+- `horoscope-constants.js`: Constants for horoscopes.
+- `horoscope-generator.js`: Generates horoscopes.
+- `horoscope-systemtest.js`: Test for horoscope system.
+- `horoscope-transit-calculator.js`: Calculates horoscope transits.
+- `horoscope-usage-examples.js`: Examples of horoscope usage.
+- `house-analyzer.js`: Analyzes astrological houses.
+- `house-systems.js`: Definitions of house systems.
+- `kp-prediction-engine.js`: Krishnamurti Paddhati prediction engine.
+- `kp-sub-lord-calculator.js`: Calculator for KP sub-lords.
+- `lal-kitab-advanced-system.js`: Advanced Lal Kitab system.
+- `lal-kitab-karmic-debt.js`: Lal Kitab karmic debt analysis.
+- `lal-kitab-karmic-debttest.js`: Test for Lal Kitab karmic debt.
+- `life-area-analyzer.js`: Analyzes life areas.
+- `location-analyzer.js`: Analyzes locations astrologically.
+- `location-analyzertest.js`: Test for location analyzer.
+- `logger.js`: Logging utility.
+- `lucky-number-generator.js`: Generates lucky numbers.
+- `lucky-timing-integrator.js`: Integrates lucky timing calculations.
+- `manglik-dosha-calculator.js`: Calculates Manglik Dosha.
+- `mantra-prescription-engine.js`: Engine for mantra prescriptions.
+- `marriage-muhurat-calculator.js`: Calculator for marriage muhurats.
+- `math-utils.js`: Mathematical utilities.
+- `medical-astrology-constants.js`: Constants for medical astrology.
+- `medical-astrology-counselor.js`: Counselor for medical astrology.
+- `medical-astrology-counselortest.js`: Test for medical astrology counselor.
+- `medical-astrology-manual-testtest.js`: Manual test for medical astrology.
+- `medical-astrology-system.js`: System for medical astrology.
+- `medical-astrology-systemtest.js`: Test for medical astrology system.
+- `medical-integration-system.js`: Integration system for medical astrology.
+- `monthly-horoscope-generator.js`: Generates monthly horoscopes.
+- `muhurat-calculator.js`: Calculates muhurats.
+- `muhurat-calculatortest.js`: Test for muhurat calculator.
+- `muhurat-comprehensivetest.js`: Comprehensive test for muhurat.
+- `muhurat-constants.js`: Constants for muhurat.
+- `muhurat-scorer.js`: Scores muhurat suitability.
+- `mundane-astrology-analyzer.js`: Analyzes mundane astrology.
+- `mundane-astrology-constants.js`: Constants for mundane astrology.
+- `mundane-astrology-system.js`: System for mundane astrology.
+- `mundane-astrology-systemtest.js`: Test for mundane astrology system.
+- `mundane-astrology-utils.js`: Utilities for mundane astrology.
+- `mundane-astrology-utilstest.js`: Test for mundane astrology utils.
+- `mundane-astronomical-calculations.js`: Astronomical calculations for mundane astrology.
+- `mundane-astronomical-calculationstest.js`: Test for mundane astronomical calculations.
+- `mundane-chart-generators.js`: Generators for mundane charts.
+- `mundane-mcp-integration.js`: MCP integration for mundane astrology.
+- `mundane-predictors.js`: Predictors for mundane events.
+- `mundane-test-runnertest.js`: Test runner for mundane astrology.
+- `nadi-astrology-system.js`: System for Nadi astrology.
+- `nadi-compatibility-calculator.js`: Calculator for Nadi compatibility.
+- `nakshatra-calculator.js`: Calculates Nakshatras.
+- `notification-manager.js`: Manages notifications.
+- `numerology-calculator.js`: Calculates numerology.
+- `numerology-constants.js`: Constants for numerology.
+- `numerology-utils.js`: Utilities for numerology.
+- `panchang-calculator.js`: Calculates Panchang.
+- `panchang-calculatortest.js`: Test for Panchang calculator.
+- `parenting-astrology-constants.js`: Constants for parenting astrology.
+- `parenting-astrology-system.js`: System for parenting astrology.
+- `parenting-astrology-systemtest.js`: Test for parenting astrology system.
+- `performance-monitor.js`: Monitors performance.
+- `period-analyzer.js`: Analyzes periods.
+- `personalized-dasha-constants.js`: Constants for personalized dasha.
+- `personalized-dasha-guidance.js`: Guidance for personalized dasha.
+- `personalized-dasha-guidancetest.js`: Test for personalized dasha guidance.
+- `personalized-remedy-system.js`: System for personalized remedies.
+- `pet-astrology-accuracytest.js`: Accuracy test for pet astrology.
+- `pet-astrology-constants.js`: Constants for pet astrology.
+- `pet-astrology-integrationtest.js`: Integration test for pet astrology.
+- `pet-astrology-performancetest.js`: Performance test for pet astrology.
+- `pet-astrology-test.js`: General test for pet astrology.
+- `pet-astrology-uattest.js`: UAT test for pet astrology.
+- `pet-astrology-utils.js`: Utilities for pet astrology.
+- `pet-behavioral-analyzer.js`: Analyzes pet behavior astrologically.
+- `pet-behavioral-analyzertest.js`: Test for pet behavioral analyzer.
+- `pet-chart-generator.js`: Generates pet astrology charts.
+- `pet-chart-generatortest.js`: Test for pet chart generator.
+- `pet-health-predictor.js`: Predicts pet health.
+- `pet-health-predictortest.js`: Test for pet health predictor.
+- `planetary-affliction-analyzer.js`: Analyzes planetary afflictions.
+- `planetary-calculator.js`: Calculates planetary positions.
+- `planetary-fasting-engine.js`: Engine for planetary fasting.
+- `planetary-mappings-config.js`: Configuration for planetary mappings.
+- `planetary-position-tracker.js`: Tracks planetary positions.
+- `pooja-prescription-engine.js`: Engine for pooja prescriptions.
+- `position-monitor.js`: Monitors positions.
+- `prediction-engine.js`: Engine for predictions.
+- `predictive-analyzer.js`: Analyzes predictions.
+- `README-compatibility.md`: README for compatibility features.
+- `README-divisional-charts.md`: README for divisional charts.
+- `README-lal-kitab-karmic-debt.md`: README for Lal Kitab karmic debt.
+- `README-muhurat.md`: README for muhurat.
+- `README-personalized-dasha-guidance.md`: README for personalized dasha guidance.
+- `README-panchang.md`: README for Panchang.
+- `README-pet-astrology.md`: README for pet astrology.
+- `README-relationship-counseling.md`: README for relationship counseling.
+- `README-return-charts.md`: README for return charts.
+- `README-transit-analysis.md`: README for transit analysis.
+- `README-yoga-formation-analyzer.md`: README for yoga formation analyzer.
+- `README-zc1-19.md`: README for ZC1-19 personalized remedies.
+- `README-zc1-20-horary.md`: README for ZC1-20 horary.
+- `README-zc1-21-astro-cartography.md`: README for ZC1-21 astro-cartography.
+- `README-zc1-22-counseling.md`: README for ZC1-22 counseling.
+- `README-zc1-23.md`: README for ZC1-23 mundane astrology.
+- `README-zc1-27-yantra-sacred-geometry.md`: README for ZC1-27 yantra.
+- `README-zc1-28.md`: README for ZC1-28 charity guidance.
+- `README-zc1-29-fasting.md`: README for ZC1-29 fasting.
+- `README.md`: General README for astrology services.
+- `relationship-counseling-constants.js`: Constants for relationship counseling.
+- `relationship-counseling-schema.sql`: Database schema for relationship counseling.
+- `relationship-counselingtest.js`: Test for relationship counseling.
+- `relationship-counselor.js`: Counselor for relationships.
+- `relocation-chart-generator.js`: Generates relocation charts.
+- `relocation-chart-generatortest.js`: Test for relocation chart generator.
+- `remedial-fasting-system.js`: System for remedial fasting.
+- `remedial-recommender.js`: Recommends remedial measures.
+- `remedy-constants.js`: Constants for remedies.
+- `remedy-generator.js`: Generates remedies.
+- `remedy-matcher.js`: Matches remedies to conditions.
+- `return-chart-calculator.js`: Calculates return charts.
+- `return-chart-calculatortest.js`: Test for return chart calculator.
+- `return-chart-generator.js`: Generates return charts.
+- `return-chart-interpreter.js`: Interprets return charts.
+- `shad-bala-calculator.js`: Calculates Shad Bala.
+- `significator-analyzer.js`: Analyzes significators.
+- `simple-testtest.js`: Simple test file.
+- `synastry-analyzer.js`: Analyzes synastry charts.
+- `tithi-fasting-calculator.js`: Calculator for Tithi fasting.
+- `transit-alert-engine.js`: Engine for transit alerts.
+- `transit-analysis-constants.js`: Constants for transit analysis.
+- `transit-analysis-system.js`: System for transit analysis.
+- `transit-analysis-systemtest.js`: Test for transit analysis system.
+- `transit-analysis-utils.js`: Utilities for transit analysis.
+- `transit-analyzer.js`: Analyzes transits.
+- `transit-calculator.js`: Calculates transits.
+- `transit-predictions-config.js`: Configuration for transit predictions.
+- `travel-muhurat-calculator.js`: Calculator for travel muhurats.
+- `validation-schemas.js`: Validation schemas.
+- `varshaphal-system.js`: System for Varshaphal.
+- `varshaphala-calculator.js`: Calculator for Varshaphala.
+- `vedic-birth-chart-generator.js`: Generates Vedic birth charts.
+- `vedic-birth-chart-tests.js`: Tests for Vedic birth chart generator.
+- `vedic-birth-charttest.js`: Test for Vedic birth chart.
+- `vedic-charity-guidance-system.js`: System for Vedic charity guidance.
+- `vedic-charity-guidance-systemtest.js`: Test for Vedic charity guidance.
+- `vedic-fasting-engine.js`: Engine for Vedic fasting.
+- `vedic-horoscope-system.js`: System for Vedic horoscopes.
+- `vedic-muhurat-system.js`: System for Vedic muhurats.
+- `vimshottari-dasha.js`: Vimshottari Dasha calculations.
+- `weekly-horoscope-generator.js`: Generates weekly horoscopes.
+- `yantra-api.js`: API for yantra operations.
+- `yantra-encryption.js`: Encryption for yantra data.
+- `yantra-errors.js`: Error definitions for yantra.
+- `yantra-geometry-engine.js`: Engine for yantra geometry.
+- `yantra-input-validation.js`: Validation for yantra inputs.
+- `yantra-meditation-engine.js`: Engine for yantra meditation.
+- `yantra-prescription-engine.js`: Engine for yantra prescriptions.
+- `yantra-recommendation-engine.js`: Engine for yantra recommendations.
+- `yantra-sacred-geometry-constants.js`: Constants for yantra sacred geometry.
+- `yantra-service.js`: Service for yantra operations.
+- `yantra-systemtest.js`: Test for yantra system.
+- `yearly-horoscope-generator.js`: Generates yearly horoscopes.
+- `yoga-detector.js`: Detects yogas in charts.
+- `yoga-formation-analyzer.js`: Analyzes yoga formations.
+- `yoga-formation-analyzertest.js`: Test for yoga formation analyzer.
+- `zc1-8-document-validationtest.js`: Test for ZC1-8 document validation.
+- `zc1-10-analysis-engine.js`: Engine for ZC1-10 analysis.
+- `zc1-10-analysis-enginetest.js`: Test for ZC1-10 analysis engine.
+- `zc1-11-system.js`: System for ZC1-11.
+- `zc1-11-systemtest.js`: Test for ZC1-11 system.
+- `zc1-15-advanced-systemstest.js`: Test for ZC1-15 advanced systems.
+- `zc1-19-remedy-systemtest.js`: Test for ZC1-19 remedy system.
+- `zc1-22-counseling-api.js`: API for ZC1-22 counseling.
+- `zc1-22-counseling-apitest.js`: Test for ZC1-22 counseling API.
+- `zc1-28-charity-guidance-comprehensivetest.js`: Comprehensive test for ZC1-28 charity guidance.
+- `zc1-29-fasting-system.js`: System for ZC1-29 fasting.
+- `zc1-29-fasting-systemtest.js`: Test for ZC1-29 fasting system.

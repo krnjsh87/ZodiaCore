@@ -1,0 +1,435 @@
+/* Western Birth Chart Display Styles */
+
+.western-birth-chart-display {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.western-birth-chart-header {
+  text-align: center;
+  margin-bottom: 30px;
+  padding-bottom: 20px;
+  border-bottom: 2px solid #e1e5e9;
+}
+
+.western-birth-chart-header h1 {
+  color: #2c3e50;
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+  font-weight: 300;
+}
+
+.birth-info {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.birth-info p {
+  margin: 0;
+  color: #666;
+  font-size: 1rem;
+}
+
+.birth-info strong {
+  color: #34495e;
+}
+
+/* Loading and Error States */
+.western-birth-chart-loading,
+.western-birth-chart-error,
+.western-birth-chart-empty {
+  text-align: center;
+  padding: 60px 20px;
+  background: #f8f9fa;
+  border-radius: 8px;
+  margin: 20px 0;
+}
+
+.loading-spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid #f3f3f3;
+  border-top: 4px solid #3498db;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin: 0 auto 20px;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.retry-button {
+  background: #3498db;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  margin-top: 10px;
+}
+
+.retry-button:hover {
+  background: #2980b9;
+}
+
+/* Content Sections */
+.western-birth-chart-content {
+  display: grid;
+  gap: 30px;
+}
+
+.western-birth-chart-content section {
+  background: #f8f9fa;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.western-birth-chart-content h2 {
+  color: #2c3e50;
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+  font-weight: 500;
+  border-bottom: 1px solid #e1e5e9;
+  padding-bottom: 10px;
+}
+
+/* Key Points Section */
+.key-points-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.key-point {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  text-align: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.key-point h3 {
+  color: #34495e;
+  margin-bottom: 10px;
+  font-size: 1.1rem;
+}
+
+.sign-name {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #2c3e50;
+  margin-bottom: 5px;
+}
+
+.degree {
+  color: #666;
+  font-size: 1rem;
+}
+
+/* Planetary Positions Table */
+.planetary-table table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.planetary-table th,
+.planetary-table td {
+  padding: 12px 15px;
+  text-align: left;
+  border-bottom: 1px solid #e1e5e9;
+}
+
+.planetary-table th {
+  background: #34495e;
+  color: white;
+  font-weight: 500;
+}
+
+.planet-symbol {
+  font-size: 1.2rem;
+  margin-right: 8px;
+}
+
+/* Planet-specific colors */
+.planet-sun { color: #f39c12; }
+.planet-moon { color: #bdc3c7; }
+.planet-mercury { color: #95a5a6; }
+.planet-venus { color: #e74c3c; }
+.planet-mars { color: #c0392b; }
+.planet-jupiter { color: #f1c40f; }
+.planet-saturn { color: #8e44ad; }
+.planet-uranus { color: #3498db; }
+.planet-neptune { color: #9b59b6; }
+.planet-pluto { color: #e67e22; }
+
+/* Houses Grid */
+.houses-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+  gap: 10px;
+}
+
+.house-cusp {
+  background: white;
+  padding: 10px;
+  border-radius: 6px;
+  text-align: center;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.house-number {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #34495e;
+  display: block;
+}
+
+.house-sign {
+  font-size: 0.9rem;
+  color: #666;
+  margin: 2px 0;
+}
+
+.house-degree {
+  font-size: 0.8rem;
+  color: #999;
+}
+
+/* Aspects Table */
+.aspects-table table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.aspects-table th,
+.aspects-table td {
+  padding: 10px 12px;
+  text-align: left;
+  border-bottom: 1px solid #e1e5e9;
+}
+
+.aspects-table th {
+  background: #34495e;
+  color: white;
+  font-weight: 500;
+}
+
+/* Aspect-specific colors */
+.aspect-conjunction { color: #e74c3c; }
+.aspect-opposition { color: #c0392b; }
+.aspect-trine { color: #27ae60; }
+.aspect-square { color: #e67e22; }
+.aspect-sextile { color: #f39c12; }
+
+/* Chart Wheel */
+.western-chart-wheel-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.western-chart-wheel-svg {
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.ascendant-marker {
+  fill: #ff6b6b;
+}
+
+.midheaven-marker {
+  fill: #4ecdc4;
+}
+
+/* Legend */
+.western-chart-legend {
+  background: white;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  min-width: 250px;
+}
+
+.western-chart-legend h3 {
+  margin: 0 0 15px 0;
+  color: #34495e;
+  font-size: 1.1rem;
+}
+
+.legend-items {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.9rem;
+}
+
+.legend-symbol {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.legend-symbol.ascendant-marker {
+  background: #ff6b6b;
+}
+
+.legend-symbol.midheaven-marker {
+  background: #4ecdc4;
+}
+
+.legend-symbol.planet-sun { background: #f39c12; }
+.legend-symbol.planet-moon { background: #bdc3c7; }
+.legend-symbol.planet-mercury { background: #95a5a6; }
+.legend-symbol.planet-venus { background: #e74c3c; }
+.legend-symbol.planet-mars { background: #c0392b; }
+.legend-symbol.planet-jupiter { background: #f1c40f; }
+.legend-symbol.planet-saturn { background: #8e44ad; }
+.legend-symbol.planet-uranus { background: #3498db; }
+.legend-symbol.planet-neptune { background: #9b59b6; }
+.legend-symbol.planet-pluto { background: #e67e22; }
+
+/* Technical Details */
+.technical-details {
+  background: white;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.technical-details p {
+  margin: 5px 0;
+  font-family: 'Courier New', monospace;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .western-birth-chart-display {
+    padding: 15px;
+  }
+
+  .western-birth-chart-header h1 {
+    font-size: 2rem;
+  }
+
+  .birth-info {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .key-points-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .houses-grid {
+    grid-template-columns: repeat(auto-fit, minmax(60px, 1fr));
+  }
+
+  .planetary-table table,
+  .aspects-table table {
+    font-size: 0.9rem;
+  }
+
+  .planetary-table th,
+  .planetary-table td,
+  .aspects-table th,
+  .aspects-table td {
+    padding: 8px 10px;
+  }
+
+  .western-chart-wheel-container {
+    flex-direction: column;
+  }
+
+  .western-chart-legend {
+    min-width: auto;
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .western-birth-chart-header h1 {
+    font-size: 1.5rem;
+  }
+
+  .houses-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .house-cusp {
+    padding: 8px;
+  }
+
+  .house-number {
+    font-size: 1rem;
+  }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .loading-spinner {
+    animation: none;
+  }
+}
+
+/* High contrast mode */
+@media (prefers-contrast: high) {
+  .western-birth-chart-display {
+    border: 2px solid #000;
+  }
+
+  .western-birth-chart-content section {
+    border: 1px solid #000;
+  }
+
+  .planetary-table table,
+  .aspects-table table {
+    border: 2px solid #000;
+  }
+}
+
+/* Print styles */
+@media print {
+  .western-birth-chart-display {
+    box-shadow: none;
+    border: 1px solid #ccc;
+  }
+
+  .western-birth-chart-content section {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  .retry-button {
+    display: none;
+  }
+}
