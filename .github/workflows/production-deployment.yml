@@ -1,0 +1,100 @@
+name: Production Deployment
+
+on:
+  push:
+    branches:
+      - main
+      - staging
+    tags:
+      - 'v*'
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run tests
+        run: npm test
+
+  deploy-production:
+    needs: test
+    if: github.ref == 'refs/heads/main' || startsWith(github.ref, 'refs/tags/v')
+    runs-on: ubuntu-latest
+    environment: production
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build Docker images
+        run: docker-compose build
+
+      - name: Install Render CLI
+        run: npm install -g render-cli
+
+      - name: Deploy to Render
+        run: render deploy --file render.yaml --api-key ${{ secrets.RENDER_API_KEY }}
+
+      - name: Notify on success
+        if: success()
+        run: echo "Production deployment successful"
+
+      - name: Notify on failure
+        if: failure()
+        run: |
+          curl -X POST -H 'Content-type: application/json' --data '{"text":"Production deployment failed"}' ${{ secrets.SLACK_WEBHOOK_URL }}
+
+  deploy-staging:
+    needs: test
+    if: github.ref == 'refs/heads/staging'
+    runs-on: ubuntu-latest
+    environment: staging
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build Docker images
+        run: docker-compose -f docker-compose.staging.yml build
+
+      - name: Install Render CLI
+        run: npm install -g render-cli
+
+      - name: Deploy to Render
+        run: render deploy --file render.yaml --api-key ${{ secrets.RENDER_API_KEY_STAGING }}
+
+      - name: Notify on success
+        if: success()
+        run: echo "Staging deployment successful"
+
+      - name: Notify on failure
+        if: failure()
+        run: |
+          curl -X POST -H 'Content-type: application/json' --data '{"text":"Staging deployment failed"}' ${{ secrets.SLACK_WEBHOOK_URL_STAGING }}

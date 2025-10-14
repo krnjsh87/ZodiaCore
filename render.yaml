@@ -1,0 +1,300 @@
+# Render deployment configuration for ZodiaCore production environment
+# This file defines the infrastructure setup for deploying the ZodiaCore application
+# to Render's cloud platform. It configures a single production web service that
+# handles the main application, backend services, and API endpoints.
+
+services:
+  # Define the primary web service for the ZodiaCore application
+  - type: web
+    # Service type: 'web' indicates a web application service that runs continuously
+    # and can handle HTTP requests. This is suitable for Node.js applications with APIs.
+
+    name: zodiacore-production
+    # Unique name for the service on Render. This will be the subdomain for the app
+    # (e.g., zodiacore-production.onrender.com) and is used for internal referencing.
+
+    runtime: node
+    # Runtime environment: Specifies Node.js as the execution environment.
+    # Render automatically detects and uses the Node.js version from package.json.
+
+    buildCommand: npm install
+    # Build command: Executed during deployment to install dependencies.
+    # This runs 'npm install' to set up all Node.js packages defined in package.json.
+
+    startCommand: npm start
+    # Start command: Command to launch the application after build completion.
+    # This executes 'npm start', which typically runs the script defined in package.json.
+
+    envVars:
+      # Environment variables: Key-value pairs passed to the application at runtime.
+      # These configure the production environment and external service connections.
+
+      # Core Application Configuration
+      - key: NODE_ENV
+        value: production
+        # NODE_ENV: Sets the Node.js environment to 'production'.
+        # This enables production optimizations like caching, minification, and disables debug logging.
+
+      - key: PORT
+        value: 10000
+        # PORT: Specifies the port on which the application listens for incoming requests.
+        # Render assigns this dynamically, but setting it ensures consistency. Default is 10000.
+
+      # Database Configuration
+      - key: MONGODB_URI
+        value: ${MONGODB_URI}
+        # MONGODB_URI: Connection string for MongoDB Atlas database.
+        # The ${MONGODB_URI} syntax references an environment variable that must be set
+        # in Render's dashboard or via secrets management for security. This connects the
+        # application to the external MongoDB Atlas cluster for data persistence.
+
+      - key: MONGODB_DB_NAME
+        value: ${MONGODB_DB_NAME}
+        # MONGODB_DB_NAME: Default database name for MongoDB Atlas connections.
+
+      # Authentication & Security
+      - key: JWT_SECRET
+        value: ${JWT_SECRET}
+        # JWT_SECRET: Secret key for JWT token signing and verification.
+
+      - key: ENCRYPTION_KEY
+        value: ${ENCRYPTION_KEY}
+        # ENCRYPTION_KEY: Key for data encryption/decryption operations.
+
+      # AI/ML Services Configuration
+      - key: OPENAI_API_KEY
+        value: ${OPENAI_API_KEY}
+        # OPENAI_API_KEY: API key for OpenAI services.
+
+      - key: ANTHROPIC_API_KEY
+        value: ${ANTHROPIC_API_KEY}
+        # ANTHROPIC_API_KEY: API key for Anthropic Claude services.
+
+      - key: GOOGLE_API_KEY
+        value: ${GOOGLE_API_KEY}
+        # GOOGLE_API_KEY: API key for Google AI services.
+
+      - key: CREATIVE_API_KEY
+        value: ${CREATIVE_API_KEY}
+        # CREATIVE_API_KEY: API key for creative AI model (GPT-4).
+
+      - key: ANALYTICAL_API_KEY
+        value: ${ANALYTICAL_API_KEY}
+        # ANALYTICAL_API_KEY: API key for analytical AI model (GPT-3.5-turbo).
+
+      - key: INTUITIVE_API_KEY
+        value: ${INTUITIVE_API_KEY}
+        # INTUITIVE_API_KEY: API key for intuitive AI model (Claude-2).
+
+      - key: ANGEL_API_KEY
+        value: ${ANGEL_API_KEY}
+        # ANGEL_API_KEY: API key for angel card/oracle readings.
+
+      - key: ORACLE_API_KEY
+        value: ${ORACLE_API_KEY}
+        # ORACLE_API_KEY: API key for oracle card interpretations.
+
+      # External Service Integrations
+      - key: FASTING_API_URL
+        value: ${FASTING_API_URL}
+        # FASTING_API_URL: Base URL for fasting recommendation service.
+
+      - key: FASTING_API_KEY
+        value: ${FASTING_API_KEY}
+        # FASTING_API_KEY: API key for fasting service authentication.
+
+      - key: FENG_SHUI_API_USERNAME
+        value: ${FENG_SHUI_API_USERNAME}
+        # FENG_SHUI_API_USERNAME: Username for Feng Shui API authentication.
+
+      - key: FENG_SHUI_API_PASSWORD
+        value: ${FENG_SHUI_API_PASSWORD}
+        # FENG_SHUI_API_PASSWORD: Password for Feng Shui API authentication.
+
+      # Caching & Performance Configuration
+      - key: REDIS_URL
+        value: ${REDIS_URL}
+        # REDIS_URL: Connection URL for Redis caching service.
+
+      - key: CACHE_TTL
+        value: ${CACHE_TTL}
+        # CACHE_TTL: Default time-to-live for cached data in seconds.
+
+      - key: MAX_CONNECTIONS
+        value: ${MAX_CONNECTIONS}
+        # MAX_CONNECTIONS: Maximum number of concurrent connections.
+
+      # Monitoring & Logging Configuration
+      - key: LOG_LEVEL
+        value: ${LOG_LEVEL}
+        # LOG_LEVEL: Logging verbosity level (error, warn, info, debug). Default: info for production.
+
+      - key: LOG_ERROR_FILE
+        value: ${LOG_ERROR_FILE}
+        # LOG_ERROR_FILE: Path for error log file. Default: logs/error.log (not used in production).
+
+      - key: LOG_COMBINED_FILE
+        value: ${LOG_COMBINED_FILE}
+        # LOG_COMBINED_FILE: Path for combined log file. Default: logs/combined.log (not used in production).
+
+      - key: LOG_RETENTION_DAYS
+        value: ${LOG_RETENTION_DAYS}
+        # LOG_RETENTION_DAYS: Number of days to retain logs in production. Default: 30.
+
+      - key: LOG_MAX_SIZE_MB
+        value: ${LOG_MAX_SIZE_MB}
+        # LOG_MAX_SIZE_MB: Maximum size per log file in MB. Default: 100.
+
+      - key: LOG_MAX_FILES
+        value: ${LOG_MAX_FILES}
+        # LOG_MAX_FILES: Maximum number of log files to keep. Default: 10.
+
+      - key: ALERT_EMAIL_ENABLED
+        value: ${ALERT_EMAIL_ENABLED}
+        # ALERT_EMAIL_ENABLED: Enable/disable email alerts for transit events.
+
+      - key: ALERT_SMS_ENABLED
+        value: ${ALERT_SMS_ENABLED}
+        # ALERT_SMS_ENABLED: Enable/disable SMS alerts for transit events.
+
+      # Email Service Configuration
+      - key: SMTP_HOST
+        value: ${SMTP_HOST}
+        # SMTP_HOST: SMTP server hostname for email notifications.
+
+      - key: SMTP_PORT
+        value: ${SMTP_PORT}
+        # SMTP_PORT: SMTP server port (typically 587 for TLS).
+
+      - key: SMTP_USER
+        value: ${SMTP_USER}
+        # SMTP_USER: SMTP authentication username.
+
+      - key: SMTP_PASS
+        value: ${SMTP_PASS}
+        # SMTP_PASS: SMTP authentication password.
+
+      - key: EMAIL_FROM
+        value: ${EMAIL_FROM}
+        # EMAIL_FROM: Default sender email address for notifications.
+
+      # Performance & Scaling Settings
+      - key: MAX_CACHE_SIZE
+        value: ${MAX_CACHE_SIZE}
+        # MAX_CACHE_SIZE: Maximum number of entries in application caches.
+
+      - key: CACHE_TTL_HOURS
+        value: ${CACHE_TTL_HOURS}
+        # CACHE_TTL_HOURS: Cache time-to-live in hours for astrology calculations.
+
+      - key: MAX_CONCURRENT_REQUESTS
+        value: ${MAX_CONCURRENT_REQUESTS}
+        # MAX_CONCURRENT_REQUESTS: Maximum concurrent API requests allowed.
+
+      # Service-Specific Cache Settings
+      - key: ZC_ADVANCED_MAX_PROCESSING_TIME
+        value: ${ZC_ADVANCED_MAX_PROCESSING_TIME}
+        # ZC_ADVANCED_MAX_PROCESSING_TIME: Max processing time for advanced calculations.
+
+      - key: ZC_ADVANCED_CACHE_TTL
+        value: ${ZC_ADVANCED_CACHE_TTL}
+        # ZC_ADVANCED_CACHE_TTL: Cache TTL for advanced astrology results.
+
+      - key: YANTRA_CACHE_SIZE
+        value: ${YANTRA_CACHE_SIZE}
+        # YANTRA_CACHE_SIZE: Cache size for Yantra sacred geometry calculations.
+
+      - key: YANTRA_MAX_CONCURRENT_REQUESTS
+        value: ${YANTRA_MAX_CONCURRENT_REQUESTS}
+        # YANTRA_MAX_CONCURRENT_REQUESTS: Max concurrent Yantra requests.
+
+      - key: ZC43_CACHE_MAX_SIZE
+        value: ${ZC43_CACHE_MAX_SIZE}
+        # ZC43_CACHE_MAX_SIZE: Cache size for numerology calculations.
+
+      - key: ZC43_CACHE_EXPIRATION
+        value: ${ZC43_CACHE_EXPIRATION}
+        # ZC43_CACHE_EXPIRATION: Cache expiration time for numerology results.
+
+      - key: COMPATIBILITY_CACHE_TTL
+        value: ${COMPATIBILITY_CACHE_TTL}
+        # COMPATIBILITY_CACHE_TTL: Cache TTL for compatibility analysis results.
+
+      - key: COMPATIBILITY_MAX_CONCURRENT
+        value: ${COMPATIBILITY_MAX_CONCURRENT}
+        # COMPATIBILITY_MAX_CONCURRENT: Max concurrent compatibility analyses.
+
+      - key: CHINESE_HOROSCOPE_CACHE_TTL
+        value: ${CHINESE_HOROSCOPE_CACHE_TTL}
+        # CHINESE_HOROSCOPE_CACHE_TTL: Cache TTL for Chinese horoscope data.
+
+      - key: CHINESE_HOROSCOPE_MAX_CONCURRENT
+        value: ${CHINESE_HOROSCOPE_MAX_CONCURRENT}
+        # CHINESE_HOROSCOPE_MAX_CONCURRENT: Max concurrent Chinese horoscope requests.
+
+      - key: CACHE_MAX_SIZE
+        value: ${CACHE_MAX_SIZE}
+        # CACHE_MAX_SIZE: General cache size limit for various services.
+
+      - key: CACHE_TTL_MS
+        value: ${CACHE_TTL_MS}
+        # CACHE_TTL_MS: Cache time-to-live in milliseconds.
+
+      # Transit Analysis Configuration
+      - key: CACHE_TTL_MINUTES
+        value: ${CACHE_TTL_MINUTES}
+        # CACHE_TTL_MINUTES: Cache TTL for transit analysis results.
+
+      - key: AYANAMSA_VALUE
+        value: ${AYANAMSA_VALUE}
+        # AYANAMSA_VALUE: Ayanamsa value for Vedic astrology calculations.
+
+      # Counseling Service Configuration
+      - key: MAX_CONCURRENT_ANALYSES
+        value: ${MAX_CONCURRENT_ANALYSES}
+        # MAX_CONCURRENT_ANALYSES: Maximum parallel counseling analyses.
+
+      - key: COUNSELING_MAX_RETRIES
+        value: ${COUNSELING_MAX_RETRIES}
+        # COUNSELING_MAX_RETRIES: Maximum retry attempts for counseling operations.
+
+      - key: COUNSELING_ENABLE_LOGGING
+        value: ${COUNSELING_ENABLE_LOGGING}
+        # COUNSELING_ENABLE_LOGGING: Enable/disable counseling service logging.
+
+      - key: COUNSELING_SESSION_TIMEOUT
+        value: ${COUNSELING_SESSION_TIMEOUT}
+        # COUNSELING_SESSION_TIMEOUT: Session timeout for counseling services.
+
+      # Mundane Astrology Configuration
+      - key: MUNDANE_CACHE_ENABLED
+        value: ${MUNDANE_CACHE_ENABLED}
+        # MUNDANE_CACHE_ENABLED: Enable/disable caching for mundane astrology.
+
+      - key: MUNDANE_CACHE_TTL
+        value: ${MUNDANE_CACHE_TTL}
+        # MUNDANE_CACHE_TTL: Cache TTL for mundane astrology calculations.
+
+      - key: MUNDANE_MAX_CONCURRENT_ANALYSES
+        value: ${MUNDANE_MAX_CONCURRENT_ANALYSES}
+        # MUNDANE_MAX_CONCURRENT_ANALYSES: Max concurrent mundane analyses.
+
+      # MCP Configuration
+      - key: MCP_TIMEOUT_MS
+        value: ${MCP_TIMEOUT_MS}
+        # MCP_TIMEOUT_MS: Timeout for multi-agent collaboration protocol calls.
+
+      - key: CACHE_CLEANUP_INTERVAL_MS
+        value: ${CACHE_CLEANUP_INTERVAL_MS}
+        # CACHE_CLEANUP_INTERVAL_MS: Interval for cache cleanup operations.
+
+    plan: free
+    # Plan: Specifies the Render pricing tier. 'free' provides basic resources suitable
+    # for development and low-traffic production. Can be upgraded to 'starter' or 'standard'
+    # for higher performance and features as the application scales.
+
+    # Additional configuration options can be added here as needed:
+    # - healthCheckPath: Endpoint for health checks (e.g., '/health')
+    # - autoDeploy: Enable automatic deployments on git pushes
+    # - disk: Persistent disk storage if needed for file uploads
+    # - regions: Specify deployment regions for global distribution
