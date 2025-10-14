@@ -1,0 +1,59 @@
+{
+  "name": "zodia-core-backend",
+  "version": "0.4.0",
+  "description": "Backend services for ZodiaCore astrology application with microservices architecture",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js",
+    "test": "vitest",
+    "test:run": "vitest run",
+    "test:ui": "vitest --ui",
+    "build": "npm run build --prefix ../frontend",
+    "install:all": "npm install && npm install --prefix ../backend && npm install --prefix ../frontend",
+    "docker-compose:up": "docker-compose up -d",
+    "services:health-check": "node scripts/health-check.js"
+  },
+  "keywords": [
+    "astrology",
+    "vedic",
+    "western",
+    "microservices",
+    "nodejs",
+    "express",
+    "mongoose",
+    "mongodb"
+  ],
+  "author": "ZodiaCore Team",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.2",
+    "mongoose": "^7.5.0",
+    "cors": "^2.8.5",
+    "helmet": "^7.0.0",
+    "dotenv": "^16.3.1",
+    "winston": "^3.10.0",
+    "compression": "^1.7.4",
+    "rate-limiter-flexible": "^3.0.4",
+    "docker-compose": "^0.23.19"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1",
+    "vitest": "^1.0.0",
+    "supertest": "^6.3.3",
+    "eslint": "^8.49.0",
+    "prettier": "^3.0.3"
+  },
+  "engines": {
+    "node": ">=20.0.0",
+    "npm": ">=9.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/krnjsh87/ZodiaCore.git"
+  },
+  "bugs": {
+    "url": "https://github.com/krnjsh87/ZodiaCore/issues"
+  },
+  "homepage": "https://github.com/krnjsh87/ZodiaCore#readme"
+}

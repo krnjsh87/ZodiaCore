@@ -9,12 +9,12 @@ services:
     environment:
       MONGO_INITDB_ROOT_USERNAME: ${MONGO_ROOT_USERNAME:-admin}
       MONGO_INITDB_ROOT_PASSWORD: ${MONGO_ROOT_PASSWORD:-password}
-      MONGO_INITDB_DATABASE: zodiacore
+      MONGO_INITDB_DATABASE: ${MONGO_DATABASE:-zodiacore}
     ports:
       - "27017:27017"
     volumes:
       - mongodb_data:/data/db
-      - ./backend/databases/init:/docker-entrypoint-initdb.d
+      - ./backend/databases:/docker-entrypoint-initdb.d
     networks:
       - zodiacore-network
     healthcheck:
@@ -51,13 +51,11 @@ services:
     environment:
       NODE_ENV: ${NODE_ENV:-development}
       PORT: 3000
-      MONGODB_URI: mongodb://admin:password@mongodb:27017/zodiacore?authSource=admin
+      MONGODB_URI: ${MONGODB_ATLAS_URI}
       REDIS_URL: redis://redis:6379
     ports:
       - "3000:3000"
     depends_on:
-      mongodb:
-        condition: service_healthy
       redis:
         condition: service_healthy
     networks:
@@ -70,6 +68,11 @@ services:
       interval: 30s
       timeout: 10s
       retries: 3
+    deploy:
+      resources:
+        limits:
+          cpus: '0.5'
+          memory: 512M
 
   # Vedic Astrology Service
   vedic-service:
@@ -81,13 +84,11 @@ services:
     environment:
       NODE_ENV: ${NODE_ENV:-development}
       PORT: 3001
-      MONGODB_URI: mongodb://admin:password@mongodb:27017/zodiacore?authSource=admin
+      MONGODB_URI: ${MONGODB_ATLAS_URI}
       REDIS_URL: redis://redis:6379
     ports:
       - "3001:3001"
     depends_on:
-      mongodb:
-        condition: service_healthy
       redis:
         condition: service_healthy
     networks:
@@ -100,6 +101,11 @@ services:
       interval: 30s
       timeout: 10s
       retries: 3
+    deploy:
+      resources:
+        limits:
+          cpus: '0.5'
+          memory: 512M
 
   # Western Astrology Service
   western-service:
@@ -111,13 +117,11 @@ services:
     environment:
       NODE_ENV: ${NODE_ENV:-development}
       PORT: 3002
-      MONGODB_URI: mongodb://admin:password@mongodb:27017/zodiacore?authSource=admin
+      MONGODB_URI: ${MONGODB_ATLAS_URI}
       REDIS_URL: redis://redis:6379
     ports:
       - "3002:3002"
     depends_on:
-      mongodb:
-        condition: service_healthy
       redis:
         condition: service_healthy
     networks:
@@ -130,6 +134,244 @@ services:
       interval: 30s
       timeout: 10s
       retries: 3
+    deploy:
+      resources:
+        limits:
+          cpus: '0.5'
+          memory: 512M
+
+  # Chinese Astrology Service (ZC2)
+  chinese-service:
+    build:
+      context: ./services/chinese-service
+      dockerfile: Dockerfile
+    container_name: zodiacore-chinese-service
+    restart: unless-stopped
+    environment:
+      NODE_ENV: ${NODE_ENV:-development}
+      PORT: 3004
+      MONGODB_URI: ${MONGODB_ATLAS_URI}
+      REDIS_URL: redis://redis:6379
+    ports:
+      - "3004:3004"
+    depends_on:
+      redis:
+        condition: service_healthy
+    networks:
+      - zodiacore-network
+    volumes:
+      - ./services/chinese-service:/app
+      - /app/node_modules
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3004/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+    deploy:
+      resources:
+        limits:
+          cpus: '0.5'
+          memory: 512M
+
+  # Numerology Service (ZC4)
+  zc4-numerology:
+    build:
+      context: ./services/zc4-numerology
+      dockerfile: Dockerfile
+    container_name: zodiacore-zc4-numerology
+    restart: unless-stopped
+    environment:
+      NODE_ENV: ${NODE_ENV:-development}
+      PORT: 3005
+      MONGODB_URI: ${MONGODB_ATLAS_URI}
+      REDIS_URL: redis://redis:6379
+    ports:
+      - "3005:3005"
+    depends_on:
+      mongodb:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    networks:
+      - zodiacore-network
+    volumes:
+      - ./services/zc4-numerology:/app
+      - /app/node_modules
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3005/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+    deploy:
+      resources:
+        limits:
+          cpus: '0.5'
+          memory: 512M
+
+  # ZC1 Vedic Astrology Service
+  zc1-vedic:
+    build:
+      context: ./services/zc1-vedic
+      dockerfile: Dockerfile
+    container_name: zodiacore-zc1-vedic
+    restart: unless-stopped
+    environment:
+      NODE_ENV: ${NODE_ENV:-development}
+      PORT: 3006
+      MONGODB_URI: ${MONGODB_ATLAS_URI}
+      REDIS_URL: redis://redis:6379
+    ports:
+      - "3006:3006"
+    depends_on:
+      redis:
+        condition: service_healthy
+    networks:
+      - zodiacore-network
+    volumes:
+      - ./services/zc1-vedic:/app
+      - /app/node_modules
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3006/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+    deploy:
+      resources:
+        limits:
+          cpus: '0.5'
+          memory: 512M
+
+  # ZC2 Chinese Astrology Service
+  zc2-chinese:
+    build:
+      context: ./services/zc2-chinese
+      dockerfile: Dockerfile
+    container_name: zodiacore-zc2-chinese
+    restart: unless-stopped
+    environment:
+      NODE_ENV: ${NODE_ENV:-development}
+      PORT: 3007
+      MONGODB_URI: ${MONGODB_ATLAS_URI}
+      REDIS_URL: redis://redis:6379
+    ports:
+      - "3007:3007"
+    depends_on:
+      redis:
+        condition: service_healthy
+    networks:
+      - zodiacore-network
+    volumes:
+      - ./services/zc2-chinese:/app
+      - /app/node_modules
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3007/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+    deploy:
+      resources:
+        limits:
+          cpus: '0.5'
+          memory: 512M
+
+  # ZC3 Western Astrology Service
+  zc3-western:
+    build:
+      context: ./services/zc3-western
+      dockerfile: Dockerfile
+    container_name: zodiacore-zc3-western
+    restart: unless-stopped
+    environment:
+      NODE_ENV: ${NODE_ENV:-development}
+      PORT: 3008
+      MONGODB_URI: ${MONGODB_ATLAS_URI}
+      REDIS_URL: redis://redis:6379
+    ports:
+      - "3008:3008"
+    depends_on:
+      redis:
+        condition: service_healthy
+    networks:
+      - zodiacore-network
+    volumes:
+      - ./services/zc3-western:/app
+      - /app/node_modules
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3008/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+    deploy:
+      resources:
+        limits:
+          cpus: '0.5'
+          memory: 512M
+
+  # Auth Service
+  auth:
+    build:
+      context: ./backend/auth
+      dockerfile: Dockerfile
+    container_name: zodiacore-auth
+    restart: unless-stopped
+    environment:
+      NODE_ENV: ${NODE_ENV:-development}
+      PORT: 3006
+      MONGODB_URI: ${MONGODB_ATLAS_URI}
+      REDIS_URL: redis://redis:6379
+    ports:
+      - "3006:3006"
+    depends_on:
+      redis:
+        condition: service_healthy
+    networks:
+      - zodiacore-network
+    volumes:
+      - ./backend/auth:/app
+      - /app/node_modules
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3006/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+    deploy:
+      resources:
+        limits:
+          cpus: '0.5'
+          memory: 512M
+
+  # Gateway Service
+  gateway:
+    build:
+      context: ./backend/gateway
+      dockerfile: Dockerfile
+    container_name: zodiacore-gateway
+    restart: unless-stopped
+    environment:
+      NODE_ENV: ${NODE_ENV:-development}
+      PORT: 3009
+      MONGODB_URI: ${MONGODB_ATLAS_URI}
+      REDIS_URL: redis://redis:6379
+    ports:
+      - "3009:3009"
+    depends_on:
+      redis:
+        condition: service_healthy
+    networks:
+      - zodiacore-network
+    volumes:
+      - ./backend/gateway:/app
+      - /app/node_modules
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3009/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+    deploy:
+      resources:
+        limits:
+          cpus: '0.5'
+          memory: 512M
 
   # Frontend React Application
   frontend:
@@ -155,6 +397,11 @@ services:
       interval: 30s
       timeout: 10s
       retries: 3
+    deploy:
+      resources:
+        limits:
+          cpus: '0.5'
+          memory: 512M
 
 volumes:
   mongodb_data:

@@ -1,187 +1,320 @@
-# Centralized Logging System
-
-This document describes the centralized logging system implemented for ZodiaCore microservices.
+# Backend Directory
 
 ## Overview
 
-The logging system provides:
-
-- **Centralized logging** with Winston
-- **Correlation ID support** for request tracing across services
-- **Structured JSON logging** for better parsing and analysis
-- **Configurable log levels** via environment variables
-- **Multi-transport logging** (console for development, files for production)
+The `backend/` directory contains the backend orchestrator service for ZodiaCore, built with Node.js and Express.js. This service acts as the central API gateway and coordinates communication between the frontend client and the various astrology microservices (ZC1-ZC4).
 
 ## Architecture
 
-### Core Components
+The backend orchestrator follows a layered architecture:
 
-1. **Logger Module** (`backend/logger.js`)
-   - Main logging configuration and utilities
-   - Correlation ID generation and management
-   - Express middleware for request correlation
-
-2. **Correlation ID Middleware**
-   - Automatically generates or extracts correlation IDs from requests
-   - Attaches correlation ID to request object
-   - Sets correlation ID in response headers
-
-3. **Child Loggers**
-   - Service-specific loggers with correlation context
-   - Maintains request tracing across service boundaries
-
-## Usage
-
-### Basic Logging
-
-```javascript
-const { getLogger } = require('./backend/logger');
-
-// Get service-specific logger
-const logger = getLogger(null, 'my-service');
-
-// Log messages
-logger.info('Service started');
-logger.error('An error occurred', { error: err });
-logger.debug('Debug information', { data: someData });
+```
+backend/
+├── src/
+│   ├── routes/          # API route handlers
+│   ├── middleware/      # Express middleware (auth, validation, etc.)
+│   ├── services/        # Business logic and service integrations
+│   ├── models/          # Database models and schemas
+│   ├── utils/           # Utility functions and helpers
+│   ├── config/          # Configuration management
+│   └── types/           # TypeScript type definitions
+├── tests/               # Unit and integration tests
+├── Dockerfile           # Container configuration
+├── package.json         # Dependencies and scripts
+├── tsconfig.json        # TypeScript configuration
+└── README.md            # This file
 ```
 
-### Request-Scoped Logging
+## Key Responsibilities
 
-```javascript
-// In Express routes, use req.logger for correlation
-app.get('/api/data', (req, res) => {
-  req.logger.info('Processing data request');
+### API Gateway
+- **Request Routing**: Routes incoming requests to appropriate microservices
+- **Load Balancing**: Distributes requests across service instances
+- **Rate Limiting**: Implements API rate limiting and throttling
+- **CORS Handling**: Manages cross-origin resource sharing
 
-  // Correlation ID is automatically included
-  someService
-    .processData(req.correlationId)
-    .then((result) => {
-      req.logger.info('Data processed successfully');
-      res.json(result);
-    })
-    .catch((err) => {
-      req.logger.error('Failed to process data', { error: err });
-      res.status(500).json({ error: 'Internal error' });
-    });
-});
+### Authentication & Authorization
+- **JWT Token Management**: Issues and validates JWT tokens
+- **Session Handling**: Manages user sessions and refresh tokens
+- **Role-Based Access Control**: Enforces user permissions and roles
+- **API Key Management**: Handles service-to-service authentication
+
+### Service Orchestration
+- **Service Discovery**: Maintains registry of available microservices
+- **Health Monitoring**: Monitors health of downstream services
+- **Circuit Breaking**: Implements fault tolerance patterns
+- **Response Aggregation**: Combines responses from multiple services
+
+### Data Management
+- **Shared Data Layer**: Manages common entities (users, sessions)
+- **Caching Coordination**: Coordinates caching across services
+- **Migration Management**: Handles database schema migrations
+- **Audit Logging**: Maintains audit trails for sensitive operations
+
+## Technology Stack
+
+- **Runtime**: Node.js 20.x LTS
+- **Framework**: Express.js 4.x with TypeScript
+- **Database**: MongoDB Atlas (Mongoose ODM)
+- **Authentication**: JWT with bcrypt for password hashing
+- **Validation**: Joi/Zod schema validation
+- **Caching**: Redis for session and token storage
+- **Security**: Helmet, CORS, rate limiting
+- **Testing**: Vitest for unit tests, Supertest for integration tests
+- **Documentation**: Swagger/OpenAPI for API documentation
+
+## Core Components
+
+### Routes (`src/routes/`)
+- `auth.ts` - Authentication endpoints (login, register, refresh)
+- `users.ts` - User management endpoints
+- `services.ts` - Service orchestration endpoints
+- `health.ts` - Health check endpoints
+- `api.ts` - Main API router with versioning
+
+### Middleware (`src/middleware/`)
+- `auth.ts` - JWT authentication middleware
+- `validation.ts` - Request validation middleware
+- `rateLimit.ts` - Rate limiting middleware
+- `cors.ts` - CORS configuration middleware
+- `errorHandler.ts` - Global error handling middleware
+
+### Services (`src/services/`)
+- `authService.ts` - Authentication business logic
+- `userService.ts` - User management operations
+- `serviceOrchestrator.ts` - Microservice coordination
+- `cacheService.ts` - Caching operations
+- `healthService.ts` - Health monitoring logic
+
+### Models (`src/models/`)
+- `User.ts` - User entity model
+- `Session.ts` - Session management model
+- `AuditLog.ts` - Audit logging model
+- `ServiceRegistry.ts` - Service discovery model
+
+## API Endpoints
+
+### Authentication Endpoints
+```
+POST   /api/v1/auth/login
+POST   /api/v1/auth/register
+POST   /api/v1/auth/refresh
+POST   /api/v1/auth/logout
+GET    /api/v1/auth/me
 ```
 
-### Service Integration
+### User Management Endpoints
+```
+GET    /api/v1/users/:id
+PUT    /api/v1/users/:id
+DELETE /api/v1/users/:id
+GET    /api/v1/users/:id/profile
+PUT    /api/v1/users/:id/preferences
+```
 
-```javascript
-// In service modules
-const { getLogger } = require('../backend/logger');
+### Service Orchestration Endpoints
+```
+GET    /api/v1/services/health
+GET    /api/v1/services/:serviceType/:endpoint
+POST   /api/v1/services/:serviceType/:endpoint
+PUT    /api/v1/services/:serviceType/:endpoint
+DELETE /api/v1/services/:serviceType/:endpoint
+```
 
-class MyService {
-  constructor(correlationId) {
-    this.logger = getLogger(correlationId, 'my-service');
-  }
-
-  async processData(data) {
-    this.logger.info('Processing data', { dataSize: data.length });
-
-    try {
-      const result = await this.doWork(data);
-      this.logger.info('Data processed successfully');
-      return result;
-    } catch (error) {
-      this.logger.error('Processing failed', { error: error.message });
-      throw error;
-    }
-  }
-}
+### Health & Monitoring Endpoints
+```
+GET    /health
+GET    /api/v1/health/detailed
+GET    /api/v1/metrics
 ```
 
 ## Configuration
 
-### Environment Variables
+Environment variables are managed through `.env` files:
 
-- `LOG_LEVEL`: Logging level (error, warn, info, http, debug) - default: `info`
-- `LOG_ERROR_FILE`: Path for error logs - default: `logs/error.log`
-- `LOG_COMBINED_FILE`: Path for combined logs - default: `logs/combined.log`
-- `NODE_ENV`: Environment (production disables console logging)
+```bash
+# Database Configuration
+MONGODB_URI=mongodb+srv://...
+REDIS_URL=redis://...
 
-### Log Levels
+# JWT Configuration
+JWT_SECRET=your-secret-key
+JWT_EXPIRES_IN=24h
+JWT_REFRESH_EXPIRES_IN=7d
 
-- `error`: 0 - Error conditions
-- `warn`: 1 - Warning conditions
-- `info`: 2 - Informational messages
-- `http`: 3 - HTTP request logging
-- `debug`: 4 - Debug information
+# Service URLs
+ZC1_SERVICE_URL=http://zc1-vedic-service:3001
+ZC2_SERVICE_URL=http://zc2-chinese-service:3002
+ZC3_SERVICE_URL=http://zc3-western-service:3003
+ZC4_SERVICE_URL=http://zc4-numerology-service:3004
 
-## Log Format
+# Security Configuration
+BCRYPT_ROUNDS=12
+RATE_LIMIT_WINDOW=15
+RATE_LIMIT_MAX_REQUESTS=100
 
-### JSON Structure
-
-```json
-{
-  "timestamp": "2024-01-15 10:30:45",
-  "level": "info",
-  "message": "User logged in",
-  "correlationId": "550e8400-e29b-41d4-a716-446655440000",
-  "service": "auth-service",
-  "userId": "12345",
-  "ip": "192.168.1.1"
-}
+# Application Configuration
+NODE_ENV=development
+PORT=3000
+API_VERSION=v1
 ```
 
-### Console Format (Development)
+## Development Setup
 
-```
-2024-01-15 10:30:45 info [auth-service] [550e84] User logged in
-```
+### Prerequisites
+- Node.js 20.x LTS
+- MongoDB Atlas account
+- Redis instance (local or cloud)
 
-## Correlation ID Propagation
-
-### HTTP Headers
-
-- **Request**: `x-correlation-id` (optional)
-- **Response**: `x-correlation-id` (always present)
-
-### Service-to-Service Calls
-
-When making HTTP calls between services:
-
-```javascript
-const axios = require('axios');
-
-async function callOtherService(correlationId, data) {
-  const response = await axios.post('http://other-service/api', data, {
-    headers: {
-      'x-correlation-id': correlationId,
-    },
-  });
-  return response.data;
-}
+### Installation
+```bash
+cd backend
+npm install
 ```
 
-## Best Practices
+### Development
+```bash
+# Start development server with hot reload
+npm run dev
 
-1. **Always use correlation IDs** for request tracing
-2. **Include relevant context** in log messages (user IDs, request IDs, etc.)
-3. **Use appropriate log levels** (debug for development, info for production)
-4. **Structure log data** as objects for better parsing
-5. **Handle errors gracefully** with proper error logging
-6. **Propagate correlation IDs** across service boundaries
+# Run tests
+npm test
 
-## Monitoring Integration
+# Run linting
+npm run lint
 
-The logging system is designed to integrate with monitoring tools:
+# Generate API documentation
+npm run docs
+```
 
-- **ELK Stack**: JSON logs work well with Elasticsearch
-- **Splunk**: Structured logging supports advanced queries
-- **Grafana**: Correlation IDs enable request tracing
-- **Prometheus**: Metrics can be derived from log patterns
+### Docker Development
+```bash
+# Build container
+docker build -t zodiacore-backend .
 
-## Dependencies
+# Run with dependencies
+docker-compose up backend
+```
 
-- `winston`: Logging framework
-- `uuid`: Correlation ID generation
+## Testing Strategy
+
+### Unit Tests
+- Service layer testing with mocked dependencies
+- Middleware testing with isolated requests
+- Utility function testing
+- Model validation testing
+
+### Integration Tests
+- API endpoint testing with Supertest
+- Database integration testing
+- Service orchestration testing
+- Authentication flow testing
+
+### Test Coverage
+- Minimum 80% code coverage required
+- Coverage reports generated automatically
+- CI/CD integration with coverage gates
 
 ## Security Considerations
 
-- Logs may contain sensitive information - ensure proper access controls
-- Correlation IDs help track requests without exposing internal data
-- Consider log rotation and retention policies
-- Sanitize log data to prevent injection attacks
+### Authentication Security
+- JWT tokens with secure signing
+- Password hashing with bcrypt
+- Refresh token rotation
+- Secure token storage
+
+### API Security
+- Input validation and sanitization
+- SQL injection prevention
+- XSS protection
+- CSRF protection
+
+### Infrastructure Security
+- HTTPS enforcement
+- Security headers with Helmet
+- Rate limiting and DDoS protection
+- Audit logging for sensitive operations
+
+## Monitoring & Observability
+
+### Health Checks
+- Application health endpoints
+- Database connectivity checks
+- Service dependency health checks
+- Memory and CPU usage monitoring
+
+### Logging
+- Structured JSON logging
+- Correlation IDs for request tracing
+- Error logging with stack traces
+- Audit logging for security events
+
+### Metrics
+- Response time monitoring
+- Error rate tracking
+- Request volume metrics
+- Database query performance
+
+## Deployment
+
+### Production Deployment
+- Docker container deployment on Render
+- Environment-specific configurations
+- Automated health checks
+- Rolling deployment strategy
+
+### Scaling Considerations
+- Horizontal scaling support
+- Load balancer configuration
+- Database connection pooling
+- Caching layer scaling
+
+## Dependencies
+
+### Core Dependencies
+- `express` - Web framework
+- `mongoose` - MongoDB ODM
+- `jsonwebtoken` - JWT token handling
+- `bcrypt` - Password hashing
+- `redis` - Caching and session storage
+- `joi` - Schema validation
+
+### Development Dependencies
+- `typescript` - TypeScript compiler
+- `vitest` - Testing framework
+- `supertest` - HTTP endpoint testing
+- `eslint` - Code linting
+- `prettier` - Code formatting
+
+## Contributing
+
+1. Follow the established coding standards
+2. Add comprehensive tests for new features
+3. Update API documentation for endpoint changes
+4. Ensure all tests pass before submitting PR
+5. Follow conventional commit messages
+
+## Troubleshooting
+
+### Common Issues
+- **Database Connection Errors**: Check MongoDB Atlas network access and credentials
+- **Service Unavailable**: Verify microservice health and network connectivity
+- **Authentication Failures**: Check JWT configuration and token validity
+- **Rate Limiting**: Monitor request patterns and adjust limits if needed
+
+### Debug Mode
+```bash
+# Enable debug logging
+DEBUG=backend:* npm run dev
+
+# Check service health
+curl http://localhost:3000/health
+```
+
+## Future Enhancements
+
+- **GraphQL API**: Alternative to REST API for complex queries
+- **WebSocket Support**: Real-time features and notifications
+- **API Gateway**: Advanced routing and transformation capabilities
+- **Service Mesh**: Istio integration for advanced traffic management
+- **Multi-Region Deployment**: Global distribution and failover

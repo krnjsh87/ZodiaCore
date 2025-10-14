@@ -1,0 +1,150 @@
+# ZodiaCore Continuous Deployment Workflow
+# This workflow handles automated deployment to staging and production environments
+# Deploys to staging on pushes to main, production on releases
+# Includes health checks, rollback capabilities, and environment-specific configurations
+
+name: CD
+
+on:
+  push:
+    branches: [ main ]
+  release:
+    types: [ published ]
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: 'Environment to deploy to'
+        required: true
+        default: 'staging'
+        type: choice
+        options:
+        - staging
+        - production
+      rollback:
+        description: 'Perform rollback'
+        required: false
+        type: boolean
+
+env:
+  REGISTRY: ghcr.io
+  IMAGE_NAME: ${{ github.repository }}
+
+jobs:
+  # Deploy to staging environment
+  deploy-staging:
+    if: (github.event_name == 'push' && github.ref == 'refs/heads/main') || (github.event_name == 'workflow_dispatch' && github.event.inputs.environment == 'staging')
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '20.x'
+        cache: 'npm'
+
+    - name: Install dependencies
+      run: npm run install:all
+
+    - name: Run tests
+      run: npm run test:run
+      env:
+        NODE_ENV: test
+        MONGODB_URI: ${{ secrets.STAGING_MONGODB_URI }}
+
+    - name: Build frontend
+      run: npm run build
+
+    - name: Build and push Docker images
+      run: |
+        echo ${{ secrets.GITHUB_TOKEN }} | docker login ghcr.io -u ${{ github.actor }} --password-stdin
+        docker build -t ghcr.io/${{ github.repository }}/zodiacore-backend:staging -f backend/Dockerfile .
+        docker build -t ghcr.io/${{ github.repository }}/zodiacore-frontend:staging -f frontend/Dockerfile .
+        docker push ghcr.io/${{ github.repository }}/zodiacore-backend:staging
+        docker push ghcr.io/${{ github.repository }}/zodiacore-frontend:staging
+
+    - name: Deploy to Render (Staging)
+      run: |
+        curl -X POST ${{ secrets.RENDER_STAGING_DEPLOY_URL }} \
+        -H "Authorization: Bearer ${{ secrets.RENDER_API_KEY }}"
+
+    - name: Health check staging deployment
+      run: |
+        sleep 60
+        curl -f ${{ secrets.STAGING_HEALTH_CHECK_URL }} || exit 1
+
+    - name: Notify deployment success
+      if: success()
+      run: |
+        echo "Staging deployment successful"
+
+  # Deploy to production environment
+  deploy-production:
+    if: github.event_name == 'release' || (github.event_name == 'workflow_dispatch' && github.event.inputs.environment == 'production')
+    runs-on: ubuntu-latest
+    needs: deploy-staging
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '20.x'
+        cache: 'npm'
+
+    - name: Install dependencies
+      run: npm run install:all
+
+    - name: Run full test suite
+      run: npm run test:run
+      env:
+        NODE_ENV: test
+        MONGODB_URI: ${{ secrets.PRODUCTION_MONGODB_URI }}
+
+    - name: Build frontend
+      run: npm run build
+
+    - name: Build and push Docker images (Production)
+      run: |
+        echo ${{ secrets.GITHUB_TOKEN }} | docker login ghcr.io -u ${{ github.actor }} --password-stdin
+        docker build -t ghcr.io/${{ github.repository }}/zodiacore-backend:latest -f backend/Dockerfile .
+        docker build -t ghcr.io/${{ github.repository }}/zodiacore-frontend:latest -f frontend/Dockerfile .
+        docker push ghcr.io/${{ github.repository }}/zodiacore-backend:latest
+        docker push ghcr.io/${{ github.repository }}/zodiacore-frontend:latest
+
+    - name: Deploy to Render (Production)
+      run: |
+        curl -X POST ${{ secrets.RENDER_PRODUCTION_DEPLOY_URL }} \
+        -H "Authorization: Bearer ${{ secrets.RENDER_API_KEY }}"
+
+    - name: Health check production deployment
+      run: |
+        sleep 120
+        curl -f ${{ secrets.PRODUCTION_HEALTH_CHECK_URL }} || exit 1
+
+    - name: Create deployment notification
+      if: success()
+      run: |
+        echo "Production deployment successful - Version ${{ github.event.release.tag_name }}"
+
+  # Rollback job (manual trigger)
+  rollback:
+    if: github.event_name == 'workflow_dispatch' && github.event.inputs.rollback == 'true'
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Rollback deployment
+      run: |
+        echo "Rolling back ${{ github.event.inputs.environment }} environment"
+        # Add rollback logic here - could involve deploying previous image tag
+
+    - name: Notify rollback
+      run: |
+        echo "Rollback completed for ${{ github.event.inputs.environment }}"

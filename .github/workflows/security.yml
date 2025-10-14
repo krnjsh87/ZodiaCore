@@ -1,0 +1,179 @@
+# ZodiaCore Security Scanning Workflow
+# This workflow performs comprehensive security scans on the codebase
+# Runs on schedule, push to main, and pull requests
+# Includes SAST, SCA, container scanning, and secret detection
+
+name: Security
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  schedule:
+    # Run weekly on Mondays at 9 AM UTC
+    - cron: '0 9 * * 1'
+  workflow_dispatch:
+
+jobs:
+  # Static Application Security Testing (SAST)
+  sast:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '20.x'
+        cache: 'npm'
+
+    - name: Install dependencies
+      run: npm run install:all
+
+    - name: Run ESLint security rules
+      run: npx eslint . --ext .js,.ts,.jsx,.tsx --config .eslintrc.security.json || true
+
+    - name: Run Semgrep SAST
+      uses: semgrep/semgrep-action@v1
+      with:
+        config: auto
+
+    - name: Upload Semgrep results to GitHub Security tab
+      uses: github/codeql-action/upload-sarif@v3
+      if: always()
+      with:
+        sarif_file: semgrep.sarif
+
+  # Software Composition Analysis (SCA)
+  sca:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '20.x'
+        cache: 'npm'
+
+    - name: Install dependencies
+      run: npm install
+
+    - name: Run npm audit with security focus
+      run: npm audit --audit-level high --json > npm-audit-results.json || true
+
+    - name: Run OWASP Dependency Check
+      uses: dependency-check/Dependency-Check_Action@main
+      with:
+        project: 'ZodiaCore'
+        path: '.'
+        format: 'ALL'
+        args: >
+          --enableRetired
+          --enableExperimental
+          --nvdValidForHours 24
+
+    - name: Upload Dependency Check results
+      uses: github/codeql-action/upload-sarif@v3
+      if: always()
+      with:
+        sarif_file: reports/dependency-check-report.sarif
+
+  # Container Security Scanning
+  container-security:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Build Docker images
+      run: |
+        docker-compose -f docker-compose.yml build --no-cache
+
+    - name: Scan Docker images with Trivy
+      uses: aquasecurity/trivy-action@master
+      with:
+        scan-type: 'image'
+        scan-ref: 'zodiacore-backend:latest,zodiacore-frontend:latest'
+        format: 'sarif'
+        output: 'trivy-container-results.sarif'
+
+    - name: Upload Trivy container scan results
+      uses: github/codeql-action/upload-sarif@v3
+      if: always()
+      with:
+        sarif_file: 'trivy-container-results.sarif'
+
+  # Secret Detection
+  secrets:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
+
+    - name: Run TruffleHog OSS
+      uses: trufflesecurity/trufflehog@main
+      with:
+        path: ./
+        base: main
+        head: HEAD
+        extra_args: --debug --only-verified
+
+  # Infrastructure as Code Security
+  iac-security:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Setup Terraform
+      uses: hashicorp/setup-terraform@v3
+
+    - name: Terraform Format Check
+      run: terraform fmt -check -recursive
+
+    - name: Run Checkov
+      uses: bridgecrewio/checkov-action@v12
+      with:
+        directory: .
+        framework: terraform
+        output_format: sarif
+        output_file_path: checkov-results.sarif
+
+    - name: Upload Checkov results
+      uses: github/codeql-action/upload-sarif@v3
+      if: always()
+      with:
+        sarif_file: checkov-results.sarif
+
+  # Security Test Results Summary
+  security-summary:
+    runs-on: ubuntu-latest
+    needs: [sast, sca, container-security, secrets, iac-security]
+    if: always()
+
+    steps:
+    - name: Generate security report summary
+      run: |
+        echo "## Security Scan Summary" >> $GITHUB_STEP_SUMMARY
+        echo "- SAST: ${{ needs.sast.result }}" >> $GITHUB_STEP_SUMMARY
+        echo "- SCA: ${{ needs.sca.result }}" >> $GITHUB_STEP_SUMMARY
+        echo "- Container Security: ${{ needs.container-security.result }}" >> $GITHUB_STEP_SUMMARY
+        echo "- Secrets: ${{ needs.secrets.result }}" >> $GITHUB_STEP_SUMMARY
+        echo "- IaC Security: ${{ needs.iac-security.result }}" >> $GITHUB_STEP_SUMMARY
+
+    - name: Notify security team on failures
+      if: failure()
+      run: |
+        echo "Security scan failures detected. Please review the results."
+        # Add notification logic here (Slack, email, etc.)
