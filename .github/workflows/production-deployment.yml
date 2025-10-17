@@ -46,7 +46,7 @@ jobs:
         run: npm ci
 
       - name: Build Docker images
-        run: docker-compose build
+        run: docker-compose -f infrastructure/docker/docker-compose.yml build
 
       - name: Install Render CLI
         run: npm install -g render-cli
@@ -82,7 +82,7 @@ jobs:
         run: npm ci
 
       - name: Build Docker images
-        run: docker-compose -f docker-compose.staging.yml build
+        run: docker-compose -f infrastructure/docker/docker-compose.staging.yml build
 
       - name: Install Render CLI
         run: npm install -g render-cli

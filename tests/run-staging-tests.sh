@@ -20,7 +20,7 @@ BLUE='\033[0;34m'
 NC='\033[0m' # No Color
 
 # Configuration
-STAGING_COMPOSE_FILE="docker-compose.staging.yml"
+STAGING_COMPOSE_FILE="infrastructure/docker/docker-compose.staging.yml"
 TEST_SCRIPTS_DIR="tests"
 LOG_FILE="staging-test-results-$(date +%Y%m%d-%H%M%S).log"
 
