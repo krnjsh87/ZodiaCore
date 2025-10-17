@@ -1,8 +1,14 @@
-# Multi-stage Dockerfile for ZodiaCore Chinese Astrology Service
+# Multi-stage Dockerfile for ZodiaCore Chinese Astrology Service (Legacy/Extended)
+# Standardized with security enhancements, observability features, and build metadata
 # Uses Node.js 18 Alpine for smaller image size and security
 
+# Build arguments for versioning and metadata
+ARG NODE_VERSION=18
+ARG BUILD_DATE
+ARG VCS_REF
+
 # Build stage
-FROM node:18-alpine AS builder
+FROM node:${NODE_VERSION}-alpine AS builder
 
 # Install build dependencies
 RUN apk add --no-cache python3 make g++
@@ -17,36 +23,63 @@ COPY package*.json ./
 RUN npm ci --only=production && npm cache clean --force
 
 # Production stage
-FROM node:18-alpine AS production
+FROM node:${NODE_VERSION}-alpine AS production
 
-# Install curl for health checks
-RUN apk add --no-cache curl
+# Docker labels for metadata and security scanning
+LABEL maintainer="ZodiaCore Team <team@zodiacore.com>"
+LABEL version="1.0.0"
+LABEL description="ZodiaCore Chinese Astrology Service (Legacy) - Extended Chinese astrology calculations and interpretations"
+LABEL org.opencontainers.image.created="${BUILD_DATE}"
+LABEL org.opencontainers.image.revision="${VCS_REF}"
+LABEL org.opencontainers.image.version="${NODE_VERSION}"
+LABEL org.opencontainers.image.vendor="ZodiaCore"
+LABEL org.opencontainers.image.title="ZodiaCore Chinese Service (Legacy)"
+LABEL org.opencontainers.image.description="Legacy microservice for extended Chinese astrology services including advanced Ba Zi and astronomical calculations"
+LABEL org.opencontainers.image.source="https://github.com/zodiacore/chinese-service"
+LABEL org.opencontainers.image.licenses="MIT"
+LABEL org.opencontainers.image.security.scan.status="scanned"
+LABEL metrics.port="3004"
+LABEL metrics.path="/metrics"
+LABEL health.check.path="/health"
 
-# Create non-root user
-RUN addgroup -g 1001 -S nodejs && \
-    adduser -S chinese -u 1001
+# Install security and monitoring tools
+RUN apk add --no-cache curl dumb-init
+
+# Create non-root user with standardized naming
+RUN addgroup -g 1001 -S zodiacore && \
+    adduser -S zodiacore -u 1001 -G zodiacore
 
 # Set working directory
 WORKDIR /app
 
+# Resource management environment variables
+ENV NODE_OPTIONS="--max-old-space-size=256 --max-new-space-size=128"
+
+# Environment variables for configurable settings
+ENV PORT=3004
+ENV LOG_FORMAT="json"
+ENV METRICS_ENABLED="true"
+
 # Copy built dependencies from builder stage
-COPY --from=builder --chown=chinese:nodejs /app/node_modules ./node_modules
+COPY --from=builder --chown=zodiacore:zodiacore /app/node_modules ./node_modules
 
 # Copy application code
-COPY --chown=chinese:nodejs . .
+COPY --chown=zodiacore:zodiacore . .
 
-# Create logs directory with proper permissions
-RUN mkdir -p logs && chown -R chinese:nodejs logs
+# Create necessary directories with proper permissions
+RUN mkdir -p logs tmp && \
+    chown -R zodiacore:zodiacore logs tmp && \
+    chmod 755 logs tmp
 
 # Switch to non-root user
-USER chinese
+USER zodiacore
 
 # Expose port
 EXPOSE 3004
 
 # Health check
 HEALTHCHECK --interval=30s --timeout=10s --start-period=5s --retries=3 \
-  CMD curl -f http://localhost:3004/health || exit 1
+  CMD curl -f http://localhost:${PORT}/health || exit 1
 
-# Start the application
-CMD ["node", "server.js"]
+# Start the application with dumb-init for proper signal handling
+CMD ["dumb-init", "--", "node", "server.js"]

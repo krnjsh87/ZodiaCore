@@ -54,8 +54,8 @@
 
 ### 0.5 Dependency Installation and Configuration
 - [ ] **0.5.1** Install core Node.js dependencies (Express, Mongoose, JWT)
-- [ ] **0.5.2** Set up React and Next.js dependencies for frontend
-- [ ] **0.5.3** Install testing dependencies (Vitest, React Testing Library)
+- [x] **0.5.2** Set up React and Next.js dependencies for frontend
+- [x] **0.5.3** Install testing dependencies (Vitest, React Testing Library)
 - [ ] **0.5.4** Configure Docker images for all services
 - [ ] **0.5.5** Set up development and production dependency management
 - [ ] **0.5.6** Install security-related packages (helmet, cors, etc.)

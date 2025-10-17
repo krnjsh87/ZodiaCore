@@ -1,7 +1,14 @@
 version: '3.8'
 
+# ZodiaCore Comprehensive Docker Compose Configuration
+# Orchestrates all ZC1-ZC4 astrology services with infrastructure and monitoring
+# Supports both development and production environments through environment variables
+
 services:
+  # Infrastructure Services
+
   # MongoDB Database Service
+  # Primary database for all astrology services with authentication and health checks
   mongodb:
     image: mongo:7.0
     container_name: zodiacore-mongodb
@@ -11,7 +18,7 @@ services:
       MONGO_INITDB_ROOT_PASSWORD: ${MONGO_ROOT_PASSWORD:-password}
       MONGO_INITDB_DATABASE: ${MONGO_DATABASE:-zodiacore}
     ports:
-      - "27017:27017"
+      - "${DB_PORT:-27017}:27017"
     volumes:
       - mongodb_data:/data/db
       - ./backend/databases:/docker-entrypoint-initdb.d
@@ -22,158 +29,188 @@ services:
       interval: 10s
       timeout: 5s
       retries: 5
+    profiles:
+      - dev
+      - prod
 
   # Redis Cache Service
+  # Shared caching layer for all services with persistence enabled
   redis:
     image: redis:7.2-alpine
     container_name: zodiacore-redis
     restart: unless-stopped
     ports:
-      - "6379:6379"
+      - "${REDIS_PORT:-6379}:6379"
     volumes:
       - redis_data:/data
     networks:
       - zodiacore-network
-    command: redis-server --appendonly yes
+    command: redis-server --appendonly yes --requirepass ${REDIS_PASSWORD:-}
     healthcheck:
-      test: ["CMD", "redis-cli", "ping"]
+      test: ["CMD", "redis-cli", "-a", "${REDIS_PASSWORD:-}", "ping"]
       interval: 10s
       timeout: 5s
       retries: 5
+    profiles:
+      - dev
+      - prod
 
-  # Backend API Gateway Service
-  api-gateway:
+  # Core Astrology Services
+
+  # ZC1 Vedic Astrology Service (Primary)
+  zc1-vedic:
     build:
-      context: ./backend
+      context: ./services/zc1-vedic
       dockerfile: Dockerfile
-    container_name: zodiacore-api-gateway
+    container_name: zodiacore-zc1-vedic
     restart: unless-stopped
     environment:
       NODE_ENV: ${NODE_ENV:-development}
-      PORT: 3000
-      MONGODB_URI: ${MONGODB_ATLAS_URI}
-      REDIS_URL: redis://redis:6379
+      PORT: ${ZC1_VEDIC_PORT:-3006}
+      MONGODB_URI: ${MONGODB_URI}
+      REDIS_URL: ${REDIS_URL}
+      LOG_LEVEL: ${LOG_LEVEL:-info}
+      METRICS_UPDATE_INTERVAL: ${METRICS_UPDATE_INTERVAL:-30}
+      CORRELATION_ID_HEADER: ${CORRELATION_ID_HEADER:-X-Correlation-ID}
+      JWT_SECRET: ${JWT_SECRET}
+      ENCRYPTION_KEY: ${ENCRYPTION_KEY}
+      CACHE_TTL: ${CACHE_TTL:-3600}
+      DB_CONNECTION_TIMEOUT: ${DB_CONNECTION_TIMEOUT:-30000}
+      REQUEST_TIMEOUT: ${REQUEST_TIMEOUT:-30000}
+      ZC2_CHINESE_URL: ${ZC2_CHINESE_URL}
+      ZC3_WESTERN_URL: ${ZC3_WESTERN_URL}
+      ZC4_NUMEROLOGY_URL: ${ZC4_NUMEROLOGY_URL}
+      AUTH_SERVICE_URL: ${AUTH_SERVICE_URL}
+      GATEWAY_SERVICE_URL: ${GATEWAY_SERVICE_URL}
     ports:
-      - "3000:3000"
+      - "${ZC1_VEDIC_PORT:-3006}:${ZC1_VEDIC_PORT:-3006}"
     depends_on:
+      mongodb:
+        condition: service_healthy
       redis:
         condition: service_healthy
     networks:
       - zodiacore-network
     volumes:
-      - ./backend:/app
+      - ./services/zc1-vedic:/app
       - /app/node_modules
     healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:3000/health"]
+      test: ["CMD", "curl", "-f", "http://localhost:${ZC1_VEDIC_PORT:-3006}/health"]
       interval: 30s
       timeout: 10s
       retries: 3
     deploy:
       resources:
         limits:
-          cpus: '0.5'
-          memory: 512M
+          cpus: ${CPU_LIMIT:-0.5}
+          memory: ${MEMORY_LIMIT:-512M}
+    profiles:
+      - dev
+      - prod
 
-  # Vedic Astrology Service
-  vedic-service:
+  # ZC2 Chinese Astrology Service (Primary)
+  zc2-chinese:
     build:
-      context: ./services/vedic-service
+      context: ./services/zc2-chinese
       dockerfile: Dockerfile
-    container_name: zodiacore-vedic-service
+    container_name: zodiacore-zc2-chinese
     restart: unless-stopped
     environment:
       NODE_ENV: ${NODE_ENV:-development}
-      PORT: 3001
-      MONGODB_URI: ${MONGODB_ATLAS_URI}
-      REDIS_URL: redis://redis:6379
+      PORT: ${ZC2_CHINESE_PORT:-3007}
+      MONGODB_URI: ${MONGODB_URI}
+      REDIS_URL: ${REDIS_URL}
+      LOG_LEVEL: ${LOG_LEVEL:-info}
+      METRICS_UPDATE_INTERVAL: ${METRICS_UPDATE_INTERVAL:-30}
+      CORRELATION_ID_HEADER: ${CORRELATION_ID_HEADER:-X-Correlation-ID}
+      JWT_SECRET: ${JWT_SECRET}
+      ENCRYPTION_KEY: ${ENCRYPTION_KEY}
+      CACHE_TTL: ${CACHE_TTL:-3600}
+      DB_CONNECTION_TIMEOUT: ${DB_CONNECTION_TIMEOUT:-30000}
+      REQUEST_TIMEOUT: ${REQUEST_TIMEOUT:-30000}
+      ZC1_VEDIC_URL: ${ZC1_VEDIC_URL}
+      ZC3_WESTERN_URL: ${ZC3_WESTERN_URL}
+      ZC4_NUMEROLOGY_URL: ${ZC4_NUMEROLOGY_URL}
+      AUTH_SERVICE_URL: ${AUTH_SERVICE_URL}
+      GATEWAY_SERVICE_URL: ${GATEWAY_SERVICE_URL}
     ports:
-      - "3001:3001"
+      - "${ZC2_CHINESE_PORT:-3007}:${ZC2_CHINESE_PORT:-3007}"
     depends_on:
+      mongodb:
+        condition: service_healthy
       redis:
         condition: service_healthy
     networks:
       - zodiacore-network
     volumes:
-      - ./services/vedic-service:/app
+      - ./services/zc2-chinese:/app
       - /app/node_modules
     healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:3001/health"]
+      test: ["CMD", "curl", "-f", "http://localhost:${ZC2_CHINESE_PORT:-3007}/health"]
       interval: 30s
       timeout: 10s
       retries: 3
     deploy:
       resources:
         limits:
-          cpus: '0.5'
-          memory: 512M
+          cpus: ${CPU_LIMIT:-0.5}
+          memory: ${MEMORY_LIMIT:-512M}
+    profiles:
+      - dev
+      - prod
 
-  # Western Astrology Service
-  western-service:
+  # ZC3 Western Astrology Service (Primary)
+  zc3-western:
     build:
-      context: ./services/western-service
+      context: ./services/zc3-western
       dockerfile: Dockerfile
-    container_name: zodiacore-western-service
+    container_name: zodiacore-zc3-western
     restart: unless-stopped
     environment:
       NODE_ENV: ${NODE_ENV:-development}
-      PORT: 3002
-      MONGODB_URI: ${MONGODB_ATLAS_URI}
-      REDIS_URL: redis://redis:6379
+      PORT: ${ZC3_WESTERN_PORT:-3008}
+      MONGODB_URI: ${MONGODB_URI}
+      REDIS_URL: ${REDIS_URL}
+      LOG_LEVEL: ${LOG_LEVEL:-info}
+      METRICS_UPDATE_INTERVAL: ${METRICS_UPDATE_INTERVAL:-30}
+      CORRELATION_ID_HEADER: ${CORRELATION_ID_HEADER:-X-Correlation-ID}
+      JWT_SECRET: ${JWT_SECRET}
+      ENCRYPTION_KEY: ${ENCRYPTION_KEY}
+      CACHE_TTL: ${CACHE_TTL:-3600}
+      DB_CONNECTION_TIMEOUT: ${DB_CONNECTION_TIMEOUT:-30000}
+      REQUEST_TIMEOUT: ${REQUEST_TIMEOUT:-30000}
+      ZC1_VEDIC_URL: ${ZC1_VEDIC_URL}
+      ZC2_CHINESE_URL: ${ZC2_CHINESE_URL}
+      ZC4_NUMEROLOGY_URL: ${ZC4_NUMEROLOGY_URL}
+      AUTH_SERVICE_URL: ${AUTH_SERVICE_URL}
+      GATEWAY_SERVICE_URL: ${GATEWAY_SERVICE_URL}
     ports:
-      - "3002:3002"
+      - "${ZC3_WESTERN_PORT:-3008}:${ZC3_WESTERN_PORT:-3008}"
     depends_on:
+      mongodb:
+        condition: service_healthy
       redis:
         condition: service_healthy
     networks:
       - zodiacore-network
     volumes:
-      - ./services/western-service:/app
+      - ./services/zc3-western:/app
       - /app/node_modules
     healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:3002/health"]
+      test: ["CMD", "curl", "-f", "http://localhost:${ZC3_WESTERN_PORT:-3008}/health"]
       interval: 30s
       timeout: 10s
       retries: 3
     deploy:
       resources:
         limits:
-          cpus: '0.5'
-          memory: 512M
+          cpus: ${CPU_LIMIT:-0.5}
+          memory: ${MEMORY_LIMIT:-512M}
+    profiles:
+      - dev
+      - prod
 
-  # Chinese Astrology Service (ZC2)
-  chinese-service:
-    build:
-      context: ./services/chinese-service
-      dockerfile: Dockerfile
-    container_name: zodiacore-chinese-service
-    restart: unless-stopped
-    environment:
-      NODE_ENV: ${NODE_ENV:-development}
-      PORT: 3004
-      MONGODB_URI: ${MONGODB_ATLAS_URI}
-      REDIS_URL: redis://redis:6379
-    ports:
-      - "3004:3004"
-    depends_on:
-      redis:
-        condition: service_healthy
-    networks:
-      - zodiacore-network
-    volumes:
-      - ./services/chinese-service:/app
-      - /app/node_modules
-    healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:3004/health"]
-      interval: 30s
-      timeout: 10s
-      retries: 3
-    deploy:
-      resources:
-        limits:
-          cpus: '0.5'
-          memory: 512M
-
-  # Numerology Service (ZC4)
+  # ZC4 Numerology Service (Primary)
   zc4-numerology:
     build:
       context: ./services/zc4-numerology
@@ -182,11 +219,24 @@ services:
     restart: unless-stopped
     environment:
       NODE_ENV: ${NODE_ENV:-development}
-      PORT: 3005
-      MONGODB_URI: ${MONGODB_ATLAS_URI}
-      REDIS_URL: redis://redis:6379
+      PORT: ${ZC4_NUMEROLOGY_PORT:-3005}
+      MONGODB_URI: ${MONGODB_URI}
+      REDIS_URL: ${REDIS_URL}
+      LOG_LEVEL: ${LOG_LEVEL:-info}
+      METRICS_UPDATE_INTERVAL: ${METRICS_UPDATE_INTERVAL:-30}
+      CORRELATION_ID_HEADER: ${CORRELATION_ID_HEADER:-X-Correlation-ID}
+      JWT_SECRET: ${JWT_SECRET}
+      ENCRYPTION_KEY: ${ENCRYPTION_KEY}
+      CACHE_TTL: ${CACHE_TTL:-3600}
+      DB_CONNECTION_TIMEOUT: ${DB_CONNECTION_TIMEOUT:-30000}
+      REQUEST_TIMEOUT: ${REQUEST_TIMEOUT:-30000}
+      ZC1_VEDIC_URL: ${ZC1_VEDIC_URL}
+      ZC2_CHINESE_URL: ${ZC2_CHINESE_URL}
+      ZC3_WESTERN_URL: ${ZC3_WESTERN_URL}
+      AUTH_SERVICE_URL: ${AUTH_SERVICE_URL}
+      GATEWAY_SERVICE_URL: ${GATEWAY_SERVICE_URL}
     ports:
-      - "3005:3005"
+      - "${ZC4_NUMEROLOGY_PORT:-3005}:${ZC4_NUMEROLOGY_PORT:-3005}"
     depends_on:
       mongodb:
         condition: service_healthy
@@ -198,114 +248,230 @@ services:
       - ./services/zc4-numerology:/app
       - /app/node_modules
     healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:3005/health"]
+      test: ["CMD", "curl", "-f", "http://localhost:${ZC4_NUMEROLOGY_PORT:-3005}/health"]
       interval: 30s
       timeout: 10s
       retries: 3
     deploy:
       resources:
         limits:
-          cpus: '0.5'
-          memory: 512M
+          cpus: ${CPU_LIMIT:-0.5}
+          memory: ${MEMORY_LIMIT:-512M}
+    profiles:
+      - dev
+      - prod
 
-  # ZC1 Vedic Astrology Service
-  zc1-vedic:
+  # Additional Astrology Services
+
+  # Vedic Astrology Service (Legacy/Extended)
+  vedic-service:
     build:
-      context: ./services/zc1-vedic
+      context: ./services/vedic-service
       dockerfile: Dockerfile
-    container_name: zodiacore-zc1-vedic
+    container_name: zodiacore-vedic-service
     restart: unless-stopped
     environment:
       NODE_ENV: ${NODE_ENV:-development}
-      PORT: 3006
-      MONGODB_URI: ${MONGODB_ATLAS_URI}
-      REDIS_URL: redis://redis:6379
+      PORT: ${VEDIC_SERVICE_PORT:-3001}
+      MONGODB_URI: ${MONGODB_URI}
+      REDIS_URL: ${REDIS_URL}
+      LOG_LEVEL: ${LOG_LEVEL:-info}
+      METRICS_UPDATE_INTERVAL: ${METRICS_UPDATE_INTERVAL:-30}
+      CORRELATION_ID_HEADER: ${CORRELATION_ID_HEADER:-X-Correlation-ID}
+      JWT_SECRET: ${JWT_SECRET}
+      ENCRYPTION_KEY: ${ENCRYPTION_KEY}
+      CACHE_TTL: ${CACHE_TTL:-3600}
+      DB_CONNECTION_TIMEOUT: ${DB_CONNECTION_TIMEOUT:-30000}
+      REQUEST_TIMEOUT: ${REQUEST_TIMEOUT:-30000}
+      ZC1_VEDIC_URL: ${ZC1_VEDIC_URL}
+      ZC2_CHINESE_URL: ${ZC2_CHINESE_URL}
+      ZC3_WESTERN_URL: ${ZC3_WESTERN_URL}
+      ZC4_NUMEROLOGY_URL: ${ZC4_NUMEROLOGY_URL}
+      AUTH_SERVICE_URL: ${AUTH_SERVICE_URL}
+      GATEWAY_SERVICE_URL: ${GATEWAY_SERVICE_URL}
     ports:
-      - "3006:3006"
+      - "${VEDIC_SERVICE_PORT:-3001}:${VEDIC_SERVICE_PORT:-3001}"
     depends_on:
+      mongodb:
+        condition: service_healthy
       redis:
         condition: service_healthy
     networks:
       - zodiacore-network
     volumes:
-      - ./services/zc1-vedic:/app
+      - ./services/vedic-service:/app
       - /app/node_modules
     healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:3006/health"]
+      test: ["CMD", "curl", "-f", "http://localhost:${VEDIC_SERVICE_PORT:-3001}/health"]
       interval: 30s
       timeout: 10s
       retries: 3
     deploy:
       resources:
         limits:
-          cpus: '0.5'
-          memory: 512M
+          cpus: ${CPU_LIMIT:-0.5}
+          memory: ${MEMORY_LIMIT:-512M}
+    profiles:
+      - dev
+      - prod
 
-  # ZC2 Chinese Astrology Service
-  zc2-chinese:
+  # Western Astrology Service (Legacy/Extended)
+  western-service:
     build:
-      context: ./services/zc2-chinese
+      context: ./services/western-service
       dockerfile: Dockerfile
-    container_name: zodiacore-zc2-chinese
+    container_name: zodiacore-western-service
     restart: unless-stopped
     environment:
       NODE_ENV: ${NODE_ENV:-development}
-      PORT: 3007
-      MONGODB_URI: ${MONGODB_ATLAS_URI}
-      REDIS_URL: redis://redis:6379
+      PORT: ${WESTERN_SERVICE_PORT:-3002}
+      MONGODB_URI: ${MONGODB_URI}
+      REDIS_URL: ${REDIS_URL}
+      LOG_LEVEL: ${LOG_LEVEL:-info}
+      METRICS_UPDATE_INTERVAL: ${METRICS_UPDATE_INTERVAL:-30}
+      CORRELATION_ID_HEADER: ${CORRELATION_ID_HEADER:-X-Correlation-ID}
+      JWT_SECRET: ${JWT_SECRET}
+      ENCRYPTION_KEY: ${ENCRYPTION_KEY}
+      CACHE_TTL: ${CACHE_TTL:-3600}
+      DB_CONNECTION_TIMEOUT: ${DB_CONNECTION_TIMEOUT:-30000}
+      REQUEST_TIMEOUT: ${REQUEST_TIMEOUT:-30000}
+      ZC1_VEDIC_URL: ${ZC1_VEDIC_URL}
+      ZC2_CHINESE_URL: ${ZC2_CHINESE_URL}
+      ZC3_WESTERN_URL: ${ZC3_WESTERN_URL}
+      ZC4_NUMEROLOGY_URL: ${ZC4_NUMEROLOGY_URL}
+      AUTH_SERVICE_URL: ${AUTH_SERVICE_URL}
+      GATEWAY_SERVICE_URL: ${GATEWAY_SERVICE_URL}
     ports:
-      - "3007:3007"
+      - "${WESTERN_SERVICE_PORT:-3002}:${WESTERN_SERVICE_PORT:-3002}"
     depends_on:
+      mongodb:
+        condition: service_healthy
       redis:
         condition: service_healthy
     networks:
       - zodiacore-network
     volumes:
-      - ./services/zc2-chinese:/app
+      - ./services/western-service:/app
       - /app/node_modules
     healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:3007/health"]
+      test: ["CMD", "curl", "-f", "http://localhost:${WESTERN_SERVICE_PORT:-3002}/health"]
       interval: 30s
       timeout: 10s
       retries: 3
     deploy:
       resources:
         limits:
-          cpus: '0.5'
-          memory: 512M
+          cpus: ${CPU_LIMIT:-0.5}
+          memory: ${MEMORY_LIMIT:-512M}
+    profiles:
+      - dev
+      - prod
 
-  # ZC3 Western Astrology Service
-  zc3-western:
+  # Chinese Astrology Service (Legacy/Extended)
+  chinese-service:
     build:
-      context: ./services/zc3-western
+      context: ./services/chinese-service
       dockerfile: Dockerfile
-    container_name: zodiacore-zc3-western
+    container_name: zodiacore-chinese-service
     restart: unless-stopped
     environment:
       NODE_ENV: ${NODE_ENV:-development}
-      PORT: 3008
-      MONGODB_URI: ${MONGODB_ATLAS_URI}
-      REDIS_URL: redis://redis:6379
+      PORT: ${CHINESE_SERVICE_PORT:-3004}
+      MONGODB_URI: ${MONGODB_URI}
+      REDIS_URL: ${REDIS_URL}
+      LOG_LEVEL: ${LOG_LEVEL:-info}
+      METRICS_UPDATE_INTERVAL: ${METRICS_UPDATE_INTERVAL:-30}
+      CORRELATION_ID_HEADER: ${CORRELATION_ID_HEADER:-X-Correlation-ID}
+      JWT_SECRET: ${JWT_SECRET}
+      ENCRYPTION_KEY: ${ENCRYPTION_KEY}
+      CACHE_TTL: ${CACHE_TTL:-3600}
+      DB_CONNECTION_TIMEOUT: ${DB_CONNECTION_TIMEOUT:-30000}
+      REQUEST_TIMEOUT: ${REQUEST_TIMEOUT:-30000}
+      ZC1_VEDIC_URL: ${ZC1_VEDIC_URL}
+      ZC2_CHINESE_URL: ${ZC2_CHINESE_URL}
+      ZC3_WESTERN_URL: ${ZC3_WESTERN_URL}
+      ZC4_NUMEROLOGY_URL: ${ZC4_NUMEROLOGY_URL}
+      AUTH_SERVICE_URL: ${AUTH_SERVICE_URL}
+      GATEWAY_SERVICE_URL: ${GATEWAY_SERVICE_URL}
     ports:
-      - "3008:3008"
+      - "${CHINESE_SERVICE_PORT:-3004}:${CHINESE_SERVICE_PORT:-3004}"
     depends_on:
+      mongodb:
+        condition: service_healthy
       redis:
         condition: service_healthy
     networks:
       - zodiacore-network
     volumes:
-      - ./services/zc3-western:/app
+      - ./services/chinese-service:/app
       - /app/node_modules
     healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:3008/health"]
+      test: ["CMD", "curl", "-f", "http://localhost:${CHINESE_SERVICE_PORT:-3004}/health"]
       interval: 30s
       timeout: 10s
       retries: 3
     deploy:
       resources:
         limits:
-          cpus: '0.5'
-          memory: 512M
+          cpus: ${CPU_LIMIT:-0.5}
+          memory: ${MEMORY_LIMIT:-512M}
+    profiles:
+      - dev
+      - prod
+
+  # Mundane Astrology Service
+  mundane-service:
+    build:
+      context: ./services/mundane-service
+      dockerfile: Dockerfile
+    container_name: zodiacore-mundane-service
+    restart: unless-stopped
+    environment:
+      NODE_ENV: ${NODE_ENV:-development}
+      PORT: ${MUNDANE_SERVICE_PORT:-3003}
+      MONGODB_URI: ${MONGODB_URI}
+      REDIS_URL: ${REDIS_URL}
+      LOG_LEVEL: ${LOG_LEVEL:-info}
+      METRICS_UPDATE_INTERVAL: ${METRICS_UPDATE_INTERVAL:-30}
+      CORRELATION_ID_HEADER: ${CORRELATION_ID_HEADER:-X-Correlation-ID}
+      JWT_SECRET: ${JWT_SECRET}
+      ENCRYPTION_KEY: ${ENCRYPTION_KEY}
+      CACHE_TTL: ${CACHE_TTL:-3600}
+      DB_CONNECTION_TIMEOUT: ${DB_CONNECTION_TIMEOUT:-30000}
+      REQUEST_TIMEOUT: ${REQUEST_TIMEOUT:-30000}
+      ZC1_VEDIC_URL: ${ZC1_VEDIC_URL}
+      ZC2_CHINESE_URL: ${ZC2_CHINESE_URL}
+      ZC3_WESTERN_URL: ${ZC3_WESTERN_URL}
+      ZC4_NUMEROLOGY_URL: ${ZC4_NUMEROLOGY_URL}
+      AUTH_SERVICE_URL: ${AUTH_SERVICE_URL}
+      GATEWAY_SERVICE_URL: ${GATEWAY_SERVICE_URL}
+    ports:
+      - "${MUNDANE_SERVICE_PORT:-3003}:${MUNDANE_SERVICE_PORT:-3003}"
+    depends_on:
+      mongodb:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    networks:
+      - zodiacore-network
+    volumes:
+      - ./services/mundane-service:/app
+      - /app/node_modules
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:${MUNDANE_SERVICE_PORT:-3003}/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+    deploy:
+      resources:
+        limits:
+          cpus: ${CPU_LIMIT:-0.5}
+          memory: ${MEMORY_LIMIT:-512M}
+    profiles:
+      - dev
+      - prod
+
+  # Shared Services
 
   # Auth Service
   auth:
@@ -316,12 +482,34 @@ services:
     restart: unless-stopped
     environment:
       NODE_ENV: ${NODE_ENV:-development}
-      PORT: 3006
-      MONGODB_URI: ${MONGODB_ATLAS_URI}
-      REDIS_URL: redis://redis:6379
+      PORT: ${AUTH_SERVICE_PORT:-3009}
+      MONGODB_URI: ${MONGODB_URI}
+      REDIS_URL: ${REDIS_URL}
+      LOG_LEVEL: ${LOG_LEVEL:-info}
+      METRICS_UPDATE_INTERVAL: ${METRICS_UPDATE_INTERVAL:-30}
+      CORRELATION_ID_HEADER: ${CORRELATION_ID_HEADER:-X-Correlation-ID}
+      JWT_SECRET: ${JWT_SECRET}
+      JWT_EXPIRES_IN: ${JWT_EXPIRES_IN:-24h}
+      JWT_REFRESH_SECRET: ${JWT_REFRESH_SECRET}
+      JWT_REFRESH_EXPIRES_IN: ${JWT_REFRESH_EXPIRES_IN:-7d}
+      ENCRYPTION_KEY: ${ENCRYPTION_KEY}
+      CACHE_TTL: ${CACHE_TTL:-3600}
+      DB_CONNECTION_TIMEOUT: ${DB_CONNECTION_TIMEOUT:-30000}
+      REQUEST_TIMEOUT: ${REQUEST_TIMEOUT:-30000}
+      GOOGLE_CLIENT_ID: ${GOOGLE_CLIENT_ID}
+      GOOGLE_CLIENT_SECRET: ${GOOGLE_CLIENT_SECRET}
+      FACEBOOK_APP_ID: ${FACEBOOK_APP_ID}
+      FACEBOOK_APP_SECRET: ${FACEBOOK_APP_SECRET}
+      RATE_LIMIT_WINDOW_MS: ${RATE_LIMIT_WINDOW_MS:-900000}
+      RATE_LIMIT_MAX_REQUESTS: ${RATE_LIMIT_MAX_REQUESTS:-100}
+      CORS_ORIGIN: ${CORS_ORIGIN:-http://localhost:3000}
+      SECURITY_HELMET_ENABLED: ${SECURITY_HELMET_ENABLED:-true}
+      CSP_ENABLED: ${CSP_ENABLED:-true}
     ports:
-      - "3006:3006"
+      - "${AUTH_SERVICE_PORT:-3009}:${AUTH_SERVICE_PORT:-3009}"
     depends_on:
+      mongodb:
+        condition: service_healthy
       redis:
         condition: service_healthy
     networks:
@@ -330,15 +518,18 @@ services:
       - ./backend/auth:/app
       - /app/node_modules
     healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:3006/health"]
+      test: ["CMD", "curl", "-f", "http://localhost:${AUTH_SERVICE_PORT:-3009}/health"]
       interval: 30s
       timeout: 10s
       retries: 3
     deploy:
       resources:
         limits:
-          cpus: '0.5'
-          memory: 512M
+          cpus: ${CPU_LIMIT:-0.25}
+          memory: ${MEMORY_LIMIT:-256M}
+    profiles:
+      - dev
+      - prod
 
   # Gateway Service
   gateway:
@@ -349,12 +540,38 @@ services:
     restart: unless-stopped
     environment:
       NODE_ENV: ${NODE_ENV:-development}
-      PORT: 3009
-      MONGODB_URI: ${MONGODB_ATLAS_URI}
-      REDIS_URL: redis://redis:6379
+      PORT: ${GATEWAY_SERVICE_PORT:-3010}
+      MONGODB_URI: ${MONGODB_URI}
+      REDIS_URL: ${REDIS_URL}
+      LOG_LEVEL: ${LOG_LEVEL:-info}
+      METRICS_UPDATE_INTERVAL: ${METRICS_UPDATE_INTERVAL:-30}
+      CORRELATION_ID_HEADER: ${CORRELATION_ID_HEADER:-X-Correlation-ID}
+      JWT_SECRET: ${JWT_SECRET}
+      ENCRYPTION_KEY: ${ENCRYPTION_KEY}
+      CACHE_TTL: ${CACHE_TTL:-3600}
+      DB_CONNECTION_TIMEOUT: ${DB_CONNECTION_TIMEOUT:-30000}
+      REQUEST_TIMEOUT: ${REQUEST_TIMEOUT:-30000}
+      ZC1_VEDIC_URL: ${ZC1_VEDIC_URL}
+      ZC2_CHINESE_URL: ${ZC2_CHINESE_URL}
+      ZC3_WESTERN_URL: ${ZC3_WESTERN_URL}
+      ZC4_NUMEROLOGY_URL: ${ZC4_NUMEROLOGY_URL}
+      VEDIC_SERVICE_URL: ${VEDIC_SERVICE_URL}
+      WESTERN_SERVICE_URL: ${WESTERN_SERVICE_URL}
+      CHINESE_SERVICE_URL: ${CHINESE_SERVICE_URL}
+      MUNDANE_SERVICE_URL: ${MUNDANE_SERVICE_URL}
+      AUTH_SERVICE_URL: ${AUTH_SERVICE_URL}
+      CIRCUIT_BREAKER_ENABLED: ${CIRCUIT_BREAKER_ENABLED:-true}
+      CIRCUIT_BREAKER_FAILURE_THRESHOLD: ${CIRCUIT_BREAKER_FAILURE_THRESHOLD:-5}
+      CIRCUIT_BREAKER_TIMEOUT: ${CIRCUIT_BREAKER_TIMEOUT:-60000}
+      RETRY_ATTEMPTS: ${RETRY_ATTEMPTS:-3}
+      RETRY_DELAY: ${RETRY_DELAY:-1000}
+      LOAD_BALANCER_ALGORITHM: ${LOAD_BALANCER_ALGORITHM:-round_robin}
+      LOAD_BALANCER_HEALTH_CHECK_INTERVAL: ${LOAD_BALANCER_HEALTH_CHECK_INTERVAL:-30}
     ports:
-      - "3009:3009"
+      - "${GATEWAY_SERVICE_PORT:-3010}:${GATEWAY_SERVICE_PORT:-3010}"
     depends_on:
+      mongodb:
+        condition: service_healthy
       redis:
         condition: service_healthy
     networks:
@@ -363,17 +580,20 @@ services:
       - ./backend/gateway:/app
       - /app/node_modules
     healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:3009/health"]
+      test: ["CMD", "curl", "-f", "http://localhost:${GATEWAY_SERVICE_PORT:-3010}/health"]
       interval: 30s
       timeout: 10s
       retries: 3
     deploy:
       resources:
         limits:
-          cpus: '0.5'
-          memory: 512M
+          cpus: ${CPU_LIMIT:-0.25}
+          memory: ${MEMORY_LIMIT:-256M}
+    profiles:
+      - dev
+      - prod
 
-  # Frontend React Application
+  # Frontend Application
   frontend:
     build:
       context: ./frontend
@@ -381,27 +601,35 @@ services:
     container_name: zodiacore-frontend
     restart: unless-stopped
     environment:
-      REACT_APP_API_URL: http://localhost:3000
+      REACT_APP_API_URL: ${REACT_APP_API_URL:-http://localhost:3010}
       NODE_ENV: ${NODE_ENV:-development}
+      REACT_APP_GA_TRACKING_ID: ${GA_TRACKING_ID}
+      REACT_APP_MIXPANEL_TOKEN: ${MIXPANEL_TOKEN}
+      REACT_APP_STRIPE_PUBLISHABLE_KEY: ${STRIPE_PUBLISHABLE_KEY}
+      REACT_APP_VERSION: ${API_VERSION:-v1}
+      REACT_APP_DEBUG: ${DEBUG:-false}
     ports:
-      - "3003:3000"
+      - "${FRONTEND_PORT:-3000}:${FRONTEND_PORT:-3000}"
     depends_on:
-      - api-gateway
+      - gateway
     networks:
       - zodiacore-network
     volumes:
       - ./frontend:/app
       - /app/node_modules
     healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:3000"]
+      test: ["CMD", "curl", "-f", "http://localhost:${FRONTEND_PORT:-3000}"]
       interval: 30s
       timeout: 10s
       retries: 3
     deploy:
       resources:
         limits:
-          cpus: '0.5'
-          memory: 512M
+          cpus: ${CPU_LIMIT:-0.5}
+          memory: ${MEMORY_LIMIT:-512M}
+    profiles:
+      - dev
+      - prod
 
 volumes:
   mongodb_data:
@@ -410,3 +638,8 @@ volumes:
 networks:
   zodiacore-network:
     driver: bridge
+    ipam:
+      config:
+        - subnet: 172.20.0.0/16
+    driver_opts:
+      com.docker.network.bridge.name: zodiacore-bridge
