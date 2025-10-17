@@ -61,11 +61,40 @@ jobs:
         node-version: '20.x'
         cache: 'npm'
 
-    - name: Install dependencies
+    # Root package.json audit
+    - name: Install root dependencies
       run: npm install
 
-    - name: Run npm audit with security focus
-      run: npm audit --audit-level high --json > npm-audit-results.json || true
+    - name: Run npm audit for root dependencies
+      run: npm audit --audit-level high --json > root-npm-audit-results.json || true
+
+    # Frontend package.json audit
+    - name: Install frontend dependencies
+      run: cd frontend && npm install
+
+    - name: Run npm audit for frontend dependencies
+      run: cd frontend && npm audit --audit-level high --json > ../frontend-npm-audit-results.json || true
+
+    # ZC1 Vedic service audit
+    - name: Install zc1-vedic dependencies
+      run: cd services/zc1-vedic && npm install
+
+    - name: Run npm audit for zc1-vedic dependencies
+      run: cd services/zc1-vedic && npm audit --audit-level high --json > ../../zc1-vedic-npm-audit-results.json || true
+
+    # ZC2 Chinese service audit
+    - name: Install zc2-chinese dependencies
+      run: cd services/zc2-chinese && npm install
+
+    - name: Run npm audit for zc2-chinese dependencies
+      run: cd services/zc2-chinese && npm audit --audit-level high --json > ../../zc2-chinese-npm-audit-results.json || true
+
+    # ZC3 Western service audit
+    - name: Install zc3-western dependencies
+      run: cd services/zc3-western && npm install
+
+    - name: Run npm audit for zc3-western dependencies
+      run: cd services/zc3-western && npm audit --audit-level high --json > ../../zc3-western-npm-audit-results.json || true
 
     - name: Run OWASP Dependency Check
       uses: dependency-check/Dependency-Check_Action@main

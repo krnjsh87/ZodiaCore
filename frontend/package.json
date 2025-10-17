@@ -4,9 +4,23 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "watch": "next dev",
+    "build": "next build",
+    "build:prod": "next build",
+    "test": "vitest",
+    "test:run": "vitest run",
+    "test:watch": "vitest --watch",
+    "test:coverage": "vitest run --coverage",
+    "test:ui": "vitest --ui",
+    "lint": "next lint",
+    "lint:fix": "next lint --fix",
+    "format": "prettier --write .",
+    "docker:build": "docker build -t zodia-core-frontend .",
+    "docker:run": "docker run -p 3000:3000 zodia-core-frontend",
+    "deploy": "vercel --prod",
+    "deploy:staging": "vercel --staging",
+    "deploy:prod": "vercel --prod"
   },
   "dependencies": {
     "next": "14.0.0",
